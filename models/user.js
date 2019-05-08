@@ -36,6 +36,10 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      default: true
+    },
     onMarketingList: {
       type: DataTypes.BOOLEAN,
       default: false,

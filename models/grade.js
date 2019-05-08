@@ -42,5 +42,10 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  Grade.associate = function(models) {
+    Grade.belongsTo(models.User);
+    Grade.belongsTo(models.Dance);
+  };
+
   return Grade;
 };
