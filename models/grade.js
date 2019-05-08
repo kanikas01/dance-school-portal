@@ -18,7 +18,16 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    type: {
+    level: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: {
+          msg: "Level cannot be blank."
+        }
+      }
+    },
+    questionType: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
