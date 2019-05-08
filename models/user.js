@@ -51,15 +51,14 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  // Associate each user with a role
-  
-
-  // Associating User with Grades
+  // Associate User with Grades
   // When a User is deleted, also delete any associated Grades
   User.associate = function(models) {
     User.hasMany(models.Grade, {
       onDelete: "cascade"
     });
+
+    // Associate each User with a Role
     User.belongsTo(models.Role);
   };
 
