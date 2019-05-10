@@ -3,6 +3,15 @@ const axios = require("axios");
 
 // Defining methods for the usersController
 module.exports = {
+  findOne: function(req, res) {
+    db.User
+      .findOne({
+        where: {id: req.params.id},
+        attributes: { exclude: ['password'] }
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findAll: function(req, res) {
     db.User
       .findAll(req.query)
