@@ -1,5 +1,6 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import ListGroup from 'react-bootstrap/ListGroup'
 import danceAPI from "../../../utils/danceAPI";
 
 class Dances extends Component {
@@ -37,9 +38,11 @@ class Dances extends Component {
           <li>Delete dance (if no one has a grade in it)</li>
         </ul>
 
+        <ListGroup>
         {this.state.dances.map((dance, index) => (   
-          <h6 key={dance.id}>{dance.id} {dance.name} {dance.quarter}</h6>
+          <ListGroup.Item key={dance.id}>{dance.id} {dance.name} {dance.quarter}</ListGroup.Item>
         ))}
+        </ListGroup>
 
       </Container>
     );

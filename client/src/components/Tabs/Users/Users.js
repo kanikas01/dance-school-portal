@@ -4,6 +4,7 @@ import { Tab, Tabs } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button'
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
 import Nav from 'react-bootstrap/Nav'
+import ListGroup from 'react-bootstrap/ListGroup'
 import userAPI from "../../../utils/userAPI";
 
 
@@ -41,9 +42,11 @@ class Users extends Component {
           <Button>Create Safe User Query That Includes Role</Button>
         </ButtonToolbar>
 
+        <ListGroup>
         {this.state.users.map((user, index) => (   
-          <h6 key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}</h6>
+          <ListGroup.Item key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}</ListGroup.Item>
         ))}
+        </ListGroup>
 
       </Container>
     );

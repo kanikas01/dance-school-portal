@@ -1,10 +1,13 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
 import roleAPI from "../../../utils/roleAPI";
 
 class Roles extends Component {
 
   state = {
+    open: false,
     roles: [],
     devNull: ""
   };
@@ -26,19 +29,15 @@ class Roles extends Component {
   };
 
   render () {
+
     return (
       <Container>
-        <h3>Roles Tab Content</h3>
-        <h6>TODO</h6>
-        <ul>
-          <li>View roles</li>
-          <li>Add roles</li>
-        </ul>
-
-        {this.state.roles.map((role, index) => (   
-          <h6 key={role.id}>{role.id} {role.name}</h6>
+        <Button>Add roles</Button>
+        <ListGroup>
+        {this.state.roles.map((role, index) => (    
+          <ListGroup.Item key={role.id}>{role.name}</ListGroup.Item>
         ))}
-
+        </ListGroup>
       </Container>
     );
   }
