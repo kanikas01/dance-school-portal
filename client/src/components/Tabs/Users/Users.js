@@ -17,10 +17,7 @@ class Users extends Component {
 
   componentDidMount() {
     userAPI.getUsersSafe()
-      .then(res => {
-        console.log(res.data);
-        this.setState ({ users: res.data });
-      } )
+      .then(res => this.setState ({ users: res.data }) )
       .catch(err => console.log(err));
   }
 

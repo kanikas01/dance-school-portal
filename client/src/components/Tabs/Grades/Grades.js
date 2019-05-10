@@ -31,6 +31,7 @@ class Grades extends Component {
         <h3>Grades Tab Content</h3>
         <h6>TODO</h6>
         <ul>
+          <li>See all grades for student</li>
           <li>Add grade</li>
           <li>Update/remove grade</li>
         </ul>
