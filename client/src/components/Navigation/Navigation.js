@@ -20,9 +20,6 @@ class Navigation extends Component {
     let content = "Content"
     let navigation = 
       <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-        <Tab eventKey="accounting" title="Accounting">
-          <Accounting />
-        </Tab>
         <Tab eventKey="dances" title="Dances">
           <Dances />
         </Tab>
@@ -32,20 +29,23 @@ class Navigation extends Component {
         <Tab eventKey="grades" title="Grades">
           <Grades />
         </Tab>
+        <Tab eventKey="roles" title="Roles">
+          <Roles />
+        </Tab>
+        <Tab eventKey="users" title="Users">
+          <Users />
+        </Tab>
         <Tab eventKey="marketing" title="Marketing">
           <Marketing />
+        </Tab>
+        <Tab eventKey="accounting" title="Accounting">
+          <Accounting />
         </Tab>
         <Tab eventKey="purchases" title="Purchases">
           <Purchases />
         </Tab>
         <Tab eventKey="subscriptions" title="Subscriptions">
           <Subscriptions />
-        </Tab>
-        <Tab eventKey="roles" title="Roles">
-          <Roles />
-        </Tab>
-        <Tab eventKey="users" title="Users">
-          <Users />
         </Tab>
       </Tabs>
     return (
