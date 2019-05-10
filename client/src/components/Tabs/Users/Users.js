@@ -14,9 +14,13 @@ class Users extends Component {
     devNull: ""
   };
 
+
   componentDidMount() {
-    userAPI.getUsers()
-      .then(res => this.setState ({ users: res.data }) )
+    userAPI.getUsersSafe()
+      .then(res => {
+        console.log(res.data);
+        this.setState ({ users: res.data });
+      } )
       .catch(err => console.log(err));
   }
 
@@ -41,7 +45,7 @@ class Users extends Component {
         </ButtonToolbar>
 
         {this.state.users.map((user, index) => (   
-          <h6>{user.id} {user.firstName} {user.lastName}</h6>
+          <h6 key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}</h6>
         ))}
 
       </Container>
