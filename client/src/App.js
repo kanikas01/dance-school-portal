@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from "./components/Navigation";
-import Header from './components/Header'
+import Header from './components/Header';
+import NoMatch from './pages/NoMatch'
 
 
 class App extends Component {
@@ -13,14 +14,12 @@ class App extends Component {
         <Container>
           <Navigation />
           <Router>
-            <div>
-              <Switch>
-                {/* <Route exact path="/" component={Search} />
-                <Route exact path="/search" component={Search} />
-                <Route exact path="/saved" component={SavedBooks} />
-                <Route component={NoMatch} /> */}
-              </Switch>
-            </div>
+            <Switch>
+              {/* <Route exact path="/" component={Search} />
+              <Route exact path="/search" component={Search} />
+              <Route exact path="/saved" component={SavedBooks} /> 
+              <Route component={NoMatch} /> */}
+            </Switch>
           </Router>
         </Container>
       </div>
