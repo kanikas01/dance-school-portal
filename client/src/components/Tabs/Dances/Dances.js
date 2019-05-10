@@ -38,7 +38,7 @@ class Dances extends Component {
         </ul>
 
         {this.state.dances.map((dance, index) => (   
-          <h6>{dance.id} {dance.name} {dance.quarter}</h6>
+          <h6 key={dance.id}>{dance.id} {dance.name} {dance.quarter}</h6>
         ))}
 
       </Container>

@@ -36,7 +36,7 @@ class Roles extends Component {
         </ul>
 
         {this.state.roles.map((role, index) => (   
-          <h6>{role.id} {role.name}</h6>
+          <h6 key={role.id}>{role.id} {role.name}</h6>
         ))}
 
       </Container>
