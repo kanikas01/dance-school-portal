@@ -6,8 +6,13 @@ router.route("/")
   .get(usersController.findAll)
   .post(usersController.save);
 
+// Matches with "/api/users/safe"
 router.route("/safe")
   .get(usersController.findAllSafe);
+
+// Matches with "/api/users/search"
+  router.route("/search")
+  .get(usersController.search);
 
 // Matches with "/api/users/:id"
 router.route("/:id")

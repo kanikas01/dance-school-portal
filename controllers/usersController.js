@@ -1,5 +1,6 @@
 const db = require("../models");
 const axios = require("axios");
+const Op = db.Sequelize.Op;
 
 // Defining methods for the usersController
 module.exports = {
@@ -27,6 +28,26 @@ module.exports = {
           where: { id: db.Sequelize.col('user.RoleId') }
         }]
       })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  search: function(req, res) {
+    db.User
+      .findAll({
+        where: {
+          [Op.or]: [
+            { firstName: { [Op.like]: `${req.query.firstName}%` } },
+            { lastName: { [Op.like]: `${req.query.lastName}%` } },
+            { email: { [Op.like]: `%${req.query.email}%` } }
+          ]
+        },
+        attributes: { exclude: ['password'] },
+        include: [{
+          model: db.Role,
+          where: { id: db.Sequelize.col('user.RoleId') }
+        }]
+      })
+      .then(console.log("query", req.query, req.params, req.query.searchType))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
