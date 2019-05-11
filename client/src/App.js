@@ -4,21 +4,26 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from "./components/Navigation";
 import Header from './components/Header';
 import NoMatch from './pages/NoMatch'
+import Portal from './pages/Portal'
+import Welcome from './pages/Welcome'
+
 
 
 class App extends Component {
+  state = {
+    role: "admin"
+  };
+  
   render() {
     return (
       <div>
       <Header />
         <Container>
-          <Navigation />
           <Router>
             <Switch>
-              {/* <Route exact path="/" component={Search} />
-              <Route exact path="/search" component={Search} />
-              <Route exact path="/saved" component={SavedBooks} /> 
-              <Route component={NoMatch} /> */}
+              <Route exact path="/" />
+              <Route exact path="/portal" component={() => (<Portal role={this.state.role} />)} />
+              <Route component={NoMatch} />
             </Switch>
           </Router>
         </Container>
