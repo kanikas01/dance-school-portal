@@ -1,10 +1,10 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import { Tab, Tabs } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button'
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar'
-import Nav from 'react-bootstrap/Nav'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import Nav from 'react-bootstrap/Nav';
+import ListGroup from 'react-bootstrap/ListGroup';
 import userAPI from "../../../utils/userAPI";
 
 

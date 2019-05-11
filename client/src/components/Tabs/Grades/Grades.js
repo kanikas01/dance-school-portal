@@ -1,5 +1,7 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import gradeAPI from "../../../utils/gradeAPI";
 
 class Grades extends Component {
@@ -30,11 +32,11 @@ class Grades extends Component {
       <Container>
         <h3>Grades Tab Content</h3>
         <h6>TODO</h6>
-        <ul>
-          <li>See all grades for student</li>
-          <li>Add grade</li>
-          <li>Update/remove grade</li>
-        </ul>
+        <ButtonToolbar>
+          <Button>See all grades for student</Button>
+          <Button>Add grade</Button>
+          <Button>Update/remove grade</Button>
+        </ButtonToolbar>
       </Container>
     );
   }
