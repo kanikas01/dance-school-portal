@@ -13,12 +13,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   findAll: function(req, res) {
     db.User
       .findAll(req.query)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   findAllSafe: function(req, res) {
     db.User
       .findAll({
@@ -31,6 +33,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   search: function(req, res) {
     db.User
       .findAll({
@@ -38,7 +41,8 @@ module.exports = {
           [Op.or]: [
             { firstName: { [Op.like]: `${req.query.firstName}%` } },
             { lastName: { [Op.like]: `${req.query.lastName}%` } },
-            { email: { [Op.like]: `%${req.query.email}%` } }
+            { email: { [Op.like]: `%${req.query.email}%` } },
+            { isActive: { [Op.eq]: `${req.query.isActive}` } }
           ]
         },
         attributes: { exclude: ['password'] },
@@ -51,12 +55,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   save: function(req, res) {
     db.User
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
   delete: function(req, res) {
     db.User
       .destroy({
