@@ -37,21 +37,21 @@ module.exports = {
   search: function(req, res) {
     db.User
       .findAll({
+        attributes: { exclude: ['password'] },
+        include: [{
+          model: db.Role,
+          where: { id: db.Sequelize.col('user.RoleId') }
+        }],
         where: {
           [Op.or]: [
             { firstName: { [Op.like]: `${req.query.firstName}%` } },
             { lastName: { [Op.like]: `${req.query.lastName}%` } },
             { email: { [Op.like]: `%${req.query.email}%` } },
-            { isActive: { [Op.eq]: `${req.query.isActive}` } }
+            { isActive: { [Op.eq]: `${req.query.isActive}` } },
+            { RoleId: { [Op.eq]: `${req.query.role}` } }
           ]
-        },
-        attributes: { exclude: ['password'] },
-        include: [{
-          model: db.Role,
-          where: { id: db.Sequelize.col('user.RoleId') }
-        }]
+        }
       })
-      .then(console.log("query", req.query, req.params, req.query.searchType))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
