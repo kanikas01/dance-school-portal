@@ -1,3 +1,6 @@
+const Sequelize = require("sequelize");
+Op = Sequelize.Op;
+
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define("User", {
     firstName: {
@@ -46,6 +49,53 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         notEmpty: {
           msg: "City cannot be blank."
+        }
+      }
+    }
+  },{
+    defaultScope: {
+    },
+    scopes: {
+      firstName (value) {
+        return {
+          where: { 
+            firstName: {
+              [Op.like]: `${value}%`
+            } 
+          }
+        }
+      },
+      lastName (value) {
+        return {
+          where: { 
+            lastName: {
+              [Op.like]: `${value}%`
+            } 
+          }
+        }
+      },
+      email (value) {
+        return {
+          where: { 
+            email: {
+              [Op.like]: `${value}%`
+            } 
+          }
+        }
+      },
+      roleId (value) {
+        return {
+          where: { roleId: value }
+        }
+      },
+      isActive (value) {
+        return {
+          where: { isActive: value }
+        }
+      },
+      onMarketingList (value) {
+        return {
+          where: { onMarketingList: value }
         }
       }
     }

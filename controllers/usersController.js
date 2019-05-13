@@ -21,36 +21,39 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  findAllSafe: function(req, res) {
+  search: function(req, res) {
+    // Choose which scopes to include based on query params
+    let query = [];
+    for (let param in req.query) {
+      if (param === 'firstName') {
+        query.push({ method: ['firstName', req.query[param]] });
+      }
+      if (param === 'lastName') {
+        query.push({ method: ['lastName', req.query[param]] });
+      }
+      if (param === 'email') {
+        query.push({ method: ['email', req.query[param]] });
+      }
+      if (param === 'roleId') {
+        query.push({ method: ['roleId', req.query[param]] });
+      }
+      if (param === 'isActive') {
+        query.push({ method: ['isActive', req.query[param]] });
+      }
+      if (param === 'onMarketingList') {
+        query.push({ method: ['onMarketingList', req.query[param]] });
+      };
+    }
+
+    // Execute query
     db.User
+      .scope(...query)
       .findAll({
         attributes: { exclude: ['password'] },
         include: [{
           model: db.Role,
           where: { id: db.Sequelize.col('user.RoleId') }
         }]
-      })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-
-  search: function(req, res) {
-    db.User
-      .findAll({
-        attributes: { exclude: ['password'] },
-        include: [{
-          model: db.Role,
-          where: { id: db.Sequelize.col('user.RoleId') }
-        }],
-        where: {
-          [Op.or]: [
-            { firstName: { [Op.like]: `${req.query.firstName}%` } },
-            { lastName: { [Op.like]: `${req.query.lastName}%` } },
-            { email: { [Op.like]: `%${req.query.email}%` } },
-            { isActive: { [Op.eq]: `${req.query.isActive}` } },
-            { RoleId: { [Op.eq]: `${req.query.role}` } }
-          ]
-        }
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
