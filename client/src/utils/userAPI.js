@@ -9,9 +9,9 @@ export default {
   getUsers: function() {
     return axios.get("/api/users");
   },
-  // Gets all users minus password and plus role
-  getUsersSafe: function() {
-    return axios.get("/api/users/safe");
+  // Search users (no params returns all users)
+  searchUsers: function() {
+    return axios.get("/api/users/search");
   },
   // Saves a user to the database
   saveUser: function(userData) {

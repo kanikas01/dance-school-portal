@@ -17,7 +17,7 @@ class Users extends Component {
 
 
   componentDidMount() {
-    userAPI.getUsersSafe()
+    userAPI.getUsers()
       .then(res => this.setState ({ users: res.data }) )
       .catch(err => console.log(err));
   }
@@ -38,12 +38,11 @@ class Users extends Component {
         <h3>Users Tab Content (TODO)</h3>
         <ButtonToolbar>
           <Button>Add User</Button>
-          <Button>View/Update Users</Button>
-          <Button>Create Safe User Query That Includes Role</Button>
+          <Button>Search Users</Button>
         </ButtonToolbar>
 
         <ListGroup>
-        {this.state.users.map((user, index) => (   
+        {this.state.users.map((user, index) => ( 
           <ListGroup.Item key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}</ListGroup.Item>
         ))}
         </ListGroup>

@@ -85,7 +85,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       roleId (value) {
         return {
-          where: { roleId: value }
+          where: { RoleId: value }
         }
       },
       isActive (value) {
