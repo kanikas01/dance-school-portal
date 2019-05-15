@@ -122,12 +122,12 @@ class UserAddUpdateForm extends Component {
               name="roleId"
               type="select"
               onChange={this.handleInputChange}>
-            {this.state.roles.map(role => ( 
-              <option 
-                key={role.id} 
-                value={this.props.roleId ? this.props.roleId : role.id}
-                selected={(role.name === "student") ? "selected" : ""}>{role.name}</option>
-            ))}
+              <option>Choose...</option>
+              {this.state.roles.map(role => ( 
+                <option 
+                  key={role.id} 
+                  value={this.props.roleId ? this.props.roleId : role.id}>{role.name}</option>
+              ))}
             </Form.Control>
           </Form.Group>
           <Form.Group controlId="formGroupAddIsActiveCheckbox">
