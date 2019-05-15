@@ -102,7 +102,10 @@ class UserAddForm extends Component {
               type="select"
               onChange={this.handleInputChange}>
             {this.state.roles.map(role => ( 
-              <option key={role.id} value={role.id}>{role.name}</option>
+              <option 
+                key={role.id} 
+                value={role.id}
+                selected={role.name === "student" ? "selected" : ""}>{role.name}</option>
             ))}
             </Form.Control>
           </Form.Group>
