@@ -1,12 +1,8 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import { Tab, Tabs } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Nav from 'react-bootstrap/Nav';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Form from 'react-bootstrap/Form';
 import UserSearchForm from '../../UserSearchForm';
+import UserAddForm from '../../UserAddForm';
 import userAPI from "../../../utils/userAPI";
 
 
@@ -45,29 +41,12 @@ class Users extends Component {
     });
   }
 
-  handleSaveFormSubmit = (event, index) => {
-    event.preventDefault();
-    // let user = this.state.users[index];
-    userAPI.saveUser({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      email: this.state.email,
-      password: this.state.password,
-      isActive: this.state.isActive,
-      onMarketingList: this.state.onMarketingList
-    })
-      .then(res => alert("User saved!"))
-      .catch(err => console.log(err));
-  };
-
   render () {
     const addFormStyle = this.state.hideAddForm ? {display: 'none'} : {};
     const searchFormStyle = this.state.hideSearchForm ? {display: 'none'} : {};
 
     return (
       <Container>
-        <h3>Users Tab Content (TODO)</h3>
-        <hr />
         <Nav variant="pills" defaultActiveKey="search-users">
           <Nav.Item>
             <Nav.Link
@@ -82,7 +61,13 @@ class Users extends Component {
         </Nav>
 
         <div style={searchFormStyle}>
+          <h3>Search Users</h3>
           <UserSearchForm />
+        </div>
+
+        <div style={addFormStyle}>
+          <h3>Add User</h3>
+          <UserAddForm />
         </div>
 
       </Container>
