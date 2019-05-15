@@ -6,7 +6,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import userAPI from "../../utils/userAPI";
 import roleAPI from "../../utils/roleAPI";
 
-class UserAddForm extends Component {
+class UserAddUpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,6 +24,7 @@ class UserAddForm extends Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleAddFormSubmit = this.handleAddFormSubmit.bind(this);
+    this.handleUpdateFormSubmit = this.handleUpdateFormSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -58,6 +59,22 @@ class UserAddForm extends Component {
       .catch(err => console.log(err));
   };
 
+  handleUpdateFormSubmit = (event, index) => {
+    event.preventDefault();
+    // let user = this.state.users[index];
+    userAPI.updateUser({
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      RoleId: this.state.roleId,
+      isActive: this.state.isActive,
+      onMarketingList: this.state.onMarketingList
+    })
+      .then(res => alert("User saved!"))
+      .catch(err => console.log(err));
+  };
+
   render () {
     return (
       <>
@@ -67,6 +84,7 @@ class UserAddForm extends Component {
             <Form.Control
               name="firstName"
               type="name"
+              value={this.props.firstName ? this.props.firstName : this.state.firstName}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -75,6 +93,7 @@ class UserAddForm extends Component {
             <Form.Control
               name="lastName"
               type="name"
+              value={this.props.lastName ? this.props.lastName : this.state.lastName}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -83,6 +102,7 @@ class UserAddForm extends Component {
             <Form.Control
               name="email"
               type="email"
+              value={this.props.email ? this.props.email : this.state.email}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -91,6 +111,7 @@ class UserAddForm extends Component {
             <Form.Control
               name="password"
               type="password"
+              value={this.props.email ? this.props.email : this.state.email}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -99,13 +120,14 @@ class UserAddForm extends Component {
             <Form.Control 
               as="select"
               name="roleId"
+              
               type="select"
               onChange={this.handleInputChange}>
             {this.state.roles.map(role => ( 
               <option 
                 key={role.id} 
-                value={role.id}
-                selected={role.name === "student" ? "selected" : ""}>{role.name}</option>
+                value={this.props.roleId ? this.props.roleId : role.id}
+                selected={(role.name === "student") ? "selected" : ""}>{role.name}</option>
             ))}
             </Form.Control>
           </Form.Group>
@@ -127,7 +149,11 @@ class UserAddForm extends Component {
           </Form.Group>
           <Form.Group>
             <Button
-              onClick={this.handleAddFormSubmit}>
+              onClick={
+                (this.props.action === "add") 
+                ? this.handleAddFormSubmit 
+                : this.handleUpdateFormSubmit
+              }>
               Submit
             </Button>
           </Form.Group>
@@ -145,4 +171,4 @@ class UserAddForm extends Component {
 }
 
 
-export default UserAddForm;
+export default UserAddUpdateForm;

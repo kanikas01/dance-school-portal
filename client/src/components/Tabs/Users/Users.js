@@ -2,7 +2,7 @@ import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import UserSearchForm from '../../UserSearchForm';
-import UserAddForm from '../../UserAddForm';
+import UserAddUpdateForm from '../../UserAddUpdateForm';
 import userAPI from "../../../utils/userAPI";
 
 
@@ -67,7 +67,7 @@ class Users extends Component {
 
         <div style={addFormStyle}>
           <h3>Add User</h3>
-          <UserAddForm />
+          <UserAddUpdateForm />
         </div>
 
       </Container>
