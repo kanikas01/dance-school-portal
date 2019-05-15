@@ -18,17 +18,35 @@ class Users extends Component {
       lastName: "",
       email: "",
       isActive: 1,
-      onMarketingList: 0,
-      devNull: ""
+      // onMarketingList: 0,
+      devNull: "",
+      hideSearchForm: false,
+      hideAddForm: true
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.showSearchForm = this.showSearchForm.bind(this);
+    this.showAddForm = this.showAddForm.bind(this);
   }
 
   componentDidMount() {
     // userAPI.getUsers()
     //   .then(res => this.setState ({ users: res.data }) )
     //   .catch(err => console.log(err));
+  }
+
+  showAddForm() {
+    this.setState({
+      hideAddForm: false,
+      hideSearchForm: true
+    });
+  }
+
+  showSearchForm() {
+    this.setState({
+      hideAddForm: true,
+      hideSearchForm: false
+    });
   }
 
   handleInputChange(event) {
@@ -48,8 +66,8 @@ class Users extends Component {
       lastName: this.state.lastName ? this.state.lastName : "",
       email: this.state.email ? this.state.email : "",
       password: this.state.password ? this.state.password : "",
-      isActive: this.state.isActive ? 1 : "0",
-      onMarketingList: this.state.onMarketingList ? 1 : ""
+      isActive: this.state.isActive ? 1 : ""
+      // onMarketingList: this.state.onMarketingList ? 1 : ""
     };
 
     let queryString = "?";
@@ -94,63 +112,75 @@ class Users extends Component {
   };
 
   render () {
+    const addFormStyle = this.state.hideAddForm ? {display: 'none'} : {};
+    const searchFormStyle = this.state.hideSearchForm ? {display: 'none'} : {};
+
     return (
       <Container>
         <h3>Users Tab Content (TODO)</h3>
         <hr />
+        <Nav variant="pills" defaultActiveKey="search-users">
+          <Nav.Item>
+            <Nav.Link
+              eventKey="search-users"
+              onClick={this.showSearchForm}>Search Users</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              eventKey="add-user"
+              onClick={this.showAddForm}>Add User</Nav.Link>
+          </Nav.Item>
+        </Nav>
 
-        <Form>
-          <Form.Group controlId="formGroupFirstName">
-            <Form.Label>First name</Form.Label>
-            <Form.Control
-              name="firstName"
-              type="name"
-              onChange={this.handleInputChange}
-              placeholder="" />
-          </Form.Group>
-          <Form.Group controlId="formGroupLastName">
-            <Form.Label>Last name</Form.Label>
-            <Form.Control
-              name="lastName"
-              type="name"
-              onChange={this.handleInputChange}
-              placeholder="" />
-          </Form.Group>
-          <Form.Group controlId="formGroupEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              name="email"
-              type="email"
-              onChange={this.handleInputChange}
-              placeholder="" />
-          </Form.Group>
-          <Form.Group controlId="formIsActiveCheckbox">
-            <Form.Check 
-              name="isActive"
-              type="checkbox"
-              onChange={this.handleInputChange}
-              label="Is Active" 
-              defaultChecked={this.state.isActive}/>
-          </Form.Group>
-          <Form.Group controlId="formMarketingCheckbox">
-            <Form.Check 
-              name="onMarketingList"
-              type="checkbox" 
-              onChange={this.handleInputChange}
-              label="On Marketing List" />
-          </Form.Group>
-          <Form.Group>
-            <Button
-              onClick={this.handleSearchFormSubmit}>
-              Submit
-            </Button>
-          </Form.Group>
-        </Form>
-
-        <ButtonToolbar>
-          <Button>Search Users</Button>
-          <Button>Add User</Button>
-        </ButtonToolbar>
+        <div style={searchFormStyle}>
+          <Form>
+            <Form.Group controlId="formGroupFirstName">
+              <Form.Label>First name</Form.Label>
+              <Form.Control
+                name="firstName"
+                type="name"
+                onChange={this.handleInputChange}
+                placeholder="" />
+            </Form.Group>
+            <Form.Group controlId="formGroupLastName">
+              <Form.Label>Last name</Form.Label>
+              <Form.Control
+                name="lastName"
+                type="name"
+                onChange={this.handleInputChange}
+                placeholder="" />
+            </Form.Group>
+            <Form.Group controlId="formGroupEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                name="email"
+                type="email"
+                onChange={this.handleInputChange}
+                placeholder="" />
+            </Form.Group>
+            <Form.Group controlId="formIsActiveCheckbox">
+              <Form.Check 
+                name="isActive"
+                type="checkbox"
+                onChange={this.handleInputChange}
+                label="Only search active users" 
+                defaultChecked={this.state.isActive}/>
+            </Form.Group>
+            {/* <Form.Group controlId="formMarketingCheckbox">
+              <Form.Check 
+                name="onMarketingList"
+                type="checkbox" 
+                onChange={this.handleInputChange}
+                label="On Marketing List" />
+            </Form.Group> */}
+            <Form.Group>
+              <Button
+                onClick={this.handleSearchFormSubmit}>
+                Submit
+              </Button>
+            </Form.Group>
+          </Form>
+        </div>
 
         <ListGroup>
         {this.state.users.map(user => ( 
