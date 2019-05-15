@@ -149,11 +149,7 @@ class UserAddUpdateForm extends Component {
           </Form.Group>
           <Form.Group>
             <Button
-              onClick={
-                (this.props.action === "update") 
-                  ? this.handleUpdateFormSubmit 
-                  : this.handleAddFormSubmit
-              }>
+              onClick={this.handleAddFormSubmit}>
               Submit
             </Button>
           </Form.Group>
