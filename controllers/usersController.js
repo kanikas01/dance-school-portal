@@ -54,11 +54,14 @@ module.exports = {
     db.User
       .scope(...query)
       .findAll({
-        attributes: { exclude: ['password'] },
         include: [{
           model: db.Role,
           where: { id: db.Sequelize.col('user.RoleId') }
-        }]
+        }],
+        order: [
+          // Will escape username and validate DESC against a list of valid direction parameters
+          ['id', 'ASC'],
+        ]
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
