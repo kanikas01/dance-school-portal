@@ -73,7 +73,7 @@ class UserSearchForm extends Component {
     return (
       <>
         <Form>
-          <Form.Group controlId="formGroupFirstName">
+          <Form.Group controlId="formSearchFirstName">
             <Form.Label>First name</Form.Label>
             <Form.Control
               name="firstName"
@@ -81,7 +81,7 @@ class UserSearchForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formGroupLastName">
+          <Form.Group controlId="formSearchLastName">
             <Form.Label>Last name</Form.Label>
             <Form.Control
               name="lastName"
@@ -89,7 +89,7 @@ class UserSearchForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formGroupEmail">
+          <Form.Group controlId="formSearchEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               name="email"
@@ -97,7 +97,7 @@ class UserSearchForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formIsActiveCheckbox">
+          <Form.Group controlId="formSearchIsActiveCheckbox">
             <Form.Check 
               name="isActive"
               type="checkbox"
@@ -105,7 +105,7 @@ class UserSearchForm extends Component {
               label="Only search active users" 
               defaultChecked={this.state.isActive}/>
           </Form.Group>
-          {/* <Form.Group controlId="formMarketingCheckbox">
+          {/* <Form.Group controlId="formSearchMarketingCheckbox">
             <Form.Check 
               name="onMarketingList"
               type="checkbox" 
