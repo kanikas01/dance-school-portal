@@ -10,8 +10,8 @@ export default {
     return axios.get("/api/users");
   },
   // Search users (no params returns all users)
-  searchUsers: function() {
-    return axios.get("/api/users/search");
+  searchUsers: function(query) {
+    return axios.get("/api/users/search" + query);
   },
   // Saves a user to the database
   saveUser: function(userData) {
