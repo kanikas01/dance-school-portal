@@ -19,7 +19,7 @@ class Navigation extends Component {
     // ADMIN VIEW
     if (this.props.role === "admin") {
       navigation = 
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+        <Tabs fill defaultActiveKey="profile" id="uncontrolled-tab-example">
           <Tab eventKey="students" title="Students">
             <Students />
           </Tab>

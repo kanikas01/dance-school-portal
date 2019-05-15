@@ -27,6 +27,8 @@ class Dances extends Component {
   };
 
   render () {
+
+    const dances = [...this.state.dances]
     return (
       <Container>
         <h3>Dances Tab Content</h3>
@@ -39,7 +41,7 @@ class Dances extends Component {
         </ul>
 
         <ListGroup>
-        {this.state.dances.map((dance, index) => (   
+        {dances.map((dance, index) => (   
           <ListGroup.Item key={dance.id}>{dance.id} {dance.name} {dance.quarter}</ListGroup.Item>
         ))}
         </ListGroup>
@@ -50,3 +52,12 @@ class Dances extends Component {
 }
 
 export default Dances;
+
+// sort((a, b) => {
+//   let nameA = a.name.toLowerCase(), nameB=b.name.toLowerCase();
+//   if (nameA < nameB) //sort string ascending
+//       return -1;
+//   if (nameA > nameB)
+//       return 1;
+//   return 0;
+// })

@@ -33,7 +33,7 @@ class Grades extends Component {
         <h3>Grades Tab Content</h3>
         <h6>TODO</h6>
         <ButtonToolbar>
-          <Button>See all grades for student</Button>
+          <Button>Search Student Records</Button>
           <Button>Add grade</Button>
           <Button>Update/remove grade</Button>
         </ButtonToolbar>

@@ -9,7 +9,7 @@ class Students extends Component {
         <h6>TODO</h6>
         <ul>
           <li>Add student</li>
-          <li>View/update student</li>
+          <li>Search students</li>
           <li>Get current student emails</li>
         </ul>
       </Container>
