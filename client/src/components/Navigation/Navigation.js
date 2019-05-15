@@ -14,7 +14,6 @@ import "./Navigation.css";
 class Navigation extends Component {
 
   render () {
-    let content = "Content";
     let navigation;
     // ADMIN VIEW
     if (this.props.role === "admin") {
