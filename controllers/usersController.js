@@ -56,7 +56,7 @@ module.exports = {
       .findAll({
         include: [{
           model: db.Role,
-          where: { id: db.Sequelize.col('user.RoleId') }
+          where: { id: db.Sequelize.col('User.RoleId') }
         }],
         order: [
           // Will escape username and validate DESC against a list of valid direction parameters
