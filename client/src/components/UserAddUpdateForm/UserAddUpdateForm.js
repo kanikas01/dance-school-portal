@@ -79,7 +79,7 @@ class UserAddUpdateForm extends Component {
     return (
       <>
         <Form>
-          <Form.Group controlId="formGroupFirstName">
+          <Form.Group controlId="formGroupAddFirstName">
             <Form.Label>First name</Form.Label>
             <Form.Control
               name="firstName"
@@ -88,7 +88,7 @@ class UserAddUpdateForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formGroupLastName">
+          <Form.Group controlId="formGroupAddLastName">
             <Form.Label>Last name</Form.Label>
             <Form.Control
               name="lastName"
@@ -97,7 +97,7 @@ class UserAddUpdateForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formGroupEmail">
+          <Form.Group controlId="formGroupAddEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control
               name="email"
@@ -106,21 +106,20 @@ class UserAddUpdateForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formGroupPassword">
+          <Form.Group controlId="formGroupAddPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
               name="password"
               type="password"
-              value={this.props.email ? this.props.email : this.state.email}
+              value={this.props.password ? this.props.password : this.state.password}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Group controlId="formGroupAddSelectRole">
             <Form.Label>Select Role</Form.Label>
             <Form.Control 
               as="select"
               name="roleId"
-              
               type="select"
               onChange={this.handleInputChange}>
             {this.state.roles.map(role => ( 
@@ -131,7 +130,7 @@ class UserAddUpdateForm extends Component {
             ))}
             </Form.Control>
           </Form.Group>
-          <Form.Group controlId="formIsActiveCheckbox">
+          <Form.Group controlId="formGroupAddIsActiveCheckbox">
             <Form.Check 
               name="isActive"
               type="checkbox"
@@ -139,10 +138,11 @@ class UserAddUpdateForm extends Component {
               label="Is Active" 
               defaultChecked={this.state.isActive}/>
           </Form.Group>
-          <Form.Group controlId="formMarketingCheckbox">
+          <Form.Group controlId="formGroupAddMarketingCheckbox">
             <Form.Check 
               name="onMarketingList"
               type="checkbox" 
+              
               onChange={this.handleInputChange}
               label="On Marketing List" 
               defaultChecked={this.state.onMarketingList}/>
@@ -150,9 +150,9 @@ class UserAddUpdateForm extends Component {
           <Form.Group>
             <Button
               onClick={
-                (this.props.action === "add") 
-                ? this.handleAddFormSubmit 
-                : this.handleUpdateFormSubmit
+                (this.props.action === "update") 
+                  ? this.handleUpdateFormSubmit 
+                  : this.handleAddFormSubmit
               }>
               Submit
             </Button>
