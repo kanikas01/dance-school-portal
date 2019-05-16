@@ -15,10 +15,15 @@ class Navigation extends Component {
 
   render () {
     let navigation;
+
     // ADMIN VIEW
     if (this.props.role === "admin") {
       navigation = 
-        <Tabs fill defaultActiveKey="profile" id="uncontrolled-tab-example">
+        <Tabs 
+          fill 
+          defaultActiveKey="students" 
+          id="uncontrolled-tab-example"
+          unmountOnExit={true}>
           <Tab eventKey="students" title="Students">
             <Students />
           </Tab>
@@ -47,10 +52,16 @@ class Navigation extends Component {
             <Subscriptions />
           </Tab>
         </Tabs>;
+    } 
+    
     // TEACHER VIEW
-    } else if (this.props.role === "teacher") {
+    else if (this.props.role === "teacher") {
       navigation = 
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+        <Tabs 
+          fill 
+          defaultActiveKey="students" 
+          id="uncontrolled-tab-example"
+          unmountOnExit={true}>
           <Tab eventKey="students" title="Students">
             <Students />
           </Tab>
@@ -61,10 +72,34 @@ class Navigation extends Component {
             <Dances />
           </Tab>
         </Tabs>;
-    // MARKETING VIEW
-    } else if (this.props.role === "marketing") {
+    } 
+
+    // STUDENT VIEW
+    else if (this.props.role === "student") {
       navigation = 
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+        <Tabs 
+          fill 
+          defaultActiveKey="profile" 
+          id="uncontrolled-tab-example"
+          unmountOnExit={true}>
+          <Tab eventKey="profile" title="My Profile">
+            <Students />
+          </Tab>
+          <Tab eventKey="grades" title="My Grades">
+            <Grades />
+          </Tab>
+        </Tabs>;
+    
+    }
+
+    // MARKETING VIEW
+    else if (this.props.role === "marketing") {
+      navigation = 
+        <Tabs 
+          fill 
+          defaultActiveKey="marketing" 
+          id="uncontrolled-tab-example"
+          unmountOnExit={true}>
           <Tab eventKey="marketing" title="Marketing">
             <Marketing />
           </Tab>
