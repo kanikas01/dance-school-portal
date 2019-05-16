@@ -1,6 +1,7 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
 import UserSearchForm from '../../UserSearchForm';
 import UserAddUpdateForm from '../../UserAddUpdateForm';
 import userAPI from "../../../utils/userAPI";
@@ -10,15 +11,7 @@ class Users extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
-      devNull: "",
-      hideSearchForm: false,
-      hideAddForm: true
     };
-
-    // this.handleInputChange = this.handleInputChange.bind(this);
-    this.showSearchForm = this.showSearchForm.bind(this);
-    this.showAddForm = this.showAddForm.bind(this);
   }
 
   componentDidMount() {
@@ -27,49 +20,33 @@ class Users extends Component {
     //   .catch(err => console.log(err));
   }
 
-  showAddForm() {
-    this.setState({
-      hideAddForm: false,
-      hideSearchForm: true
-    });
-  }
-
-  showSearchForm() {
-    this.setState({
-      hideAddForm: true,
-      hideSearchForm: false
-    });
-  }
-
   render () {
-    const addFormStyle = this.state.hideAddForm ? {display: 'none'} : {};
-    const searchFormStyle = this.state.hideSearchForm ? {display: 'none'} : {};
-
     return (
       <Container>
-        <Nav variant="pills" defaultActiveKey="search-users">
-          <Nav.Item>
-            <Nav.Link
-              eventKey="search-users"
-              onClick={this.showSearchForm}>Search Users</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link
-              eventKey="add-user"
-              onClick={this.showAddForm}>Add User</Nav.Link>
-          </Nav.Item>
-        </Nav>
-
-        <div style={searchFormStyle}>
-          <h3>Search Users</h3>
-          <UserSearchForm />
-        </div>
-
-        <div style={addFormStyle}>
-          <h3>Add User</h3>
-          <UserAddUpdateForm />
-        </div>
-
+        <Tab.Container id="left-tabs-example" defaultActiveKey="search-user">
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="search-user">Search Users</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="add-user">Add User</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="search-user">
+                  <UserSearchForm />
+                </Tab.Pane>
+                <Tab.Pane eventKey="add-user">
+                  <UserAddUpdateForm />
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
       </Container>
     );
   }
