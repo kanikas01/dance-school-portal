@@ -57,6 +57,8 @@ class UserAddUpdateForm extends Component {
     })
       .then(res => alert("User saved!"))
       .catch(err => console.log(err));
+
+      this.handleClearResults();
   };
 
   handleUpdateFormSubmit = (event, index) => {
@@ -73,6 +75,22 @@ class UserAddUpdateForm extends Component {
     })
       .then(res => alert("User saved!"))
       .catch(err => console.log(err));
+
+    this.handleClearResults();
+  };
+
+  handleClearResults = (event, index) => {
+    this.setState ({ 
+      roles: [],
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      roleId: "",
+      isActive: 1,
+      onMarketingList: 1,
+      devNull: ""
+    });
   };
 
   render () {
@@ -136,7 +154,7 @@ class UserAddUpdateForm extends Component {
               type="checkbox"
               onChange={this.handleInputChange}
               label="Is Active" 
-              defaultChecked={this.state.isActive}/>
+              defaultChecked={this.props.isActive || this.state.isActive}/>
           </Form.Group>
           <Form.Group controlId="formGroupAddMarketingCheckbox">
             <Form.Check 
@@ -145,7 +163,7 @@ class UserAddUpdateForm extends Component {
               
               onChange={this.handleInputChange}
               label="On Marketing List" 
-              defaultChecked={this.state.onMarketingList}/>
+              defaultChecked={this.props.onMarketingList || this.state.onMarketingList}/>
           </Form.Group>
           <Form.Group>
             <Button
