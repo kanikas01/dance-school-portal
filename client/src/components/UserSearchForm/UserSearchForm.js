@@ -69,6 +69,16 @@ class UserSearchForm extends Component {
       .catch(err => console.log(err));
   };
 
+  handleClearResults = (event, index) => {
+    this.setState ({ 
+      users: [],
+      firstName: "",
+      lastName: "",
+      email: "",
+      isActive: 1
+    });
+  };
+
   render () {
     return (
       <>
@@ -103,7 +113,7 @@ class UserSearchForm extends Component {
               type="checkbox"
               onChange={this.handleInputChange}
               label="Only search active users" 
-              defaultChecked={this.state.isActive}/>
+              checked={this.state.isActive}/>
           </Form.Group>
           {/* <Form.Group controlId="formSearchMarketingCheckbox">
             <Form.Check 
@@ -117,12 +127,20 @@ class UserSearchForm extends Component {
               onClick={this.handleSearchFormSubmit}>
               Submit
             </Button>
+            <Button
+              onClick={this.handleClearResults}>
+              Clear Results
+            </Button>
           </Form.Group>
         </Form>
 
         <ListGroup>
           {this.state.users.map(user => ( 
-            <ListGroup.Item key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}</ListGroup.Item>
+            <ListGroup.Item key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}
+              <Button>
+                View
+              </Button>
+            </ListGroup.Item>
           ))}
         </ListGroup>
       </>
