@@ -22,7 +22,7 @@ class Navigation extends Component {
         <Tabs 
           fill 
           defaultActiveKey="students" 
-          id="uncontrolled-tab-example">
+          id="admin-tabs">
           <Tab eventKey="students" title="Students">
             <Students />
           </Tab>
@@ -38,7 +38,7 @@ class Navigation extends Component {
           <Tab eventKey="roles" title="Roles">
             <Roles />
           </Tab>
-          <Tab eventKey="marketing" title="Marketing">
+          <Tab eventKey="marketing" title="Marketing" unmountOnExit={true}>
             <Marketing />
           </Tab>
           <Tab eventKey="accounting" title="Accounting">
@@ -59,7 +59,7 @@ class Navigation extends Component {
         <Tabs 
           fill 
           defaultActiveKey="students" 
-          id="uncontrolled-tab-example"
+          id="teacher-tabs"
           unmountOnExit={true}>
           <Tab eventKey="students" title="Students">
             <Students />
@@ -79,7 +79,7 @@ class Navigation extends Component {
         <Tabs 
           fill 
           defaultActiveKey="profile" 
-          id="uncontrolled-tab-example"
+          id="student-tabs"
           unmountOnExit={true}>
           <Tab eventKey="profile" title="My Profile">
             <Students />
@@ -97,7 +97,7 @@ class Navigation extends Component {
         <Tabs 
           fill 
           defaultActiveKey="marketing" 
-          id="uncontrolled-tab-example"
+          id="marketing-tabs"
           unmountOnExit={true}>
           <Tab eventKey="marketing" title="Marketing">
             <Marketing />
