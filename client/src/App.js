@@ -19,6 +19,8 @@ class App extends Component {
       <div>
       {/* <Header /> */}
         <Container>
+          <Welcome />
+          
           <Router>
             <Switch>
               <Route exact path="/" />
