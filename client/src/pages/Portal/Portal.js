@@ -5,7 +5,7 @@ class Portal extends Component {
   render () {
     return (
       <>
-        <h5>{this.props.role}</h5>
+        <hr />
         <Navigation role={this.props.role}/>
       </>
     );

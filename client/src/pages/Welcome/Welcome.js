@@ -58,7 +58,6 @@ class Welcome extends Component {
               ))}
             </Form.Control>
           </Form.Group>
-          <Button>Submit</Button>
         </Form>
 
         <Portal role={this.state.role} />

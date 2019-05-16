@@ -88,6 +88,7 @@ class UserSearchForm extends Component {
             <Form.Control
               name="firstName"
               type="name"
+              value={this.state.firstName}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -96,6 +97,7 @@ class UserSearchForm extends Component {
             <Form.Control
               name="lastName"
               type="name"
+              value={this.state.lastName}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -104,6 +106,7 @@ class UserSearchForm extends Component {
             <Form.Control
               name="email"
               type="email"
+              value={this.state.email}
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
@@ -111,6 +114,7 @@ class UserSearchForm extends Component {
             <Form.Check 
               name="isActive"
               type="checkbox"
+              value={this.state.isActive}
               onChange={this.handleInputChange}
               label="Only search active users" 
               checked={this.state.isActive}/>
