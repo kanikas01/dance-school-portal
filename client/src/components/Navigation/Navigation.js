@@ -22,22 +22,21 @@ class Navigation extends Component {
         <Tabs 
           fill 
           defaultActiveKey="students" 
-          id="uncontrolled-tab-example"
-          unmountOnExit={true}>
+          id="uncontrolled-tab-example">
           <Tab eventKey="students" title="Students">
             <Students />
           </Tab>
-          <Tab eventKey="grades" title="Grades">
+          <Tab eventKey="grades" title="Grades" unmountOnExit={true}>
             <Grades />
           </Tab>
           <Tab eventKey="dances" title="Dances">
             <Dances />
           </Tab>
+          <Tab eventKey="users" title="Users" unmountOnExit={true}>
+            <Users />
+          </Tab>
           <Tab eventKey="roles" title="Roles">
             <Roles />
-          </Tab>
-          <Tab eventKey="users" title="Users">
-            <Users />
           </Tab>
           <Tab eventKey="marketing" title="Marketing">
             <Marketing />

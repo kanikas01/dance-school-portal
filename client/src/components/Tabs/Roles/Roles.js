@@ -32,7 +32,6 @@ class Roles extends Component {
 
     return (
       <Container>
-        <Button>Add roles</Button>
         <ListGroup>
         {this.state.roles.map((role, index) => (    
           <ListGroup.Item key={role.id}>{role.name}</ListGroup.Item>
