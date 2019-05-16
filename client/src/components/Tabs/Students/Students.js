@@ -1,6 +1,7 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
 import userAPI from "../../../utils/userAPI";
 import { CSVLink, CSVDownload } from "react-csv";
 import UserSearchForm from '../../UserSearchForm';
@@ -10,40 +11,20 @@ class Students extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
       roles: [],
       students: [],
-      studentContacts: [],
-      hideSearchForm: false,
-      hideAddForm: true
+      studentContacts: []
     };
-
-    this.showSearchForm = this.showSearchForm.bind(this);
-    this.showAddForm = this.showAddForm.bind(this);
-  }
-
-  showAddForm() {
-    this.setState({
-      hideAddForm: false,
-      hideSearchForm: true
-    });
-  }
-
-  showSearchForm() {
-    this.setState({
-      hideAddForm: true,
-      hideSearchForm: false
-    });
   }
 
   componentDidMount() {
     let queryString = "?isActive=1&roleId=2";
     userAPI.searchUsers(queryString)
-      .then(res => this.setState ({ users: res.data }) )
+      .then(res => this.setState ({ students: res.data }) )
       // Create marketing email list for download
       .then( () => {
         const newStudentList = [["first name", "last name", "email"]];
-        for (var user of this.state.users) {
+        for (var user of this.state.students) {
           newStudentList.push([user.firstName, user.lastName, user.email]);
         }
         this.setState ({ studentContacts: newStudentList });   
@@ -51,43 +32,45 @@ class Students extends Component {
       .catch(err => console.log(err));
   }
 
-
   render () {
-    const addFormStyle = this.state.hideAddForm ? {display: 'none'} : {};
-    const searchFormStyle = this.state.hideSearchForm ? {display: 'none'} : {};
-
     return (
       <Container>
-        <Nav variant="pills" defaultActiveKey="search-students">
-          <Nav.Item>
-            <Nav.Link
-              eventKey="search-students"
-              onClick={this.showSearchForm}>All Students</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link
-              eventKey="add-student"
-              onClick={this.showAddForm}>Add Student</Nav.Link>
-          </Nav.Item>
-        </Nav>
-        <hr/>
-
-        <div style={searchFormStyle}>
-          <h3>Search Students</h3>
-          <UserSearchForm />
-          <CSVLink
-            filename={"student-contact-list.csv"}
-            className="btn btn-primary"
-            target="_blank"
-            data={this.state.studentContacts}>
-            Download student contact list
-          </CSVLink>
-        </div>
-
-        <div style={addFormStyle}>
-          <h3>Add Students</h3>
-          <UserAddUpdateForm />
-        </div>
+        <Tab.Container id="left-tabs-example" defaultActiveKey="search-students">
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="search-students">Search Students</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="add-students">Add Student</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="student-contacts">Student Contacts</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="search-students">
+                  <UserSearchForm />
+                </Tab.Pane>
+                <Tab.Pane eventKey="add-students">
+                  <UserAddUpdateForm />
+                </Tab.Pane>
+                <Tab.Pane eventKey="student-contacts">
+                  <CSVLink
+                    filename={"student-contact-list.csv"}
+                    className="btn btn-primary"
+                    target="_blank"
+                    data={this.state.studentContacts}>
+                    Download student contact list
+                  </CSVLink>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
       </Container>
     );
   }
