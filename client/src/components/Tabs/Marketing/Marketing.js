@@ -1,7 +1,6 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Button from 'react-bootstrap/Button';
 import userAPI from "../../../utils/userAPI";
 import { CSVLink, CSVDownload } from "react-csv";
 
@@ -13,7 +12,7 @@ class Marketing extends Component {
   };
 
   componentDidMount() {
-    let queryString = "?onMarketingList=1"
+    let queryString = "?onMarketingList=1";
     userAPI.searchUsers(queryString)
       .then(res => this.setState ({ users: res.data }) )
       // Create marketing email list for download
