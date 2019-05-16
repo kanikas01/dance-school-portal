@@ -60,7 +60,7 @@ module.exports = {
         }],
         order: [
           // Will escape username and validate DESC against a list of valid direction parameters
-          ['id', 'ASC'],
+          ['firstName', 'ASC'],
         ]
       })
       .then(dbModel => res.json(dbModel))
