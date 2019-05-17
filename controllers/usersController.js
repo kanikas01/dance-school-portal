@@ -8,7 +8,10 @@ module.exports = {
     db.User
       .findOne({
         where: {id: req.params.id},
-        attributes: { exclude: ['password'] }
+        include: [{
+          model: db.Role,
+          where: { id: db.Sequelize.col('User.RoleId') }
+        }]
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -59,7 +62,6 @@ module.exports = {
           where: { id: db.Sequelize.col('User.RoleId') }
         }],
         order: [
-          // Will escape username and validate DESC against a list of valid direction parameters
           ['firstName', 'ASC'],
         ]
       })
