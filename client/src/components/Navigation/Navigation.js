@@ -14,31 +14,33 @@ import "./Navigation.css";
 class Navigation extends Component {
 
   render () {
+    let role = this.props.role;
     let navigation;
 
     // ADMIN VIEW
-    if (this.props.role === "admin") {
+    if (role === "admin") {
       navigation = 
         <Tabs 
           fill 
           defaultActiveKey="students" 
-          id="admin-tabs">
+          id="admin-tabs"
+          unmountOnExit={true}>
           <Tab eventKey="students" title="Students">
             <Students />
           </Tab>
-          <Tab eventKey="grades" title="Grades" unmountOnExit={true}>
+          <Tab eventKey="grades" title="Grades">
             <Grades />
           </Tab>
           <Tab eventKey="dances" title="Dances">
             <Dances />
           </Tab>
-          <Tab eventKey="users" title="Users" unmountOnExit={true}>
+          <Tab eventKey="users" title="Users">
             <Users />
           </Tab>
           <Tab eventKey="roles" title="Roles">
             <Roles />
           </Tab>
-          <Tab eventKey="marketing" title="Marketing" unmountOnExit={true}>
+          <Tab eventKey="marketing" title="Marketing">
             <Marketing />
           </Tab>
           <Tab eventKey="accounting" title="Accounting">
@@ -54,7 +56,7 @@ class Navigation extends Component {
     } 
     
     // TEACHER VIEW
-    else if (this.props.role === "teacher") {
+    else if (role === "teacher") {
       navigation = 
         <Tabs 
           fill 
@@ -74,7 +76,7 @@ class Navigation extends Component {
     } 
 
     // STUDENT VIEW
-    else if (this.props.role === "student") {
+    else if (role === "student") {
       navigation = 
         <Tabs 
           fill 
@@ -91,7 +93,7 @@ class Navigation extends Component {
     }
 
     // MARKETING VIEW
-    else if (this.props.role === "marketing") {
+    else if (role === "marketing") {
       navigation = 
         <Tabs 
           fill 
@@ -105,7 +107,7 @@ class Navigation extends Component {
     }
 
     // CUSTOMER SUPPORT VIEW
-    else if (this.props.role === "customer support") {
+    else if (role === "customer support") {
       navigation = 
         <Tabs 
           fill 
