@@ -88,7 +88,6 @@ class Navigation extends Component {
             <Grades />
           </Tab>
         </Tabs>;
-    
     }
 
     // MARKETING VIEW
