@@ -49,9 +49,10 @@ class Dances extends Component {
               <Tab.Content>
                 <Tab.Pane eventKey="view-dances">
                   <h3>View Dances</h3>
-                  <Table bordered hover>
+                  <Table bordered hover size="sm">
                     <thead>
                       <tr>
+                        <th>#</th>
                         <th>Name</th>
                         <th>Quarter</th>
                         <th>Action</th>
@@ -60,6 +61,7 @@ class Dances extends Component {
                     <tbody>
                       {this.state.dances.map((dance, index) => (   
                         <tr key={dance.id}>
+                          <td>{dance.id}</td>
                           <td>{dance.name}</td>
                           <td>{dance.quarter}</td>
                           <td><Button>View</Button></td>

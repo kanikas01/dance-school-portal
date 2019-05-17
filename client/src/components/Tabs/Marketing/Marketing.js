@@ -1,6 +1,6 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Table from 'react-bootstrap/Table';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import userAPI from "../../../utils/userAPI";
@@ -51,13 +51,24 @@ class Marketing extends Component {
                     data={this.state.marketingList}>
                     Download marketing email list
                   </CSVLink>
-                  <hr/>
-                  <ListGroup>
-                    {this.state.users.map(user => (   
-                      <ListGroup.Item key={user.id}>{user.firstName} {user.lastName} {user.email}
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
+                  <Table bordered hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.users.map(user => (   
+                        <tr key={user.id}>
+                          <td>{user.firstName}</td>
+                          <td>{user.lastName}</td>
+                          <td>{user.email}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
                 </Tab.Pane>
               </Tab.Content>
             </Col>

@@ -2,7 +2,7 @@ import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Table from 'react-bootstrap/Table'
 import roleAPI from "../../../utils/roleAPI";
 
 class Roles extends Component {
@@ -35,11 +35,25 @@ class Roles extends Component {
               <Tab.Content>
                 <Tab.Pane eventKey="view-roles">
                   <h3>View Roles</h3>
-                  <ListGroup>
+                  <Table bordered hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>Role</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.roles.map(role => (   
+                        <tr key={role.id}>
+                          <td>{role.name}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
+                  {/* <ListGroup>
                     {this.state.roles.map((role, index) => (    
                       <ListGroup.Item key={role.id}>{role.name}</ListGroup.Item>
                     ))}
-                  </ListGroup>
+                  </ListGroup> */}
                 </Tab.Pane>
               </Tab.Content>
             </Col>

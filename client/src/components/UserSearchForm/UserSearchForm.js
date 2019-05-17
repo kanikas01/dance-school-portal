@@ -2,7 +2,7 @@ import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Table from 'react-bootstrap/Table';
 import userAPI from "../../utils/userAPI";
 import roleAPI from "../../utils/roleAPI";
 
@@ -15,7 +15,8 @@ class UserSearchForm extends Component {
       lastName: "",
       email: "",
       studentRoleId: "",
-      isActive: 1
+      isActive: 1,
+      searchResultsVisible: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -69,7 +70,12 @@ class UserSearchForm extends Component {
     console.log(queryString);
 
     userAPI.searchUsers(queryString)
-      .then(res => this.setState ({ users: res.data }) )
+      .then(res => this.setState (
+        { 
+          users: res.data,
+          searchResultsVisible: true
+        }) 
+      )
       .catch(err => console.log(err));
   };
 
@@ -79,11 +85,13 @@ class UserSearchForm extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      isActive: 1
+      isActive: 1,
+      searchResultsVisible: false
     });
   };
 
   render () {
+    const style = this.state.searchResultsVisible ? {} : {display: 'none'};
     let role = this.props.role;
     let isActiveLabel = role === "student" 
       ? "Only search active students" 
@@ -146,16 +154,34 @@ class UserSearchForm extends Component {
             </Button>
           </Form.Group>
         </Form>
-
-        <ListGroup>
-          {this.state.users.map(user => ( 
-            <ListGroup.Item key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}
-              <Button>
-                View
-              </Button>
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
+        <div style={style}>
+          {this.state.users.length > 0 ? (
+            <Table bordered hover size="sm">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.users.map(user => (   
+                  <tr key={user.id}>
+                    <td>{user.firstName} </td>
+                    <td>{user.lastName}</td>
+                    <td>{user.Role.name}</td>
+                    <td>
+                      <Button>View</Button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          ) : (
+            <h3>No Results Found</h3>
+          )}
+        </div>
       </>
     );
   }

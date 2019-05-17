@@ -1,8 +1,8 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
+import Table from 'react-bootstrap/Table';
 import userAPI from "../../../utils/userAPI";
 import { CSVLink, CSVDownload } from "react-csv";
 import UserSearchForm from '../../UserSearchForm';
@@ -70,13 +70,24 @@ class Students extends Component {
                     data={this.state.studentContacts}>
                     Download Contact List
                   </CSVLink>
-                  <hr/>
-                  <ListGroup>
-                    {this.state.students.map(student => (   
-                      <ListGroup.Item key={student.id}>{student.firstName} {student.lastName} {student.email}
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
+                  <Table bordered hover size="sm">
+                    <thead>
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.students.map(student => (   
+                        <tr key={student.id}>
+                          <td>{student.firstName}</td>
+                          <td>{student.lastName}</td>
+                          <td>{student.email}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
                 </Tab.Pane>
               </Tab.Content>
             </Col>
