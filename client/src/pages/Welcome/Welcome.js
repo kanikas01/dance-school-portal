@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import roleAPI from "../../utils/roleAPI";
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import Portal from '../Portal';
-
 
 class Welcome extends Component {
   constructor(props) {
@@ -34,32 +32,27 @@ class Welcome extends Component {
     console.log(value);
   }
 
-  // handleSubmit() {
-  //   this.setState({role: })
-  // }
-
   render () {
     return (
       <div>
         <h5>Hello Welcome Page</h5>
         <Form>
-        <Form.Group controlId="formGroupAddSelectRole">
+          <Form.Group controlId="formGroupAddSelectRole">
             <Form.Label>Select Role</Form.Label>
-            <Form.Control 
-              as="select"
-              name="role"
-              type="select"
-              onChange={this.handleInputChange}>
-              <option>Choose...</option>
-              {this.state.roles.map(role => ( 
-                <option 
-                  key={role.id} 
-                  value={role.name}>{role.name}</option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-        </Form>
-
+              <Form.Control 
+                as="select"
+                name="role"
+                type="select"
+                onChange={this.handleInputChange}>
+                <option>Choose...</option>
+                {this.state.roles.map(role => ( 
+                  <option 
+                    key={role.id} 
+                    value={role.name}>{role.name}</option>
+                ))}
+              </Form.Control>
+            </Form.Group>
+          </Form>
         <Portal role={this.state.role} />
       </div>
     );

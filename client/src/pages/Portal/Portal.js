@@ -4,10 +4,7 @@ import Navigation from "../../components/Navigation";
 class Portal extends Component {
   render () {
     return (
-      <>
-        <hr />
         <Navigation role={this.props.role}/>
-      </>
     );
   }
 }
