@@ -109,7 +109,7 @@ class Navigation extends Component {
       navigation = 
         <Tabs 
           fill 
-          defaultActiveKey="customer-support" 
+          defaultActiveKey="students" 
           id="customer-support-tabs"
           unmountOnExit={true}>
           <Tab eventKey="students" title="Students">
