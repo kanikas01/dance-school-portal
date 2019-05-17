@@ -47,10 +47,10 @@ class Grades extends Component {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="search-grades">
-                  <h1>Search Grades</h1>
+                  <h3>Search Grades</h3>
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-grade">
-                  <h1>Add Grades</h1>
+                  <h3>Add Grade</h3>
                 </Tab.Pane>
               </Tab.Content>
             </Col>

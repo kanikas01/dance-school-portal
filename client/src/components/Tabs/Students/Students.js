@@ -54,18 +54,21 @@ class Students extends Component {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="search-students">
+                  <h3>Search Students</h3>
                   <UserSearchForm role="student"/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-student">
+                <h3>Add Student</h3>
                   <UserAddUpdateForm role="student"/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="student-contacts">
+                  <h3>Student Contact Info</h3>
                   <CSVLink
                     filename="student-contact-list.csv"
                     className="btn btn-primary"
                     target="_blank"
                     data={this.state.studentContacts}>
-                    Download student contact list
+                    Download Contact List
                   </CSVLink>
                   <hr/>
                   <ListGroup>

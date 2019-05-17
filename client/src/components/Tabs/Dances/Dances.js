@@ -48,6 +48,7 @@ class Dances extends Component {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="view-dances">
+                  <h3>View Dances</h3>
                   <ListGroup>
                     {this.state.dances.map((dance, index) => (   
                       <ListGroup.Item key={dance.id}>{dance.name} ({dance.quarter})
@@ -57,7 +58,7 @@ class Dances extends Component {
                   </ListGroup>
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-dance">
-                  <h1>Add Dance</h1>
+                  <h3>Add Dance</h3>
                 </Tab.Pane>
               </Tab.Content>
             </Col>

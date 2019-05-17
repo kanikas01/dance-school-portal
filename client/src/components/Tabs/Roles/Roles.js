@@ -34,6 +34,7 @@ class Roles extends Component {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="view-roles">
+                  <h3>View Roles</h3>
                   <ListGroup>
                     {this.state.roles.map((role, index) => (    
                       <ListGroup.Item key={role.id}>{role.name}</ListGroup.Item>

@@ -43,6 +43,7 @@ class Marketing extends Component {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="view-marketing">
+                  <h3>Marketing List</h3>
                   <CSVLink
                     filename={"dance-school-marketing-list.csv"}
                     className="btn btn-primary"
