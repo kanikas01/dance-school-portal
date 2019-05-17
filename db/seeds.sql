@@ -1,12 +1,13 @@
 use dancedb;
 
-INSERT INTO roles (name, createdAt, UpdatedAt)
+INSERT INTO Roles (name, createdAt, UpdatedAt)
 	VALUES ('admin', NOW(), NOW()), 
 				 ('student', NOW(), NOW()), 
 				 ('teacher', NOW(), NOW()), 
-				 ('marketing', NOW(), NOW());
+				 ('marketing', NOW(), NOW()),
+				 ('customer support', NOW(), NOW());
 
-INSERT INTO users (firstName, lastName, email, password, isActive, onMarketingList, createdAt, UpdatedAt, RoleId)
+INSERT INTO Users (firstName, lastName, email, password, isActive, onMarketingList, createdAt, UpdatedAt, RoleId)
 	VALUES ('Kurt', 'Statham', 'kurt@kurt.com', 'kurt', 1, 0, NOW(), NOW(), 1),
 		     ('Marco', 'DiBiste', 'marco@marco.com', 'marco', 0, 1, NOW(), NOW(), 2),
 				 ('John', 'Johnson', 'john@john.com', 'john', 1, 1, NOW(), NOW(), 2),
@@ -16,7 +17,7 @@ INSERT INTO users (firstName, lastName, email, password, isActive, onMarketingLi
 				 ('Ginger', 'Rogers', 'ginger@ginger.com', 'ginger', 1, 0, NOW(), NOW(), 3),
          ('Lou', 'Cypher', 'lou@lou.com', 'lou', 1, 1, NOW(), NOW(), 4);
            
-INSERT INTO dances (name, quarter, createdAt, UpdatedAt)
+INSERT INTO Dances (name, quarter, createdAt, UpdatedAt)
 	VALUES ('Waltz', 'Smooth', NOW(), NOW()), 
 				 ('Foxtrot', 'Smooth', NOW(), NOW()), 
 				 ('Tango', 'Smooth', NOW(), NOW()), 
@@ -35,7 +36,7 @@ INSERT INTO dances (name, quarter, createdAt, UpdatedAt)
 				 ('Argentine Tango', 'Nightclub', NOW(), NOW()), 
 				 ('Lindy Hop', 'Nightclub', NOW(), NOW()); 
 
-	INSERT INTO grades (UserId, DanceId, date, score, level, questionType, detail, comment, createdAt, UpdatedAt)
+	INSERT INTO Grades (UserId, DanceId, date, score, level, questionType, detail, comment, createdAt, UpdatedAt)
 		VALUES(3, 1, '9/30/2016', 3.00, 'bronze', 'theory', "Leader's amount of turn, Figure 2", 'Nice footwork, keep chest up', NOW(), NOW()),
 					(3, 2, '9/30/2016', 3.25, 'bronze', 'theory', "Follower's footwork, Figure 5", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
 					(3, 1, '9/30/2016', 3.00, 'bronze', 'amalgamation', "Lead", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),

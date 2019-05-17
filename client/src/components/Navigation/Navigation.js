@@ -103,6 +103,29 @@ class Navigation extends Component {
           </Tab>
         </Tabs>;
     }
+
+    // CUSTOMER SUPPORT VIEW
+    else if (this.props.role === "customer support") {
+      navigation = 
+        <Tabs 
+          fill 
+          defaultActiveKey="customer-support" 
+          id="customer-support-tabs"
+          unmountOnExit={true}>
+          <Tab eventKey="students" title="Students">
+            <Students />
+          </Tab>
+          <Tab eventKey="grades" title="Grades">
+            <Grades />
+          </Tab>
+          <Tab eventKey="orders" title="Orders">
+            <Orders />
+          </Tab>
+          <Tab eventKey="subscriptions" title="Products">
+            <Products />
+          </Tab>
+        </Tabs>;
+    }
     return (
       <div>
         {navigation}
