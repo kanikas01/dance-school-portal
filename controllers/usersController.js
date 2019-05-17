@@ -19,7 +19,7 @@ module.exports = {
       .findAll({
         include: [{
           model: db.Role,
-          where: { id: db.Sequelize.col('user.RoleId') }
+          where: { id: db.Sequelize.col('User.RoleId') }
         }]
       })
       .then(dbModel => res.json(dbModel))
