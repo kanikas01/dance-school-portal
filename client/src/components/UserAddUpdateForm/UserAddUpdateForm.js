@@ -18,8 +18,7 @@ class UserAddUpdateForm extends Component {
       password: "",
       roleId: "",
       isActive: 1,
-      onMarketingList: 1,
-      devNull: ""
+      onMarketingList: 1
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,6 +29,15 @@ class UserAddUpdateForm extends Component {
   componentDidMount() {
     roleAPI.getRoles()
       .then(res => this.setState ({ roles: res.data }) )
+      .then(() => {
+        if (this.props.role === "student") {
+          let roleInfo = this.state.roles
+            .filter(userRole => userRole.name === "student");
+          this.setState({
+            roleId: roleInfo[0].id
+          })
+        }
+      })
       .catch(err => console.log(err));
   }
 
@@ -79,7 +87,7 @@ class UserAddUpdateForm extends Component {
     this.handleClearResults();
   };
 
-  handleClearResults = (event, index) => {
+  handleClearResults = () => {
     this.setState ({ 
       roles: [],
       firstName: "",
@@ -88,12 +96,32 @@ class UserAddUpdateForm extends Component {
       password: "",
       roleId: "",
       isActive: 1,
-      onMarketingList: 1,
-      devNull: ""
+      onMarketingList: 1
     });
   };
 
   render () {
+    let formGroupAddSelectRole = "";
+    let role = this.props.role;
+    if (role !== "student") {
+      formGroupAddSelectRole = 
+      <Form.Group controlId="formGroupAddSelectRole">
+        <Form.Label>Select Role</Form.Label>
+        <Form.Control 
+          as="select"
+          name="roleId"
+          type="select"
+          onChange={this.handleInputChange}>
+          <option>Choose...</option>
+          {this.state.roles.map(role => ( 
+            <option 
+              key={role.id} 
+              value={this.props.roleId ? this.props.roleId : role.id}>{role.name}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>
+    }
+
     return (
       <>
         <Form>
@@ -133,21 +161,7 @@ class UserAddUpdateForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
-          <Form.Group controlId="formGroupAddSelectRole">
-            <Form.Label>Select Role</Form.Label>
-            <Form.Control 
-              as="select"
-              name="roleId"
-              type="select"
-              onChange={this.handleInputChange}>
-              <option>Choose...</option>
-              {this.state.roles.map(role => ( 
-                <option 
-                  key={role.id} 
-                  value={this.props.roleId ? this.props.roleId : role.id}>{role.name}</option>
-              ))}
-            </Form.Control>
-          </Form.Group>
+          {formGroupAddSelectRole}
           <Form.Group controlId="formGroupAddIsActiveCheckbox">
             <Form.Check 
               name="isActive"
@@ -159,8 +173,7 @@ class UserAddUpdateForm extends Component {
           <Form.Group controlId="formGroupAddMarketingCheckbox">
             <Form.Check 
               name="onMarketingList"
-              type="checkbox" 
-              
+              type="checkbox"
               onChange={this.handleInputChange}
               label="On Marketing List" 
               defaultChecked={this.props.onMarketingList || this.state.onMarketingList}/>

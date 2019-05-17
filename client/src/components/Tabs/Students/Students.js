@@ -57,7 +57,7 @@ class Students extends Component {
                   <UserSearchForm role="student"/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-student">
-                  <UserAddUpdateForm />
+                  <UserAddUpdateForm role="student"/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="student-contacts">
                   <CSVLink

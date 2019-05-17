@@ -14,10 +14,26 @@ class UserSearchForm extends Component {
       firstName: "",
       lastName: "",
       email: "",
+      studentRoleId: "",
       isActive: 1
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentDidMount() {
+    roleAPI.getRoles()
+      .then(res => this.setState ({ roles: res.data }) )
+      .then(() => {
+        if (this.props.role === "student") {
+          let roleInfo = this.state.roles
+            .filter(userRole => userRole.name === "student");
+          this.setState({
+            studentRoleId: roleInfo[0].id
+          })
+        }
+      })
+      .catch(err => console.log(err));
   }
 
   handleInputChange(event) {
@@ -41,7 +57,7 @@ class UserSearchForm extends Component {
       // onMarketingList: this.state.onMarketingList ? 1 : ""
     };
 
-    let queryString = (role === "student") ? "?roleId=2&": "?";
+    let queryString = (role === "student") ? `?roleId=${this.state.studentRoleId}&`: "?";
     for (let param in query) {
       if (query[param]) queryString += `${param}=${query[param]}&`;
     }
@@ -68,6 +84,11 @@ class UserSearchForm extends Component {
   };
 
   render () {
+    let role = this.props.role;
+    let isActiveLabel = role === "student" 
+      ? "Only search active students" 
+      : "Only search active users";
+
     return (
       <>
         <Form>
@@ -104,9 +125,7 @@ class UserSearchForm extends Component {
               type="checkbox"
               value={this.state.isActive}
               onChange={this.handleInputChange}
-              label={this.props.role === "student" 
-                ? "Only search active students" 
-                : "Only search active users"} 
+              label={isActiveLabel} 
               checked={this.state.isActive}/>
           </Form.Group>
           {/* <Form.Group controlId="formSearchMarketingCheckbox">
@@ -118,7 +137,7 @@ class UserSearchForm extends Component {
           </Form.Group> */}
           <Form.Group>
             <Button
-              onClick={(event) => {this.handleSearchFormSubmit(event, this.props.role)}}>
+              onClick={(event) => {this.handleSearchFormSubmit(event, role)}}>
               Submit
             </Button>
             <Button
