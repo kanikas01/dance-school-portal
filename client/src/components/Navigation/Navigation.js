@@ -7,7 +7,7 @@ import Marketing from '../Tabs/Marketing';
 import Orders from '../Tabs/Orders';
 import Roles from '../Tabs/Roles';
 import Students from '../Tabs/Students';
-import Subscriptions from '../Tabs/Subscriptions';
+import Products from '../Tabs/Products';
 import Users from '../Tabs/Users';
 import "./Navigation.css";
 
@@ -47,8 +47,8 @@ class Navigation extends Component {
           <Tab eventKey="orders" title="Orders">
             <Orders />
           </Tab>
-          <Tab eventKey="subscriptions" title="Subscriptions">
-            <Subscriptions />
+          <Tab eventKey="subscriptions" title="Products">
+            <Products />
           </Tab>
         </Tabs>;
     } 
