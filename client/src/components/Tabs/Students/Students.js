@@ -1,5 +1,6 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import userAPI from "../../../utils/userAPI";
@@ -66,6 +67,13 @@ class Students extends Component {
                     data={this.state.studentContacts}>
                     Download student contact list
                   </CSVLink>
+                  <hr/>
+                  <ListGroup>
+                    {this.state.students.map(student => (   
+                      <ListGroup.Item key={student.id}>{student.firstName} {student.lastName} {student.email}
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
                 </Tab.Pane>
               </Tab.Content>
             </Col>
