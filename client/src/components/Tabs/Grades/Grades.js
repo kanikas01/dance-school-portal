@@ -1,8 +1,7 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
 import gradeAPI from "../../../utils/gradeAPI";
 
 class Grades extends Component {
@@ -10,33 +9,14 @@ class Grades extends Component {
     super(props);
     this.state = {
       grades: [],
-      devNull: "",
-      hideSearchForm: false,
-      hideAddForm: true
+      devNull: ""
     };
-
-    this.showSearchForm = this.showSearchForm.bind(this);
-    this.showAddForm = this.showAddForm.bind(this);
   }
 
   componentDidMount() {
     // gradeAPI.getGrades()
     //   .then(res => this.setState ({ grades: res.data }) )
     //   .catch(err => console.log(err));
-  }
-
-  showAddForm() {
-    this.setState({
-      hideAddForm: false,
-      hideSearchForm: true
-    });
-  }
-
-  showSearchForm() {
-    this.setState({
-      hideAddForm: true,
-      hideSearchForm: false
-    });
   }
 
   handleDelete = (event, index) => {
@@ -50,24 +30,32 @@ class Grades extends Component {
   };
 
   render () {
-    const addFormStyle = this.state.hideAddForm ? {display: 'none'} : {};
-    const searchFormStyle = this.state.hideSearchForm ? {display: 'none'} : {};
-
     return (
       <Container>
-        <Nav variant="pills" defaultActiveKey="search-grades">
-          <Nav.Item>
-            <Nav.Link
-              eventKey="search-grades"
-              onClick={this.showSearchForm}>All Grades</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link
-              eventKey="add-grade"
-              onClick={this.showAddForm}>Add Grade</Nav.Link>
-          </Nav.Item>
-        </Nav>
-        
+        <Tab.Container id="grades-tab-nav" defaultActiveKey="search-grades">
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="search-grades">Search Grades</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="add-grade">Add Grade</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="search-grades">
+                  <h1>Search Grades</h1>
+                </Tab.Pane>
+                <Tab.Pane eventKey="add-grade">
+                  <h1>Add Grades</h1>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
       </Container>
     );
   }

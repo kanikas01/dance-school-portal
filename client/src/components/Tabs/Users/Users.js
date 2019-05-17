@@ -23,12 +23,12 @@ class Users extends Component {
   render () {
     return (
       <Container>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="search-user">
+        <Tab.Container id="users-tab-nav" defaultActiveKey="search-users">
           <Row>
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                  <Nav.Link eventKey="search-user">Search Users</Nav.Link>
+                  <Nav.Link eventKey="search-users">Search Users</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="add-user">Add User</Nav.Link>
@@ -37,7 +37,7 @@ class Users extends Component {
             </Col>
             <Col sm={9}>
               <Tab.Content>
-                <Tab.Pane eventKey="search-user">
+                <Tab.Pane eventKey="search-users">
                   <UserSearchForm />
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-user">

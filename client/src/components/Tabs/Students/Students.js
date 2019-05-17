@@ -35,7 +35,7 @@ class Students extends Component {
   render () {
     return (
       <Container>
-        <Tab.Container id="left-tabs-example" defaultActiveKey="search-students">
+        <Tab.Container id="students-tab-nav" defaultActiveKey="search-students">
           <Row>
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
@@ -43,7 +43,7 @@ class Students extends Component {
                   <Nav.Link eventKey="search-students">Search Students</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="add-students">Add Student</Nav.Link>
+                  <Nav.Link eventKey="add-student">Add Student</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="student-contacts">Student Contacts</Nav.Link>
@@ -55,7 +55,7 @@ class Students extends Component {
                 <Tab.Pane eventKey="search-students">
                   <UserSearchForm />
                 </Tab.Pane>
-                <Tab.Pane eventKey="add-students">
+                <Tab.Pane eventKey="add-student">
                   <UserAddUpdateForm />
                 </Tab.Pane>
                 <Tab.Pane eventKey="student-contacts">
