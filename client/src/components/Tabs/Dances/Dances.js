@@ -3,41 +3,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Nav from 'react-bootstrap/Nav'
+import Tab from 'react-bootstrap/Tab'
 import danceAPI from "../../../utils/danceAPI";
 
 class Dances extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      dances: [],
-      devNull: "",
-      hideSearchForm: false,
-      hideAddForm: true
+      dances: []
     };
-
-    this.showSearchForm = this.showSearchForm.bind(this);
-    this.showAddForm = this.showAddForm.bind(this);
   }
 
   componentDidMount() {
     danceAPI.getDances()
       .then(res => this.setState ({ dances: res.data }) )
       .catch(err => console.log(err));
-  }
-
-  showAddForm() {
-    this.setState({
-      hideAddForm: false,
-      hideSearchForm: true
-    });
-  }
-
-  showSearchForm() {
-    this.setState({
-      hideAddForm: true,
-      hideSearchForm: false
-    });
   }
 
   handleDelete = (event, index) => {
@@ -51,53 +31,41 @@ class Dances extends Component {
   };
 
   render () {
-    const addFormStyle = this.state.hideAddForm ? {display: 'none'} : {};
-    const searchFormStyle = this.state.hideSearchForm ? {display: 'none'} : {};
-
-    const dances = [...this.state.dances]
     return (
       <Container>
-        <Nav variant="pills" defaultActiveKey="search-dances">
-          <Nav.Item>
-            <Nav.Link
-              eventKey="search-dances"
-              onClick={this.showSearchForm}>All Dances</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link
-              eventKey="add-dance"
-              onClick={this.showAddForm}>Add Dance</Nav.Link>
-          </Nav.Item>
-        </Nav>
-
-        <div style={searchFormStyle}>
-          <h3>All Dances</h3>
-          <ListGroup>
-            {dances.map((dance, index) => (   
-              <ListGroup.Item key={dance.id}>{dance.name} ({dance.quarter})
-                <Button>View/Update</Button>
-              </ListGroup.Item>
-            ))}
-          </ListGroup>
-        </div>
-
-        <div style={addFormStyle}>
-          <h3>Add Dance</h3>
-          {/* <UserAddUpdateForm /> */}
-        </div>
-
+        <Tab.Container id="dances-tab-nav" defaultActiveKey="view-dances">
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="view-dances">View Dances</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="add-dance">Add Dance</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="view-dances">
+                  <ListGroup>
+                    {this.state.dances.map((dance, index) => (   
+                      <ListGroup.Item key={dance.id}>{dance.name} ({dance.quarter})
+                        <Button>View/Update</Button>
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Tab.Pane>
+                <Tab.Pane eventKey="add-dance">
+                  <h1>Add Dance</h1>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
       </Container>
     );
   }
 }
 
 export default Dances;
-
-// sort((a, b) => {
-//   let nameA = a.name.toLowerCase(), nameB=b.name.toLowerCase();
-//   if (nameA < nameB) //sort string ascending
-//       return -1;
-//   if (nameA > nameB)
-//       return 1;
-//   return 0;
-// })
