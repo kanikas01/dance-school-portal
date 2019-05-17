@@ -1,6 +1,8 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
 import userAPI from "../../../utils/userAPI";
 import { CSVLink, CSVDownload } from "react-csv";
 
@@ -29,20 +31,37 @@ class Marketing extends Component {
   render () {
     return (
       <Container>
-        <CSVLink
-          filename={"dance-school-marketing-list.csv"}
-          className="btn btn-primary"
-          target="_blank"
-          data={this.state.marketingList}>
-          Download marketing email list
-        </CSVLink>
-        <hr/>
-        <ListGroup>
-          {this.state.users.map((user, index) => (   
-            <ListGroup.Item key={user.id}>{user.firstName} {user.lastName} {user.email}
-            </ListGroup.Item>
-          ))}
-        </ListGroup>
+        <Tab.Container id="marketing-tab-nav" defaultActiveKey="view-marketing">
+          <Row>
+            <Col sm={3}>
+              <Nav variant="pills" className="flex-column">
+                <Nav.Item>
+                  <Nav.Link eventKey="view-marketing">Marketing Emails</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </Col>
+            <Col sm={9}>
+              <Tab.Content>
+                <Tab.Pane eventKey="view-marketing">
+                  <CSVLink
+                    filename={"dance-school-marketing-list.csv"}
+                    className="btn btn-primary"
+                    target="_blank"
+                    data={this.state.marketingList}>
+                    Download marketing email list
+                  </CSVLink>
+                  <hr/>
+                  <ListGroup>
+                    {this.state.users.map(user => (   
+                      <ListGroup.Item key={user.id}>{user.firstName} {user.lastName} {user.email}
+                      </ListGroup.Item>
+                    ))}
+                  </ListGroup>
+                </Tab.Pane>
+              </Tab.Content>
+            </Col>
+          </Row>
+        </Tab.Container>
       </Container>
     );
   }
