@@ -4,7 +4,7 @@ import Accounting from '../Tabs/Accounting';
 import Dances from '../Tabs/Dances';
 import Grades from '../Tabs/Grades';
 import Marketing from '../Tabs/Marketing';
-import Purchases from '../Tabs/Purchases';
+import Orders from '../Tabs/Orders';
 import Roles from '../Tabs/Roles';
 import Students from '../Tabs/Students';
 import Subscriptions from '../Tabs/Subscriptions';
@@ -44,8 +44,8 @@ class Navigation extends Component {
           <Tab eventKey="accounting" title="Accounting">
             <Accounting />
           </Tab>
-          <Tab eventKey="purchases" title="Purchases">
-            <Purchases />
+          <Tab eventKey="orders" title="Orders">
+            <Orders />
           </Tab>
           <Tab eventKey="subscriptions" title="Subscriptions">
             <Subscriptions />
