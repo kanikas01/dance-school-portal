@@ -1,7 +1,7 @@
 import React, { Component,  } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
-import ListGroup from 'react-bootstrap/ListGroup'
+import Table from 'react-bootstrap/Table'
 import Nav from 'react-bootstrap/Nav'
 import Tab from 'react-bootstrap/Tab'
 import danceAPI from "../../../utils/danceAPI";
@@ -49,13 +49,24 @@ class Dances extends Component {
               <Tab.Content>
                 <Tab.Pane eventKey="view-dances">
                   <h3>View Dances</h3>
-                  <ListGroup>
-                    {this.state.dances.map((dance, index) => (   
-                      <ListGroup.Item key={dance.id}>{dance.name} ({dance.quarter})
-                        <Button>View/Update</Button>
-                      </ListGroup.Item>
-                    ))}
-                  </ListGroup>
+                  <Table bordered hover>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quarter</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.dances.map((dance, index) => (   
+                        <tr key={dance.id}>
+                          <td>{dance.name}</td>
+                          <td>{dance.quarter}</td>
+                          <td><Button>View</Button></td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </Table>
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-dance">
                   <h3>Add Dance</h3>
