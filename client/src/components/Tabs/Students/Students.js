@@ -54,14 +54,14 @@ class Students extends Component {
             <Col sm={9}>
               <Tab.Content>
                 <Tab.Pane eventKey="search-students">
-                  <UserSearchForm />
+                  <UserSearchForm role="student"/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-student">
                   <UserAddUpdateForm />
                 </Tab.Pane>
                 <Tab.Pane eventKey="student-contacts">
                   <CSVLink
-                    filename={"student-contact-list.csv"}
+                    filename="student-contact-list.csv"
                     className="btn btn-primary"
                     target="_blank"
                     data={this.state.studentContacts}>

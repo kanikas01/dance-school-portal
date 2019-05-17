@@ -14,9 +14,7 @@ class UserSearchForm extends Component {
       firstName: "",
       lastName: "",
       email: "",
-      isActive: 1,
-      // onMarketingList: 0,
-      devNull: ""
+      isActive: 1
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,7 +30,7 @@ class UserSearchForm extends Component {
     });
   }
 
-  handleSearchFormSubmit = event => {
+  handleSearchFormSubmit = (event, role) => {
     event.preventDefault();
     const query = {
       firstName: this.state.firstName ? this.state.firstName : "",
@@ -43,7 +41,7 @@ class UserSearchForm extends Component {
       // onMarketingList: this.state.onMarketingList ? 1 : ""
     };
 
-    let queryString = "?";
+    let queryString = (role === "student") ? "?roleId=2&": "?";
     for (let param in query) {
       if (query[param]) queryString += `${param}=${query[param]}&`;
     }
@@ -56,16 +54,6 @@ class UserSearchForm extends Component {
 
     userAPI.searchUsers(queryString)
       .then(res => this.setState ({ users: res.data }) )
-      .catch(err => console.log(err));
-  };
-
-  handleDelete = (event, index) => {
-    event.preventDefault();
-    let user = this.state.users[index];
-    userAPI.deleteUser(user.id)
-      .then(res => {
-        this.setState ({ devNull: this.state.users.splice(index, 1) });
-      })
       .catch(err => console.log(err));
   };
 
@@ -116,7 +104,9 @@ class UserSearchForm extends Component {
               type="checkbox"
               value={this.state.isActive}
               onChange={this.handleInputChange}
-              label="Only search active users" 
+              label={this.props.role === "student" 
+                ? "Only search active students" 
+                : "Only search active users"} 
               checked={this.state.isActive}/>
           </Form.Group>
           {/* <Form.Group controlId="formSearchMarketingCheckbox">
@@ -128,7 +118,7 @@ class UserSearchForm extends Component {
           </Form.Group> */}
           <Form.Group>
             <Button
-              onClick={this.handleSearchFormSubmit}>
+              onClick={(event) => {this.handleSearchFormSubmit(event, this.props.role)}}>
               Submit
             </Button>
             <Button
