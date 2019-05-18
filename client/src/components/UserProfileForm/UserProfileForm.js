@@ -1,10 +1,10 @@
 import React, { Component,  } from "react";
-import userAPI from "../../../utils/userAPI";
+import userAPI from "../../utils/userAPI";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
 
-class UserProfile extends Component {
+class UserProfileForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -137,6 +137,4 @@ class UserProfile extends Component {
   }
 }
 
-
-
-export default UserProfile;
+export default UserProfileForm;
