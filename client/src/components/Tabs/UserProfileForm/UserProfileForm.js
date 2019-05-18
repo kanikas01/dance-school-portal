@@ -1,6 +1,5 @@
 import React, { Component,  } from "react";
 import userAPI from "../../../utils/userAPI";
-import UserAddUpdateForm from '../../UserAddUpdateForm';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';

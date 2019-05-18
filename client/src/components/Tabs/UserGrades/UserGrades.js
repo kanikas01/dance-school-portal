@@ -1,4 +1,5 @@
 import React, { Component,  } from "react";
+import UserProfileForm from '../UserProfileForm';
 
 class UserGrades extends Component {
   constructor(props) {
@@ -8,7 +9,10 @@ class UserGrades extends Component {
 
   render() {
     return (
-      <h3>User Grades</h3>
+      <>
+        <h3>User Grades</h3>
+        <UserProfileForm userId={this.props.userId}/>
+      </>
     );
   }
 }

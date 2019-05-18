@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import UserSearchForm from '../../UserSearchForm';
-import UserAddUpdateForm from '../../UserAddUpdateForm';
+import UserAddForm from '../../UserAddForm';
 import userAPI from "../../../utils/userAPI";
 
 
@@ -43,7 +43,7 @@ class Users extends Component {
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-user">
                   <h3>Add User</h3>
-                  <UserAddUpdateForm />
+                  <UserAddForm />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

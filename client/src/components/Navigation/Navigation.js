@@ -8,7 +8,8 @@ import Orders from '../Tabs/Orders';
 import Roles from '../Tabs/Roles';
 import Students from '../Tabs/Students';
 import Products from '../Tabs/Products';
-import UserProfile from '../Tabs/UserProfile';
+import UserGrades from '../Tabs/UserGrades';
+import UserProfileForm from '../Tabs/UserProfileForm';
 import Users from '../Tabs/Users';
 import "./Navigation.css";
 
@@ -85,10 +86,11 @@ class Navigation extends Component {
           id="student-tabs"
           unmountOnExit={true}>
           <Tab eventKey="user-profile" title="My Profile">
-            <UserProfile userId={this.props.userId} />
+            <h3>My Profile</h3>
+            <UserProfileForm userId={this.props.userId} />
           </Tab>
-          <Tab eventKey="grades" title="My Grades">
-            <Grades userId={this.props.userId} />
+          <Tab eventKey="user-grades" title="My Grades">
+            <UserGrades userId={this.props.userId} />
           </Tab>
         </Tabs>;
     }

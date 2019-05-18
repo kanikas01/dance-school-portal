@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/Table';
 import userAPI from "../../../utils/userAPI";
 import { CSVLink, CSVDownload } from "react-csv";
 import UserSearchForm from '../../UserSearchForm';
-import UserAddUpdateForm from '../../UserAddUpdateForm';
+import UserAddForm from '../../UserAddForm';
 
 class Students extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class Students extends Component {
                 </Tab.Pane>
                 <Tab.Pane eventKey="add-student">
                 <h3>Add Student</h3>
-                  <UserAddUpdateForm role="student"/>
+                  <UserAddForm role="student"/>
                 </Tab.Pane>
                 <Tab.Pane eventKey="student-contacts">
                   <h3>Student Contact Info</h3>
