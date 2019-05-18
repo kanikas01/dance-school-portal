@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import UserProfileForm from '../UserProfileForm';
+import UserProfileForm from '../../UserProfileForm';
 
 class UserGrades extends Component {
   constructor(props) {
