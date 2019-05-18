@@ -8,6 +8,7 @@ import Orders from '../Tabs/Orders';
 import Roles from '../Tabs/Roles';
 import Students from '../Tabs/Students';
 import Products from '../Tabs/Products';
+import UserProfile from '../Tabs/UserProfile';
 import Users from '../Tabs/Users';
 import "./Navigation.css";
 
@@ -80,14 +81,14 @@ class Navigation extends Component {
       navigation = 
         <Tabs 
           fill 
-          defaultActiveKey="profile" 
+          defaultActiveKey="user-profile" 
           id="student-tabs"
           unmountOnExit={true}>
-          <Tab eventKey="profile" title="My Profile">
-            <Students />
+          <Tab eventKey="user-profile" title="My Profile">
+            <UserProfile userId={this.props.userId} />
           </Tab>
           <Tab eventKey="grades" title="My Grades">
-            <Grades />
+            <Grades userId={this.props.userId} />
           </Tab>
         </Tabs>;
     }

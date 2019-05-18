@@ -56,7 +56,6 @@ class Welcome extends Component {
                 {this.state.users.map(user => ( 
                   <option 
                     key={user.id}
-                    userRole={user.Role.id}
                     value={user.id}>{user.firstName} {user.lastName} ({user.Role.name.toUpperCase()})</option>
                 ))}
               </Form.Control>
