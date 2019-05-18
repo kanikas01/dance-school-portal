@@ -9,7 +9,7 @@ import Roles from '../Tabs/Roles';
 import Students from '../Tabs/Students';
 import Products from '../Tabs/Products';
 import UserGrades from '../Tabs/UserGrades';
-import UserProfileForm from '../Tabs/UserProfileForm';
+import UserProfile from '../Tabs/UserProfile';
 import Users from '../Tabs/Users';
 import "./Navigation.css";
 
@@ -86,8 +86,7 @@ class Navigation extends Component {
           id="student-tabs"
           unmountOnExit={true}>
           <Tab eventKey="user-profile" title="My Profile">
-            <h3>My Profile</h3>
-            <UserProfileForm userId={this.props.userId} />
+            <UserProfile userId={this.props.userId} />
           </Tab>
           <Tab eventKey="user-grades" title="My Grades">
             <UserGrades userId={this.props.userId} />

@@ -1,4 +1,4 @@
-import React, { Component,  } from "react";
+import React, { Component } from "react";
 import UserProfileForm from '../UserProfileForm';
 
 class UserGrades extends Component {
@@ -7,16 +7,13 @@ class UserGrades extends Component {
     this.state = {};
   }
 
-  render() {
+  render () {
     return (
       <>
-        <h3>User Grades</h3>
-        <UserProfileForm userId={this.props.userId}/>
+        <h3>My Grades</h3>
       </>
     );
   }
 }
-
-
 
 export default UserGrades;
