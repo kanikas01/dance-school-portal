@@ -3,8 +3,18 @@ import Navigation from "../../components/Navigation";
 
 class Portal extends Component {
   render () {
+    let userRole = this.props.userRole;
+    let userId = this.props.userId;
+    let userFirstName = this.props.userFirstName;
+
     return (
-        <Navigation role={this.props.role}/>
+      <>
+        {userFirstName && <h4>Welcome {userFirstName}</h4> }
+        <Navigation 
+          role={userRole}
+          userId={userId}
+          userName={userFirstName}/>
+      </>
     );
   }
 }
