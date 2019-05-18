@@ -76,6 +76,22 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  update: function(req, res) {
+    db.User
+      .update(
+        { 
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
+          email: req.body.email,
+          password: req.body.password,
+          isActive: req.body.isActive,
+          onMarketingList: req.body.onMarketingList,
+        },
+        { returning: true, where: {id: req.params.id} })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
   delete: function(req, res) {
     db.User
       .destroy({
