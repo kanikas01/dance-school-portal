@@ -2,11 +2,10 @@ import React, { Component,  } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import ListGroup from 'react-bootstrap/ListGroup';
 import userAPI from "../../utils/userAPI";
 import roleAPI from "../../utils/roleAPI";
 
-class UserAddUpdateForm extends Component {
+class UserAddForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -185,12 +184,6 @@ class UserAddUpdateForm extends Component {
             </Button>
           </Form.Group>
         </Form>
-
-        {/* <ListGroup>
-          {this.state.users.map(user => ( 
-            <ListGroup.Item key={user.id}>{user.id} {user.firstName} {user.lastName} {user.Role.name}</ListGroup.Item>
-          ))}
-        </ListGroup> */}
       </>
     );
   }
@@ -198,4 +191,4 @@ class UserAddUpdateForm extends Component {
 }
 
 
-export default UserAddUpdateForm;
+export default UserAddForm;
