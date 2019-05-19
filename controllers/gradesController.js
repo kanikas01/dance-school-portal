@@ -3,6 +3,21 @@ const axios = require("axios");
 
 // Defining methods for the gradesController
 module.exports = {
+  findAllForUser: function(req, res) {
+    db.Grade
+      .findAll({
+        where: {
+          UserId: req.params.id
+        },
+        include: [{
+          model: db.Dance,
+          where: { id: db.Sequelize.col('Grade.DanceId') }
+        }]
+      })
+      // .sort({ date: -1 })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   findAll: function(req, res) {
     db.Grade
       .find(req.query)

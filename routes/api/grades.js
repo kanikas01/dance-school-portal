@@ -8,6 +8,7 @@ router.route("/")
 
 // Matches with "/api/grades/:id"
 router.route("/:id")
+  .get(gradesController.findAllForUser)
   .delete(gradesController.delete);
 
 module.exports = router;

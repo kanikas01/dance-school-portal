@@ -49,11 +49,6 @@ class Roles extends Component {
                       ))}
                     </tbody>
                   </Table>
-                  {/* <ListGroup>
-                    {this.state.roles.map((role, index) => (    
-                      <ListGroup.Item key={role.id}>{role.name}</ListGroup.Item>
-                    ))}
-                  </ListGroup> */}
                 </Tab.Pane>
               </Tab.Content>
             </Col>

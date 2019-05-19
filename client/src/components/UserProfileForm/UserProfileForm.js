@@ -2,7 +2,6 @@ import React, { Component,  } from "react";
 import userAPI from "../../utils/userAPI";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Table from 'react-bootstrap/Table';
 
 class UserProfileForm extends Component {
   constructor(props) {
@@ -24,7 +23,6 @@ class UserProfileForm extends Component {
 
   componentDidMount() {
     userAPI.getUser(this.state.userId)
-      // .then(res => console.log(res.data))
       .then(res => this.setState ({ 
         firstName: res.data.firstName,
         lastName: res.data.lastName,
@@ -50,9 +48,8 @@ class UserProfileForm extends Component {
     }
   }
 
-  handleFormSubmit = (event, index) => {
+  handleFormSubmit = event => {
     event.preventDefault();
-    // let user = this.state.users[index];
     userAPI.updateUser(this.state.userId, {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -64,12 +61,10 @@ class UserProfileForm extends Component {
     })
       .then(res => alert("User saved!"))
       .catch(err => console.log(err));
-
-    // this.handleClearResults();
   };
   
   render () {
-    console.log(this.state.firstName);
+
     return (
       <div>
         <Form>

@@ -5,6 +5,10 @@ export default {
   getGrades: function() {
     return axios.get("/api/grades");
   },
+  // Gets all grades for a specific user
+  getGradesForUser: function(id) {
+    return axios.get("/api/grades/" + id);
+  },
   // Saves a role to the database
   saveGrade: function(gradeData) {
     return axios.post("/api/grades", gradeData);
