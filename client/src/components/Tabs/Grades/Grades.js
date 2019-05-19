@@ -32,13 +32,10 @@ class Grades extends Component {
   render () {
     return (
       <Container>
-        <Tab.Container id="grades-tab-nav" defaultActiveKey="search-grades">
+        <Tab.Container id="grades-tab-nav" defaultActiveKey="add-grade">
           <Row>
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
-                <Nav.Item>
-                  <Nav.Link eventKey="search-grades">Search Grades</Nav.Link>
-                </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="add-grade">Add Grade</Nav.Link>
                 </Nav.Item>
@@ -46,9 +43,6 @@ class Grades extends Component {
             </Col>
             <Col sm={9}>
               <Tab.Content>
-                <Tab.Pane eventKey="search-grades">
-                  <h3>Search Grades</h3>
-                </Tab.Pane>
                 <Tab.Pane eventKey="add-grade">
                   <h3>Add Grade</h3>
                 </Tab.Pane>

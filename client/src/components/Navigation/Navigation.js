@@ -54,6 +54,9 @@ class Navigation extends Component {
           <Tab eventKey="subscriptions" title="Products">
             <Products />
           </Tab>
+          <Tab eventKey="user-profile" title="My Profile">
+            <UserProfile userId={this.props.userId} />
+          </Tab>
         </Tabs>;
     } 
     
@@ -74,6 +77,9 @@ class Navigation extends Component {
           <Tab eventKey="dances" title="Dances">
             <Dances />
           </Tab>
+          <Tab eventKey="user-profile" title="My Profile">
+            <UserProfile userId={this.props.userId} />
+          </Tab>
         </Tabs>;
     } 
 
@@ -88,9 +94,6 @@ class Navigation extends Component {
           <Tab eventKey="user-profile" title="My Profile">
             <UserProfile userId={this.props.userId} />
           </Tab>
-          <Tab eventKey="user-grades" title="My Grades">
-            <UserGrades userId={this.props.userId} />
-          </Tab>
         </Tabs>;
     }
 
@@ -104,6 +107,9 @@ class Navigation extends Component {
           unmountOnExit={true}>
           <Tab eventKey="marketing" title="Marketing">
             <Marketing />
+          </Tab>
+          <Tab eventKey="user-profile" title="My Profile">
+            <UserProfile userId={this.props.userId} />
           </Tab>
         </Tabs>;
     }
@@ -127,6 +133,9 @@ class Navigation extends Component {
           </Tab>
           <Tab eventKey="subscriptions" title="Products">
             <Products />
+          </Tab>
+          <Tab eventKey="user-profile" title="My Profile">
+            <UserProfile userId={this.props.userId} />
           </Tab>
         </Tabs>;
     }

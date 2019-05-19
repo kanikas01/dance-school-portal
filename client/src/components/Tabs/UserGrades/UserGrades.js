@@ -30,7 +30,7 @@ class UserGrades extends Component {
               <th>Level</th>
               <th>Score</th>
               <th>Question Type</th>
-              <th>Action</th>
+              <th>Detail</th>
             </tr>
           </thead>
           <tbody>
