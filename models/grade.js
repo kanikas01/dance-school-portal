@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        isEmail: {
+        notEmpty: {
           msg: "Please enter type."
         }
       }

@@ -19,7 +19,7 @@ class UserProfile extends Component {
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                  <Nav.Link eventKey="user-profile">My Profile</Nav.Link>
+                  <Nav.Link eventKey="user-profile">My Info</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="user-grades">My Grades</Nav.Link>

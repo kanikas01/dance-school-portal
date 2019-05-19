@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import gradeAPI from "../../../utils/gradeAPI";
+import GradeAddForm from "../../GradeAddForm";
 
 class Grades extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class Grades extends Component {
               <Tab.Content>
                 <Tab.Pane eventKey="add-grade">
                   <h3>Add Grade</h3>
+                  <GradeAddForm />
                 </Tab.Pane>
               </Tab.Content>
             </Col>

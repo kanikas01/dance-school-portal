@@ -187,8 +187,6 @@ class UserAddForm extends Component {
       </>
     );
   }
-
 }
-
 
 export default UserAddForm;
