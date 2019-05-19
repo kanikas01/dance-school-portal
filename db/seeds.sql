@@ -45,4 +45,24 @@ INSERT INTO Dances (name, quarter, createdAt, UpdatedAt)
 					(3, 3, '10/30/2016', 3.4, 'bronze', 'theory', "Leader's amount of turn, Figure 2", 'Nice footwork, keep chest up', NOW(), NOW()),
 					(3, 4, '10/30/2016', 3.4, 'bronze', 'theory', "Follower's footwork, Figure 5", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
 					(3, 3, '10/30/2016', 3.25, 'bronze', 'amalgamation', "Lead", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
-					(3, 4, '10/30/2016', 3.3, 'bronze', 'amalgamation', "Follow", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW());
+					(3, 4, '10/30/2016', 3.3, 'bronze', 'amalgamation', "Follow", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+
+					(4, 5, '7/30/2016', 3.5, 'bronze', 'theory', "Leader's amount of turn, Figure 2", 'Nice footwork, keep chest up', NOW(), NOW()),
+					(4, 6, '7/30/2016', 3.6, 'bronze', 'theory', "Follower's footwork, Figure 5", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(4, 5, '7/30/2016', 3.25, 'bronze', 'amalgamation', "Lead", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(4, 6, '7/30/2016', 3.25, 'bronze', 'amalgamation', "Follow", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					
+					(4, 7, '8/30/2016', 3.4, 'bronze', 'theory', "Leader's amount of turn, Figure 2", 'Nice footwork, keep chest up', NOW(), NOW()),
+					(4, 8, '8/30/2016', 3.5, 'bronze', 'theory', "Follower's footwork, Figure 5", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(4, 7, '8/30/2016', 3.3, 'bronze', 'amalgamation', "Lead", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(4, 8, '8/30/2016', 3.3, 'bronze', 'amalgamation', "Follow", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					
+					(5, 9, '5/30/2016', 3.0, 'bronze', 'theory', "Leader's amount of turn, Figure 2", 'Nice footwork, keep chest up', NOW(), NOW()),
+					(5, 10, '5/30/2016', 3.0, 'bronze', 'theory', "Follower's footwork, Figure 5", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(5, 9, '5/30/2016', 3.2, 'bronze', 'amalgamation', "Lead", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(5, 10, '5/30/2016', 3.2, 'bronze', 'amalgamation', "Follow", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					
+					(5, 11, '6/30/2016', 3.25, 'bronze', 'theory', "Leader's amount of turn, Figure 2", 'Nice footwork, keep chest up', NOW(), NOW()),
+					(5, 12, '6/30/2016', 3.3, 'bronze', 'theory', "Follower's footwork, Figure 5", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(5, 11, '6/30/2016', 3.4, 'bronze', 'amalgamation', "Lead", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW()),
+					(5, 12, '6/30/2016', 3.3, 'bronze', 'amalgamation', "Follow", 'Words matched movement nicely, watch amounts of turn', NOW(), NOW());
