@@ -7,13 +7,17 @@ class UserGrades extends Component {
     super(props);
     this.state = {
       grades: [],
-      userId: props.userId
+      userId: props.userId,
+      noGradesMessage: ""
     };
   }
 
   componentDidMount() {
     gradeAPI.getGradesForUser(this.state.userId)
-    .then(res => this.setState ({ grades: res.data }) )
+    .then(res => this.setState ({ 
+      grades: res.data,
+      noGradesMessage: res.data.length === 0 ? "No Grades Found" : ""
+    }) )
     .catch(err => console.log(err));
   }
 
@@ -50,7 +54,7 @@ class UserGrades extends Component {
         </>
         ) : (
           <>
-            <h3>No Grades Found</h3>
+            <h3>{this.state.noGradesMessage}</h3>
           </>
         )}
       </>
