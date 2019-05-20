@@ -40,9 +40,9 @@ class Dances extends Component {
                 <Nav.Item>
                   <Nav.Link eventKey="view-dances">View Dances</Nav.Link>
                 </Nav.Item>
-                <Nav.Item>
+                {/* <Nav.Item>
                   <Nav.Link eventKey="add-dance">Add Dance</Nav.Link>
-                </Nav.Item>
+                </Nav.Item> */}
               </Nav>
             </Col>
             <Col sm={9}>
@@ -55,7 +55,7 @@ class Dances extends Component {
                         <th>#</th>
                         <th>Name</th>
                         <th>Quarter</th>
-                        <th>Action</th>
+                        {/* <th>Action</th> */}
                       </tr>
                     </thead>
                     <tbody>
@@ -64,15 +64,15 @@ class Dances extends Component {
                           <td>{dance.id}</td>
                           <td>{dance.name}</td>
                           <td>{dance.quarter}</td>
-                          <td><Button>View</Button></td>
+                          {/* <td><Button>View</Button></td> */}
                         </tr>
                       ))}
                     </tbody>
                   </Table>
                 </Tab.Pane>
-                <Tab.Pane eventKey="add-dance">
+                {/* <Tab.Pane eventKey="add-dance">
                   <h3>Add Dance</h3>
-                </Tab.Pane>
+                </Tab.Pane> */}
               </Tab.Content>
             </Col>
           </Row>
