@@ -1,4 +1,4 @@
-import React, { Component,  } from "react";
+import React, { Component, } from "react";
 import userAPI from "../../utils/userAPI";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -23,7 +23,7 @@ class UserProfileForm extends Component {
 
   componentDidMount() {
     userAPI.getUser(this.state.userId)
-      .then(res => this.setState ({ 
+      .then(res => this.setState({
         firstName: res.data.firstName,
         lastName: res.data.lastName,
         email: res.data.email,
@@ -32,7 +32,7 @@ class UserProfileForm extends Component {
         onMarketingList: res.data.onMarketingList,
         roleName: res.data.Role.name,
         roleId: res.data.Role.id,
-       }) )
+      }))
       .catch(err => console.log(err));
   }
 
@@ -62,11 +62,11 @@ class UserProfileForm extends Component {
       .then(res => alert("User saved!"))
       .catch(err => console.log(err));
   };
-  
-  render () {
 
+  render() {
     return (
       <div>
+        <h3>User Info</h3>
         <Form>
           <Form.Group controlId="formGroupAddFirstName">
             <Form.Label>First name</Form.Label>
@@ -105,19 +105,19 @@ class UserProfileForm extends Component {
               placeholder="" />
           </Form.Group>
           <Form.Group controlId="formGroupAddIsActiveCheckbox">
-            <Form.Check 
+            <Form.Check
               name="isActive"
               type="checkbox"
               onChange={this.handleInputChange}
-              label="Is Active" 
+              label="Is Active"
               checked={this.state.isActive} />
           </Form.Group>
           <Form.Group controlId="formGroupAddMarketingCheckbox">
-            <Form.Check 
+            <Form.Check
               name="onMarketingList"
               type="checkbox"
               onChange={this.handleInputChange}
-              label="On Marketing List" 
+              label="On Marketing List"
               checked={this.state.onMarketingList} />
           </Form.Group>
           <Form.Group>
@@ -128,7 +128,7 @@ class UserProfileForm extends Component {
           </Form.Group>
         </Form>
       </div>
-      );
+    );
   }
 }
 

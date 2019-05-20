@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import gradeAPI from "../../../utils/gradeAPI";
-import Button from 'react-bootstrap/Button'
 import Table from 'react-bootstrap/Table'
 
 class UserGrades extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      grades: []
+      grades: [],
+      userId: props.userId
     };
   }
 
   componentDidMount() {
-    gradeAPI.getGradesForUser(this.props.userId)
-    // .then(res => console.log(res.data))
+    gradeAPI.getGradesForUser(this.state.userId)
     .then(res => this.setState ({ grades: res.data }) )
     .catch(err => console.log(err));
   }
@@ -21,7 +20,9 @@ class UserGrades extends Component {
   render () {
     return (
       <>
-        <h3>My Grades</h3>
+        {this.state.grades.length > 0 ? ( 
+        <>
+        <h3>Grades</h3>
         <Table bordered hover size="sm">
           <thead>
             <tr>
@@ -46,6 +47,12 @@ class UserGrades extends Component {
             ))}
           </tbody>
         </Table>
+        </>
+        ) : (
+          <>
+            <h3>No Grades Found</h3>
+          </>
+        )}
       </>
     );
   }

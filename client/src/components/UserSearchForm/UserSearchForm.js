@@ -1,10 +1,13 @@
-import React, { Component,  } from "react";
+import React, { Component, } from "react";
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import userAPI from "../../utils/userAPI";
 import roleAPI from "../../utils/roleAPI";
+import UserProfileForm from "../UserProfileForm";
+import UserGrades from "../Tabs/UserGrades";
 
 class UserSearchForm extends Component {
   constructor(props) {
@@ -16,15 +19,19 @@ class UserSearchForm extends Component {
       email: "",
       studentRoleId: "",
       isActive: 1,
-      searchResultsVisible: false
+      searchResultsVisible: false,
+      show: false,
+      userId: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   componentDidMount() {
     roleAPI.getRoles()
-      .then(res => this.setState ({ roles: res.data }) )
+      .then(res => this.setState({ roles: res.data }))
       .then(() => {
         if (this.props.role === "student") {
           let roleInfo = this.state.roles
@@ -58,29 +65,42 @@ class UserSearchForm extends Component {
       // onMarketingList: this.state.onMarketingList ? 1 : ""
     };
 
-    let queryString = (role === "student") ? `?roleId=${this.state.studentRoleId}&`: "?";
+    let queryString = (role === "student") ? `?roleId=${this.state.studentRoleId}&` : "?";
     for (let param in query) {
       if (query[param]) queryString += `${param}=${query[param]}&`;
     }
 
-    if (queryString.endsWith("&")) { 
+    if (queryString.endsWith("&")) {
       queryString = queryString.slice(0, -1);
     }
 
     console.log(queryString);
 
     userAPI.searchUsers(queryString)
-      .then(res => this.setState (
-        { 
+      .then(res => this.setState(
+        {
           users: res.data,
           searchResultsVisible: true
-        }) 
+        })
       )
       .catch(err => console.log(err));
   };
 
+  handleClose = () => {
+    this.setState({ show: false });
+  }
+
+  handleShow = (event, userId) => {
+    this.setState(
+      {
+        show: true,
+        userId: userId
+      }
+    );
+  }
+
   handleClearResults = (event, index) => {
-    this.setState ({ 
+    this.setState({
       users: [],
       firstName: "",
       lastName: "",
@@ -90,11 +110,11 @@ class UserSearchForm extends Component {
     });
   };
 
-  render () {
-    const style = this.state.searchResultsVisible ? {} : {display: 'none'};
+  render() {
+    const style = this.state.searchResultsVisible ? {} : { display: 'none' };
     let role = this.props.role;
-    let isActiveLabel = role === "student" 
-      ? "Only search active students" 
+    let isActiveLabel = role === "student"
+      ? "Only search active students"
       : "Only search active users";
 
     return (
@@ -128,13 +148,13 @@ class UserSearchForm extends Component {
               placeholder="" />
           </Form.Group>
           <Form.Group controlId="formSearchIsActiveCheckbox">
-            <Form.Check 
+            <Form.Check
               name="isActive"
               type="checkbox"
               value={this.state.isActive}
               onChange={this.handleInputChange}
-              label={isActiveLabel} 
-              checked={this.state.isActive}/>
+              label={isActiveLabel}
+              checked={this.state.isActive} />
           </Form.Group>
           {/* <Form.Group controlId="formSearchMarketingCheckbox">
             <Form.Check 
@@ -145,7 +165,7 @@ class UserSearchForm extends Component {
           </Form.Group> */}
           <Form.Group>
             <Button
-              onClick={(event) => {this.handleSearchFormSubmit(event, role)}}>
+              onClick={(event) => { this.handleSearchFormSubmit(event, role) }}>
               Submit
             </Button>
             <Button
@@ -166,22 +186,32 @@ class UserSearchForm extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.users.map(user => (   
+                {this.state.users.map(user => (
                   <tr key={user.id}>
                     <td>{user.firstName} </td>
                     <td>{user.lastName}</td>
                     <td>{user.Role.name}</td>
                     <td>
-                      <Button>View</Button>
+                      <Button onClick={event => this.handleShow(event, user.id)}>View</Button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </Table>
           ) : (
-            <h3>No Results Found</h3>
-          )}
+              <h3>No Results Found</h3>
+            )}
         </div>
+        <Modal
+          size="lg"
+          show={this.state.show}
+          onHide={this.handleClose}>
+          <Modal.Body>
+            <UserProfileForm userId={this.state.userId} />
+            <UserGrades userId={this.state.userId} />
+            <Button onClick={this.handleClose}>Close</Button>
+          </Modal.Body>
+        </Modal>
       </>
     );
   }
