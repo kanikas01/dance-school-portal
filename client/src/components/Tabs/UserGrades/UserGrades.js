@@ -14,7 +14,7 @@ class UserGrades extends Component {
 
   componentDidMount() {
     gradeAPI.getGradesForUser(this.state.userId)
-    .then(res => this.setState ({ 
+    .then(res => this.setState ({
       grades: res.data,
       noGradesMessage: res.data.length === 0 ? "No Grades Found" : ""
     }) )
