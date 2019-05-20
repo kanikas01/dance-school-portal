@@ -7,8 +7,6 @@ import NoMatch from './pages/NoMatch'
 import Portal from './pages/Portal'
 import Welcome from './pages/Welcome'
 
-
-
 class App extends Component {
   state = {
     role: "admin"
@@ -20,7 +18,6 @@ class App extends Component {
       {/* <Header /> */}
         <Container>
           <Welcome />
-          
           <Router>
             <Switch>
               <Route exact path="/" />
