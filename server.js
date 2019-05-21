@@ -6,11 +6,12 @@ const db = require("./models");
 const compression = require("compression");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const morgan = require('morgan');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const usersController = require('./controllers/usersController');
 
-
+// Passport strategy
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
@@ -31,9 +32,9 @@ passport.use(new LocalStrategy({
   }
 ));
 
-
 // Middleware
 app.use(compression());
+app.use(morgan('tiny'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(passport.initialize());
@@ -44,6 +45,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Login route
 app.post('/login',
   passport.authenticate('local', { session: false,
                                    successRedirect: '/',
