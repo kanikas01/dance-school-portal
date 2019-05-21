@@ -18,12 +18,11 @@ class App extends Component {
       <div>
       {/* <Header /> */}
         <Container>
-          <Welcome />
           <Router>
             <Switch>
-              <Route exact path="/" />
+              <Route exact path="/portal" component={Welcome}/>
               <Route exact path="/login" component={Login}/>
-              <Route exact path="/portal" component={() => (<Portal role={this.state.role} />)} />
+              {/* <Route exact path="/portal" component={() => (<Portal role={this.state.role} />)} /> */}
               <Route component={NoMatch} />
             </Switch>
           </Router>

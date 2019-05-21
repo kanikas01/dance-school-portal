@@ -35,7 +35,7 @@ class Login extends Component {
     };
     axios.post("/login", userData)
     .then(function (response) {
-      window.location = "/"
+      window.location = "/portal"
       console.log(response);
     })
     .catch(function (error) {
@@ -46,6 +46,8 @@ class Login extends Component {
 
   render() {
     return (
+      <>
+      <h3>Login</h3>
       <Form>
         <Form.Group as={Row} controlId="formPlaintextEmail">
           <Form.Label column sm="2">
@@ -78,6 +80,7 @@ class Login extends Component {
             Submit
         </Button>
       </Form>
+      </>
 
         // {/* <form action="/login" method="post">
         //   <div>

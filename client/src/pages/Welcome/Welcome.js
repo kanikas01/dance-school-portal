@@ -43,7 +43,7 @@ class Welcome extends Component {
   render () {
     return (
       <div>
-        <h5>Welcome Page</h5>
+        <h5>Welcome To Dance Portal</h5>
         <Form>
           <Form.Group controlId="formGroupAddSelectRole">
             <Form.Label>Select User</Form.Label>
