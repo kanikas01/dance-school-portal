@@ -31,7 +31,7 @@ class UserProfile extends Component {
                 <Tab.Pane
                   eventKey="user-profile"
                   unmountOnExit={true}>
-                  <UserProfileForm userId="1" />
+                  <UserProfileForm userId={this.props.userId} />
                 </Tab.Pane>
                 <Tab.Pane
                   eventKey="user-grades"
