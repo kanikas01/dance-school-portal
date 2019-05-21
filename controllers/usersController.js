@@ -4,12 +4,14 @@ const Op = db.Sequelize.Op;
 
 // Defining methods for the usersController
 module.exports = {
-  getUser: function(req, res) {
+  getUser: function(req, cb) {
     console.log(req);
     db.User
       .findOne({ where: { email: req.username } })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .then(dbModel => { 
+        // console.log(dbModel);
+        return cb(null, dbModel.dataValues)
+      });
   },
 
   findOne: function(req, res) {
