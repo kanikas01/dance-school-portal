@@ -46,7 +46,7 @@ class Login extends Component {
 
   render() {
     return (
-      <>
+      <Container className="page-content">
       <h3>Login</h3>
       <Form>
         <Form.Group as={Row} controlId="formPlaintextEmail">
@@ -80,7 +80,7 @@ class Login extends Component {
             Submit
         </Button>
       </Form>
-      </>
+      </Container>
 
         // {/* <form action="/login" method="post">
         //   <div>

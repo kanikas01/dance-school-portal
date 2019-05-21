@@ -140,7 +140,7 @@ class Navigation extends Component {
         </Tabs>;
     }
     return (
-      <div>
+      <div className="portal-nav">
         {navigation}
       </div>
     );

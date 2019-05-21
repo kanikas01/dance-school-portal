@@ -13,7 +13,7 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <>
+      <Container>
         <Tab.Container id="user-profile-tab-nav" defaultActiveKey="user-profile">
           <Row>
             <Col sm={3}>
@@ -42,7 +42,7 @@ class UserProfile extends Component {
             </Col>
           </Row>
         </Tab.Container>
-      </>
+      </Container>
     );
   }
 }

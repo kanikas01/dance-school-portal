@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "../../components/Navigation";
+import { Container, Row, Col } from 'react-bootstrap';
 
 class Portal extends Component {
   render () {
@@ -8,13 +9,13 @@ class Portal extends Component {
     let userFirstName = this.props.userFirstName;
 
     return (
-      <>
-        {userFirstName && <h4>Welcome {userFirstName}</h4> }
+      <Container className="page-content">
+        {/* {userFirstName && <h4>Welcome {userFirstName}</h4> } */}
         <Navigation 
           role={userRole}
           userId={userId}
           userName={userFirstName}/>
-      </>
+      </Container>
     );
   }
 }

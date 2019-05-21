@@ -9,3 +9,23 @@
 .nav-item {
   font-size: 1.1rem;
 }
+
+.nav-link {
+  color: teal;
+}
+
+.col-sm-3 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px solid teal;
+  border-radius: 4px;
+}
+
+.tab-pane {
+  min-height: 550px;
+}
+
+.nav-tabs .nav-link.active {
+  color: white;
+  background-color: teal;
+}

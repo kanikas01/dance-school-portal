@@ -43,7 +43,12 @@ class Welcome extends Component {
   render () {
     return (
       <div>
-        <h5>Welcome To Dance Portal</h5>
+        {this.state.userFirstName &&
+          <h2 
+            className="page-content text-center">
+            Welcome {this.state.userFirstName}
+          </h2>
+        }
         <Form>
           <Form.Group controlId="formGroupAddSelectRole">
             <Form.Label>Select User</Form.Label>
