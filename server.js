@@ -16,8 +16,8 @@ passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 },
-  function(username, password, done) {
-    usersController.getUser({ username: username }, function(err, user) {
+  function (username, password, done) {
+    usersController.getUser({ username: username }, function (err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
@@ -47,10 +47,12 @@ if (process.env.NODE_ENV === "production") {
 
 // Login route
 app.post('/login',
-  passport.authenticate('local', { session: false,
-                                   successRedirect: '/',
-                                   failureRedirect: '/login?poop',
-                                   failureFlash: false })
+  passport.authenticate('local', {
+    session: false,
+    successRedirect: '/',
+    failureRedirect: '/login?failure',
+    failureFlash: false
+  })
 );
 
 // Add routes, both API and view
@@ -58,7 +60,7 @@ app.use(routes);
 
 // Send every request to the React app
 // Define any API routes before this runs
-app.get("*", function(req, res) {
+app.get("*", function (req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
@@ -71,8 +73,8 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
