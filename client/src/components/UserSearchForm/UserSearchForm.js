@@ -7,6 +7,7 @@ import Table from 'react-bootstrap/Table';
 import userAPI from "../../utils/userAPI";
 import roleAPI from "../../utils/roleAPI";
 import UserProfileForm from "../UserProfileForm";
+import RoleChangeForm from "../RoleChangeForm";
 import UserGrades from "../Tabs/UserGrades";
 
 class UserSearchForm extends Component {
@@ -208,6 +209,13 @@ class UserSearchForm extends Component {
           onHide={this.handleClose}>
           <Modal.Body>
             <UserProfileForm userId={this.state.userId} />
+            <hr/>
+            {  role !== "student" && 
+              <>
+                <RoleChangeForm userId={this.state.userId} />
+                <hr/>
+              </>
+            } 
             <UserGrades userId={this.state.userId} />
             <Modal.Footer>
               <Button onClick={this.handleClose}>Close</Button>

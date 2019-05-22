@@ -96,6 +96,7 @@ module.exports = {
           password: req.body.password,
           isActive: req.body.isActive,
           onMarketingList: req.body.onMarketingList,
+          RoleId: req.body.RoleId
         },
         { returning: true, where: {id: req.params.id} })
       .then(dbModel => res.json(dbModel))
