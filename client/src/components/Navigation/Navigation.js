@@ -39,9 +39,9 @@ class Navigation extends Component {
           <Tab eventKey="users" title="Users">
             <Users />
           </Tab>
-          <Tab eventKey="roles" title="Roles">
+          {/* <Tab eventKey="roles" title="Roles">
             <Roles />
-          </Tab>
+          </Tab> */}
           <Tab eventKey="marketing" title="Marketing">
             <Marketing />
           </Tab>

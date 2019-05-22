@@ -60,3 +60,7 @@ table {
 .modal-footer {
   border: unset;
 }
+
+h3 {
+  text-align: center;
+}
