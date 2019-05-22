@@ -14,6 +14,7 @@ class UserSearchForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      roles: [],
       users: [],
       firstName: "",
       lastName: "",
@@ -22,7 +23,9 @@ class UserSearchForm extends Component {
       isActive: 1,
       searchResultsVisible: false,
       show: false,
-      userId: ""
+      userId: "",
+      roleId: "",
+      resetSelect: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -62,7 +65,8 @@ class UserSearchForm extends Component {
       lastName: this.state.lastName ? this.state.lastName : "",
       email: this.state.email ? this.state.email : "",
       password: this.state.password ? this.state.password : "",
-      isActive: this.state.isActive ? 1 : ""
+      isActive: this.state.isActive ? 1 : "",
+      roleId: this.state.roleId ? this.state.roleId : ""
       // onMarketingList: this.state.onMarketingList ? 1 : ""
     };
 
@@ -107,16 +111,43 @@ class UserSearchForm extends Component {
       lastName: "",
       email: "",
       isActive: 1,
-      searchResultsVisible: false
+      searchResultsVisible: false,
+      roleId: "", 
+      resetSelect: false 
     });
+
+    roleAPI.getRoles()
+      .then(res => this.setState({ roles: res.data }))
+      .catch(err => console.log(err));
   };
 
   render() {
+    if (!this.state.resetSelect) this.setState({resetSelect: true});
     const style = this.state.searchResultsVisible ? {} : { display: 'none' };
     let role = this.props.role;
     let isActiveLabel = role === "student"
       ? "Only search active students"
       : "Only search active users";
+    
+    let formGroupSelectRole = "";
+    if (role !== "student" && this.state.resetSelect) {
+      formGroupSelectRole = (
+      <Form.Group controlId="formGroupSelectRole">
+        <Form.Label>Select Role</Form.Label>
+        <Form.Control 
+          as="select"
+          name="roleId"
+          type="select"
+          onChange={this.handleInputChange}>
+          <option>Choose...</option>
+          {this.state.roles.map(role => ( 
+            <option 
+              key={role.id} 
+              value={role.id}>{role.name}</option>
+          ))}
+        </Form.Control>
+      </Form.Group>)
+    }
 
     return (
       <>
@@ -148,6 +179,7 @@ class UserSearchForm extends Component {
               onChange={this.handleInputChange}
               placeholder="" />
           </Form.Group>
+          {formGroupSelectRole}
           <Form.Group controlId="formSearchIsActiveCheckbox">
             <Form.Check
               name="isActive"
