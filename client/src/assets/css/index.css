@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Hind', sans-serif;
   font-family: 'Lato', sans-serif;
   background-image: url("https://thumbs-prod.si-cdn.com/rlis4TXE1gGYSlCSJU2A_9RUf5U=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/bb/76/bb76e999-6d99-4432-9233-c8b320d42de0/1280px-shifengwaterfall_002.jpg");
   background-position: center;
@@ -9,11 +10,49 @@ body {
 }
 
 .page-content {
-  background-color: #f9f6dc;
+  background-color: #fdf8d0;
   border-radius: 4px;
+}
+
+.page-content h4 {
+  padding-top: .5rem;
+  margin-bottom: unset;
 }
 
 .btn, .nav-pills .nav-link.active {
   background-color: teal;
   color: white;
+}
+
+.btn-primary {
+  border-color: silver;
+}
+
+.btn-primary:hover {
+  background-color: rgb(0, 88, 88);
+}
+
+.btn:active{
+  background-color: teal !important;
+}
+
+table {
+  background-color: white;
+}
+
+#login-form {
+  margin-top: 10rem;
+  padding-top: 1rem;
+  width: 450px;
+  border: 1px solid silver;
+  color: white;
+  background-color: darkslategray;
+}
+
+#login-form h2 {
+  margin-bottom: 1rem;
+}
+
+#formGroupAddSelectRole {
+  width: 300px;
 }

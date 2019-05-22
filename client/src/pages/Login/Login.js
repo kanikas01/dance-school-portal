@@ -34,32 +34,32 @@ class Login extends Component {
       password: this.state.password
     };
     axios.post("/login", userData)
-    .then(function (response) {
-      window.location = "/portal"
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-      window.location = "/login?failure"
-    });
+      .then(function (response) {
+        window.location = "/portal"
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+        window.location = "/login?failure"
+      });
   };
 
   render() {
     return (
-      <Container className="page-content">
-      <h3>Login</h3>
-      <Form>
-        <Form.Group as={Row} controlId="formPlaintextEmail">
-          <Form.Label column sm="2">
-            Email
+      <Container className="page-content" id="login-form">
+        <h2 className="text-center">Login</h2>
+        <Form>
+          <Form.Group as={Row} controlId="formPlaintextEmail">
+            <Form.Label column sm="2">
+              Email
           </Form.Label>
-          <Col sm="10">
-            <Form.Control
-              name="email"
-              onChange={this.handleInputChange}
-              placeholder="email@example.com" />
-          </Col>
-        </Form.Group>
+            <Col sm="10">
+              <Form.Control
+                name="email"
+                onChange={this.handleInputChange}
+                placeholder="email@example.com" />
+            </Col>
+          </Form.Group>
 
           <Form.Group as={Row} controlId="formPlaintextPassword">
             <Form.Label column sm="2">
@@ -73,30 +73,32 @@ class Login extends Component {
                 onChange={this.handleInputChange} />
             </Col>
           </Form.Group>
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={this.handleFormSubmit}>
-            Submit
-        </Button>
-      </Form>
+          <Form.Group>
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={this.handleFormSubmit}>
+              Submit
+            </Button>
+          </Form.Group>
+        </Form>
       </Container>
 
-        // {/* <form action="/login" method="post">
-        //   <div>
-        //     <label>Email:</label>
-        //     <input type="text" name="email" />
-        //   </div>
-        //   <div>
-        //     <label>Password:</label>
-        //     <input type="password" name="password" />
-        //   </div>
-        //   <div>
-        //     <input type="submit" value="Log In" />
-        //   </div>
-        // </form> */}
-        );
-      }
-    }
-    
-    export default Login;
+      // {/* <form action="/login" method="post">
+      //   <div>
+      //     <label>Email:</label>
+      //     <input type="text" name="email" />
+      //   </div>
+      //   <div>
+      //     <label>Password:</label>
+      //     <input type="password" name="password" />
+      //   </div>
+      //   <div>
+      //     <input type="submit" value="Log In" />
+      //   </div>
+      // </form> */}
+    );
+  }
+}
+
+export default Login;

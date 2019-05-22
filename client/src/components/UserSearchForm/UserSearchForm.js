@@ -209,7 +209,9 @@ class UserSearchForm extends Component {
           <Modal.Body>
             <UserProfileForm userId={this.state.userId} />
             <UserGrades userId={this.state.userId} />
-            <Button onClick={this.handleClose}>Close</Button>
+            <Modal.Footer>
+              <Button onClick={this.handleClose}>Close</Button>
+            </Modal.Footer>
           </Modal.Body>
         </Modal>
       </>

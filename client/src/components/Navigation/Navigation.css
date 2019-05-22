@@ -1,13 +1,12 @@
-.nav-tabs {
-  margin-bottom: 2rem;
+.nav-pills, .nav-tabs {
+  margin-bottom: 1rem;
+  padding-top: 15px;
+  font-size: 1.15rem;
 }
 
 .btn {
   margin-right: .5rem;
-}
-
-.nav-item {
-  font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
 .nav-link {
@@ -17,15 +16,28 @@
 .col-sm-3 {
   padding-top: 15px;
   padding-bottom: 15px;
-  border: 1px solid teal;
+  /* border: 1px solid teal; */
   border-radius: 4px;
+  background-color: ivory;
+  box-shadow: inset 0px 1px 3px 0px;
+  color: #adaca7;
 }
 
 .tab-pane {
   min-height: 550px;
 }
 
+.nav-tabs .nav-link {
+  background-color: ivory;
+  border: 1px solid silver;
+}
+
 .nav-tabs .nav-link.active {
   color: white;
   background-color: teal;
+  border: 1px solid silver;
+}
+
+.tab-content {
+  padding-bottom: 15px;
 }

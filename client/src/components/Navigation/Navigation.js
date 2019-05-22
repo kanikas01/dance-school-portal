@@ -23,7 +23,7 @@ class Navigation extends Component {
     if (role === "admin") {
       navigation = 
         <Tabs 
-          fill 
+          fill
           defaultActiveKey="students" 
           id="admin-tabs"
           unmountOnExit={true}>
@@ -64,7 +64,7 @@ class Navigation extends Component {
     else if (role === "teacher") {
       navigation = 
         <Tabs 
-          fill 
+          fill
           defaultActiveKey="students" 
           id="teacher-tabs"
           unmountOnExit={true}>
@@ -87,7 +87,7 @@ class Navigation extends Component {
     else if (role === "student") {
       navigation = 
         <Tabs 
-          fill 
+          fill
           defaultActiveKey="user-profile" 
           id="student-tabs"
           unmountOnExit={true}>
@@ -101,7 +101,7 @@ class Navigation extends Component {
     else if (role === "marketing") {
       navigation = 
         <Tabs 
-          fill 
+          fill
           defaultActiveKey="marketing" 
           id="marketing-tabs"
           unmountOnExit={true}>
@@ -118,15 +118,12 @@ class Navigation extends Component {
     else if (role === "customer support") {
       navigation = 
         <Tabs 
-          fill 
+          fill
           defaultActiveKey="students" 
           id="customer-support-tabs"
           unmountOnExit={true}>
           <Tab eventKey="students" title="Students">
             <Students />
-          </Tab>
-          <Tab eventKey="grades" title="Grades">
-            <Grades />
           </Tab>
           <Tab eventKey="orders" title="Orders">
             <Orders />

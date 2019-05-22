@@ -10,7 +10,7 @@ class Portal extends Component {
 
     return (
       <Container className="page-content">
-        {/* {userFirstName && <h4>Welcome {userFirstName}</h4> } */}
+        {userFirstName && <h4>Welcome, {userFirstName}</h4> }
         <Navigation 
           role={userRole}
           userId={userId}

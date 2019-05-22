@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import userAPI from "../../utils/userAPI";
 import Form from 'react-bootstrap/Form';
+import { Container, Row, Col } from "react-bootstrap";
 import Portal from '../Portal';
 
 class Welcome extends Component {
@@ -42,22 +43,16 @@ class Welcome extends Component {
 
   render () {
     return (
-      <div>
-        {this.state.userFirstName &&
-          <h2 
-            className="page-content text-center">
-            Welcome {this.state.userFirstName}
-          </h2>
-        }
+      <Container>
         <Form>
           <Form.Group controlId="formGroupAddSelectRole">
-            <Form.Label>Select User</Form.Label>
+            <Form.Label></Form.Label>
               <Form.Control 
                 as="select"
                 name="user"
                 type="select"
                 onChange={this.handleInputChange}>
-                <option>Choose...</option>
+                <option>Select User</option>
                 {this.state.users.map(user => ( 
                   <option 
                     key={user.id}
@@ -70,7 +65,7 @@ class Welcome extends Component {
           userRole={this.state.userRole}
           userId={this.state.userId}
           userFirstName={this.state.userFirstName} />
-      </div>
+      </Container>
     );
   }
 }
