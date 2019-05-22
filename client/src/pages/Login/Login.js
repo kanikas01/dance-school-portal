@@ -48,6 +48,35 @@ class Login extends Component {
     return (
       <Container className="page-content" id="login-form">
         <h2 className="text-center">Login</h2>
+        <Form action="/login" method="post">
+          <Row>
+            <Col>
+              <label>Email:</label>
+              <input type="text" name="email" />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div>
+                <label>Password:</label>
+                <input type="password" name="password" />
+              </div>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button
+              id="submit-button"
+              variant="primary"
+              type="submit">
+              Log In
+                {/* <input id="submit-button" type="submit" value="Log In" /> */}
+              </Button>
+            </Col>
+          </Row>
+        </Form>
+        
+        {/* <h2 className="text-center">Login</h2>
         <Form>
           <Form.Group as={Row} controlId="formPlaintextEmail">
             <Form.Label column sm="2">
@@ -81,22 +110,8 @@ class Login extends Component {
               Submit
             </Button>
           </Form.Group>
-        </Form>
+        </Form> */}
       </Container>
-
-      // {/* <form action="/login" method="post">
-      //   <div>
-      //     <label>Email:</label>
-      //     <input type="text" name="email" />
-      //   </div>
-      //   <div>
-      //     <label>Password:</label>
-      //     <input type="password" name="password" />
-      //   </div>
-      //   <div>
-      //     <input type="submit" value="Log In" />
-      //   </div>
-      // </form> */}
     );
   }
 }

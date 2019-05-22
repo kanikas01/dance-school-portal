@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === "production") {
 app.post('/login',
   passport.authenticate('local', {
     session: false,
-    successRedirect: '/',
+    successRedirect: '/portal',
     failureRedirect: '/login?failure',
     failureFlash: false
   })

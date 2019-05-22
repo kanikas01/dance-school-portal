@@ -41,6 +41,7 @@ table {
 }
 
 #login-form {
+  border-radius: 4px;
   margin-top: 10rem;
   padding-top: 1rem;
   width: 450px;
@@ -49,8 +50,17 @@ table {
   background-color: darkslategray;
 }
 
-#login-form h2 {
+#login-form input {
+  width: 100%;
   margin-bottom: 1rem;
+}
+
+#login-form #submit-button {
+  width: 50%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: block
 }
 
 #formGroupAddSelectRole {
