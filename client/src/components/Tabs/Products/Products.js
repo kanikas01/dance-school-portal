@@ -8,7 +8,7 @@ class Products extends Component {
         <h3>Products Tab Content</h3>
         <h6>TODO</h6>
         <ul>
-          <li>Add subscription support functionality</li>
+          <li>Add product support functionality</li>
         </ul>
       </Container>
     );
