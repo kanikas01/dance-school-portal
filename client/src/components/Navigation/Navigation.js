@@ -85,16 +85,17 @@ class Navigation extends Component {
 
     // STUDENT VIEW
     else if (role === "student") {
-      navigation = <UserProfile userId={this.props.userId} />;
-        {/* <Tabs 
+      navigation = (
+        <Tabs 
           fill
           defaultActiveKey="user-profile" 
           id="student-tabs"
           unmountOnExit={true}>
-          <Tab eventKey="user-profile" title="My Profile">
+          <Tab eventKey="user-profile" title="Profile">
             <UserProfile userId={this.props.userId} />
           </Tab>
-        </Tabs>; */}
+        </Tabs>
+      ); 
     }
 
     // MARKETING VIEW
