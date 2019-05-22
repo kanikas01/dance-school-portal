@@ -51,7 +51,7 @@ class Navigation extends Component {
           <Tab eventKey="orders" title="Orders">
             <Orders />
           </Tab>
-          <Tab eventKey="subscriptions" title="Products">
+          <Tab eventKey="products" title="Products">
             <Products />
           </Tab>
           <Tab eventKey="user-profile" title="My Profile">
@@ -85,8 +85,8 @@ class Navigation extends Component {
 
     // STUDENT VIEW
     else if (role === "student") {
-      navigation = 
-        <Tabs 
+      navigation = <UserProfile userId={this.props.userId} />;
+        {/* <Tabs 
           fill
           defaultActiveKey="user-profile" 
           id="student-tabs"
@@ -94,7 +94,7 @@ class Navigation extends Component {
           <Tab eventKey="user-profile" title="My Profile">
             <UserProfile userId={this.props.userId} />
           </Tab>
-        </Tabs>;
+        </Tabs>; */}
     }
 
     // MARKETING VIEW
@@ -128,7 +128,7 @@ class Navigation extends Component {
           <Tab eventKey="orders" title="Orders">
             <Orders />
           </Tab>
-          <Tab eventKey="subscriptions" title="Products">
+          <Tab eventKey="products" title="Products">
             <Products />
           </Tab>
           <Tab eventKey="user-profile" title="My Profile">

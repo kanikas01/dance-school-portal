@@ -47,7 +47,7 @@ class Login extends Component {
   render() {
     return (
       <Container className="page-content" id="login-form">
-        <h2 className="text-center">Login</h2>
+        <h2 className="text-center">Log In to Dance Portal</h2>
         <Form action="/login" method="post">
           <Row>
             <Col>

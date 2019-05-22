@@ -16,7 +16,7 @@ body {
 
 .page-content h4 {
   padding-top: .5rem;
-  margin-bottom: unset;
+  /* margin-bottom: unset; */
 }
 
 .btn, .nav-pills .nav-link.active {
