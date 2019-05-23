@@ -7,3 +7,17 @@ The app is set up in a Demo mode: you can select any user to view the app as tha
 ### [Click here to visit the site](https://dance-school-portal.herokuapp.com/portal)
 
 Dance School Portal was built with React, uses a Node and Express web server, and utilizes a MySQL database with a Sequelize ORM.
+
+## Roles
+
+All users have a personal profile tab.
+
+**Student** - Can only access their personal profile and grade info
+
+**Marketing** - Can access the Marketing tab and marketing email list
+
+**Customer Support** - Can see the Users, Products and Orders tabs
+
+**Teacher** - Can see the Students, Grades and Dances tabs. Has the ability to add grades and modify student info.
+
+**Admin** - Has access to all tabs, and can add users of any role.
