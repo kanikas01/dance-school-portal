@@ -10,7 +10,7 @@ body {
 }
 
 .page-content {
-  background-color: #fdf8d0;
+  background-color: rgb(255, 255, 255);
   border-radius: 4px;
 }
 
@@ -20,20 +20,20 @@ body {
 }
 
 .btn, .nav-pills .nav-link.active {
-  background-color: teal;
-  color: white;
+  /* background-color: teal;
+  color: white; */
 }
 
 .btn-primary {
-  border-color: silver;
+  /* border-color: silver; */
 }
 
 .btn-primary:hover {
-  background-color: rgb(0, 88, 88);
+  /* background-color: rgb(0, 88, 88); */
 }
 
 .btn:active{
-  background-color: teal !important;
+  /* background-color: teal !important; */
 }
 
 table {
@@ -47,7 +47,7 @@ table {
   width: 450px;
   border: 1px solid silver;
   color: white;
-  background-color: darkslategray;
+  background-color: #013369;
 }
 
 #login-form input {

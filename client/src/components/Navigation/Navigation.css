@@ -4,20 +4,24 @@
   font-size: 1.15rem;
 }
 
+.nav-pills .nav-link.active {
+  /* background-color: #035ec0; */
+}
+
 .btn {
   margin-right: .5rem;
   margin-bottom: 1rem;
 }
 
 .nav-link {
-  color: teal;
+  /* color: teal; */
 }
 
 .col-sm-3 {
   border-radius: 4px;
-  background-color: ivory;
+  background-color: rgb(250, 250, 250);
   box-shadow: inset 0px 1px 3px 0px;
-  color: #adaca7;
+  /* color: #adaca7; */
 }
 
 .tab-pane {
@@ -25,13 +29,14 @@
 }
 
 .nav-tabs .nav-link {
-  background-color: ivory;
+  background-color: #007bff; 
   border: 1px solid silver;
+  color: white;
 }
 
 .nav-tabs .nav-link.active {
   color: white;
-  background-color: teal;
+  background-color: #0050a7;
   border: 1px solid silver;
 }
 
@@ -41,10 +46,10 @@
 
 @media only screen and (max-width: 577px) {
   .col-sm-3 {
-    border: 1px solid silver;
+    /* border: 1px solid silver; */
     border-radius: 4px;
-    background-color: ivory;
+    /* background-color: ivory; */
     box-shadow: unset;
-    color: #adaca7;
+    /* color: #adaca7; */
   }
 }
