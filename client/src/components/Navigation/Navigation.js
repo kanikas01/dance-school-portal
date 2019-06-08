@@ -45,7 +45,7 @@ class Navigation extends Component {
           <Tab eventKey="marketing" title="Marketing">
             <Marketing />
           </Tab>
-          <Tab eventKey="accounting" title="Accounting">
+          {/* <Tab eventKey="accounting" title="Accounting">
             <Accounting />
           </Tab>
           <Tab eventKey="orders" title="Orders">
@@ -53,7 +53,7 @@ class Navigation extends Component {
           </Tab>
           <Tab eventKey="products" title="Products">
             <Products />
-          </Tab>
+          </Tab> */}
           <Tab eventKey="user-profile" title="My Profile">
             <UserProfile userId={this.props.userId} />
           </Tab>
