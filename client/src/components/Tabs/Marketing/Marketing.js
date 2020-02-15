@@ -1,34 +1,34 @@
-import React, { Component,  } from "react";
+import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
-import userAPI from "../../../utils/userAPI";
-import { CSVLink, CSVDownload } from "react-csv";
+import userAPI from '../../../utils/userAPI';
+import { CSVLink } from 'react-csv';
 
 class Marketing extends Component {
-
   state = {
     users: [],
     marketingList: []
   };
 
   componentDidMount() {
-    let queryString = "?onMarketingList=1";
-    userAPI.searchUsers(queryString)
-      .then(res => this.setState ({ users: res.data }) )
+    let queryString = '?onMarketingList=1';
+    userAPI
+      .searchUsers(queryString)
+      .then(res => this.setState({ users: res.data }))
       // Create marketing email list for download
-      .then( () => {
-        const newMarketingList = [["first name", "last name", "email"]];
+      .then(() => {
+        const newMarketingList = [['first name', 'last name', 'email']];
         for (var user of this.state.users) {
           newMarketingList.push([user.firstName, user.lastName, user.email]);
         }
-        this.setState ({ marketingList: newMarketingList });   
+        this.setState({ marketingList: newMarketingList });
       })
       .catch(err => console.log(err));
   }
 
-  render () {
+  render() {
     return (
       <Container>
         <Tab.Container id="marketing-tab-nav" defaultActiveKey="view-marketing">
@@ -36,7 +36,9 @@ class Marketing extends Component {
             <Col sm={3}>
               <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                  <Nav.Link eventKey="view-marketing">Marketing Emails</Nav.Link>
+                  <Nav.Link eventKey="view-marketing">
+                    Marketing Emails
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </Col>
@@ -45,10 +47,11 @@ class Marketing extends Component {
                 <Tab.Pane eventKey="view-marketing">
                   <h3>Marketing List</h3>
                   <CSVLink
-                    filename={"dance-school-marketing-list.csv"}
+                    filename={'dance-school-marketing-list.csv'}
                     className="btn btn-primary"
                     target="_blank"
-                    data={this.state.marketingList}>
+                    data={this.state.marketingList}
+                  >
                     Download marketing email list
                   </CSVLink>
                   <Table bordered hover size="sm">
@@ -60,7 +63,7 @@ class Marketing extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.users.map(user => (   
+                      {this.state.users.map(user => (
                         <tr key={user.id}>
                           <td>{user.firstName}</td>
                           <td>{user.lastName}</td>

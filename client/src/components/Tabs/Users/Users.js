@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import UserSearchForm from '../../UserSearchForm';
 import UserAddForm from '../../UserAddForm';
-import userAPI from '../../../utils/userAPI';
 
 function Users() {
   return (

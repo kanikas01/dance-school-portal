@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import axios from "axios";
-import userAPI from "../../utils/userAPI";
+import axios from 'axios';
+// import userAPI from "../../utils/userAPI";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: ""
+      email: '',
+      password: ''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -33,14 +33,15 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password
     };
-    axios.post("/login", userData)
-      .then(function (response) {
-        window.location = "/portal"
+    axios
+      .post('/login', userData)
+      .then(function(response) {
+        window.location = '/portal';
         console.log(response);
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
-        window.location = "/login?failure"
+        window.location = '/login?failure';
       });
   };
 
@@ -65,17 +66,14 @@ class Login extends Component {
           </Row>
           <Row>
             <Col>
-              <Button
-              id="submit-button"
-              variant="primary"
-              type="submit">
-              Log In
+              <Button id="submit-button" variant="primary" type="submit">
+                Log In
                 {/* <input id="submit-button" type="submit" value="Log In" /> */}
               </Button>
             </Col>
           </Row>
         </Form>
-        
+
         {/* <h2 className="text-center">Login</h2>
         <Form>
           <Form.Group as={Row} controlId="formPlaintextEmail">

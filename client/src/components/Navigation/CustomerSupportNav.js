@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 import Orders from '../Tabs/Orders';
 import Students from '../Tabs/Students';
 import Products from '../Tabs/Products';
 import UserProfile from '../Tabs/UserProfile';
-import Users from '../Tabs/Users';
 
 // CUSTOMER SUPPORT VIEW
 function CustomerSupportNav({ userId }) {

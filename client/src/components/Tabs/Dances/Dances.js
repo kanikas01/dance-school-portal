@@ -1,10 +1,9 @@
-import React, { Component,  } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Button from 'react-bootstrap/Button'
-import Table from 'react-bootstrap/Table'
-import Nav from 'react-bootstrap/Nav'
-import Tab from 'react-bootstrap/Tab'
-import danceAPI from "../../../utils/danceAPI";
+import React, { Component } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Table from 'react-bootstrap/Table';
+import Nav from 'react-bootstrap/Nav';
+import Tab from 'react-bootstrap/Tab';
+import danceAPI from '../../../utils/danceAPI';
 
 class Dances extends Component {
   constructor(props) {
@@ -15,22 +14,24 @@ class Dances extends Component {
   }
 
   componentDidMount() {
-    danceAPI.getDances()
-      .then(res => this.setState ({ dances: res.data }) )
+    danceAPI
+      .getDances()
+      .then(res => this.setState({ dances: res.data }))
       .catch(err => console.log(err));
   }
 
   handleDelete = (event, index) => {
     event.preventDefault();
     let dance = this.state.dances[index];
-    danceAPI.deleteDance(dance.id)
+    danceAPI
+      .deleteDance(dance.id)
       .then(res => {
-        this.setState ({ devNull: this.state.dances.splice(index, 1) });
+        this.setState({ devNull: this.state.dances.splice(index, 1) });
       })
       .catch(err => console.log(err));
   };
 
-  render () {
+  render() {
     return (
       <Container>
         <Tab.Container id="dances-tab-nav" defaultActiveKey="view-dances">
@@ -59,7 +60,7 @@ class Dances extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.dances.map((dance, index) => (   
+                      {this.state.dances.map((dance, index) => (
                         <tr key={dance.id}>
                           <td>{dance.id}</td>
                           <td>{dance.name}</td>
