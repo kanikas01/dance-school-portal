@@ -1,23 +1,14 @@
-import React, { Component } from "react";
-import Navigation from "../../components/Navigation";
-import { Container, Row, Col } from 'react-bootstrap';
+import React from 'react';
+import Navigation from '../../components/Navigation';
+import { Container } from 'react-bootstrap';
 
-class Portal extends Component {
-  render () {
-    let userRole = this.props.userRole;
-    let userId = this.props.userId;
-    let userFirstName = this.props.userFirstName;
-
-    return (
-      <Container className="page-content">
-        {userFirstName && <h4>Welcome, {userFirstName}</h4> }
-        <Navigation 
-          role={userRole}
-          userId={userId}
-          userName={userFirstName}/>
-      </Container>
-    );
-  }
+function Portal(props) {
+  return (
+    <Container className="page-content">
+      {props.userFirstName && <h4>Welcome, {props.userFirstName}</h4>}
+      <Navigation role={props.userRole} userId={props.userId} />
+    </Container>
+  );
 }
 
 export default Portal;
