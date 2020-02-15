@@ -1,65 +1,56 @@
-import React, { Component } from "react";
-import gradeAPI from "../../../utils/gradeAPI";
-import Table from 'react-bootstrap/Table'
+import React from 'react';
+import gradeAPI from '../../../utils/gradeAPI';
+import Table from 'react-bootstrap/Table';
 
-class UserGrades extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      grades: [],
-      userId: props.userId,
-      noGradesMessage: ""
-    };
-  }
+function UserGrades({ userId }) {
+  const [grades, setGrades] = React.useState([]);
 
-  componentDidMount() {
-    gradeAPI.getGradesForUser(this.state.userId)
-    .then(res => this.setState ({
-      grades: res.data,
-      noGradesMessage: res.data.length === 0 ? "No Grades Found" : ""
-    }) )
-    .catch(err => console.log(err));
-  }
+  React.useEffect(() => {
+    gradeAPI
+      .getGradesForUser(userId)
+      .then(res => setGrades(res.data))
+      .catch(err => console.log(err));
+  }, [userId]);
 
-  render () {
-    return (
-      <>
-        {this.state.grades.length > 0 ? ( 
+  return (
+    <>
+      {grades.length > 0 ? (
         <>
-        <h3>Grades</h3>
-        <Table bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Dance</th>
-              <th>Level</th>
-              <th>Score</th>
-              <th>Question Type</th>
-              <th>Detail</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.grades.map(grade => (   
-              <tr key={grade.id}>
-                <td>{grade.date}</td>
-                <td>{grade.Dance.name}</td>
-                <td>{grade.level}</td>
-                <td>{grade.score}</td>
-                <td>{grade.questionType}</td>
-                <td>{grade.detail}</td>
+          <h3>Grades</h3>
+          <Table bordered hover size="sm">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Dance</th>
+                <th>Level</th>
+                <th>Score</th>
+                <th>Question Type</th>
+                <th>Detail</th>
+                {/* <th>Comments</th> */}
               </tr>
-            ))}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              {grades.map(grade => (
+                <tr key={grade.id}>
+                  <td>{grade.date}</td>
+                  <td>{grade.Dance.name}</td>
+                  <td>{grade.level}</td>
+                  <td>{grade.score}</td>
+                  <td>{grade.questionType}</td>
+                  <td>{grade.detail}</td>
+                  {/* <td>{grade.comment}</td> */}
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </>
-        ) : (
-          <>
-            <h3>{this.state.noGradesMessage}</h3>
-          </>
-        )}
-      </>
-    );
-  }
+      ) : (
+        <>
+          <h3>No Grades Found</h3>
+        </>
+      )}
+    </>
+  );
 }
 
 export default UserGrades;
