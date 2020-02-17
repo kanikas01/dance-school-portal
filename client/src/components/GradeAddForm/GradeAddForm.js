@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import danceAPI from '../../utils/danceAPI';
@@ -18,7 +19,9 @@ class GradeAddForm extends Component {
       questionType: '',
       detail: '',
       score: '',
-      comment: ''
+      comment: '',
+      successAlertShow: false,
+      failureAlertShow: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -62,8 +65,17 @@ class GradeAddForm extends Component {
         score: this.state.score,
         comment: this.state.comment
       })
-      .then(res => alert('Grade saved!'))
-      .catch(err => console.log(err));
+      .then(res =>
+        this.setState({
+          successAlertShow: true
+        })
+      )
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          failureAlertShow: true
+        });
+      });
 
     // this.handleClearResults();
   };
@@ -102,6 +114,22 @@ class GradeAddForm extends Component {
     return (
       <>
         <Form>
+          <Alert
+            show={this.state.successAlertShow}
+            variant="success"
+            dismissible
+            onClose={() => this.setState({ successAlertShow: false })}
+          >
+            Grade added!
+          </Alert>
+          <Alert
+            show={this.state.failureAlertShow}
+            variant="danger"
+            dismissible
+            onClose={() => this.setState({ failureAlertShow: false })}
+          >
+            Oops, something went wrong! Check form for missing fields.
+          </Alert>
           {/* SELECT USER */}
           <Form.Group controlId="formGroupSelectStudent">
             <Form.Label>Select Student</Form.Label>
