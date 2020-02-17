@@ -52,7 +52,9 @@ table {
   display: block;
 }
 
-#formGroupAddSelectRole {
+#formGroupAddSelectRole,
+#formGroupSelectUser {
+
   width: 300px;
 }
 
