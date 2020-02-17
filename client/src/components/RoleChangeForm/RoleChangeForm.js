@@ -65,7 +65,7 @@ class RoleChangeForm extends Component {
           dismissible
           onClose={() => this.setState({ alertShow: false })}
         >
-          User Saved!
+          User role updated!
         </Alert>
         <Form>
           <Form.Group controlId="formGroupAddSelectRole">

@@ -1,5 +1,6 @@
 import React from 'react';
 import userAPI from '../../utils/userAPI';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -15,6 +16,9 @@ function UserProfileForm({ userId }) {
     roleName: '',
     roleId: ''
   });
+
+  const [successAlertShow, setSuccessAlertShow] = React.useState(false);
+  const [failureAlertShow, setFailureAlertShow] = React.useState(false);
 
   React.useEffect(() => {
     userAPI
@@ -57,8 +61,11 @@ function UserProfileForm({ userId }) {
         isActive: currentUser.isActive,
         onMarketingList: currentUser.onMarketingList
       })
-      .then(res => alert('User saved!'))
-      .catch(err => console.log(err));
+      .then(res => setSuccessAlertShow(true))
+      .catch(err => {
+        console.log(err);
+        setFailureAlertShow(true);
+      });
   }
 
   return (
@@ -66,6 +73,22 @@ function UserProfileForm({ userId }) {
       {currentUser.firstName && (
         <div>
           <h3>User Info</h3>
+          <Alert
+            show={successAlertShow}
+            variant="success"
+            dismissible
+            onClose={() => setSuccessAlertShow(false)}
+          >
+            Profile updated!
+          </Alert>
+          <Alert
+            show={failureAlertShow}
+            variant="danger"
+            dismissible
+            onClose={() => setFailureAlertShow(false)}
+          >
+            Oops, something went wrong! Check the form for missing fields.
+          </Alert>
           <Form>
             <Form.Group controlId="formGroupAddFirstName">
               <Form.Label>First name</Form.Label>

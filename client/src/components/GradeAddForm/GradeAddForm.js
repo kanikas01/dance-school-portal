@@ -128,7 +128,7 @@ class GradeAddForm extends Component {
             dismissible
             onClose={() => this.setState({ failureAlertShow: false })}
           >
-            Oops, something went wrong! Check form for missing fields.
+            Oops, something went wrong! Check the form for missing fields.
           </Alert>
           {/* SELECT USER */}
           <Form.Group controlId="formGroupSelectStudent">
