@@ -260,7 +260,9 @@ class UserSearchForm extends Component {
             )}
             <UserGrades userId={this.state.userId} />
             <Modal.Footer>
-              <Button onClick={this.handleClose}>Close</Button>
+              {this.searchResultsVisible && (
+                <Button onClick={this.handleClose}>Close</Button>
+              )}
             </Modal.Footer>
           </Modal.Body>
         </Modal>
