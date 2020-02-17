@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import userAPI from '../../utils/userAPI';
@@ -16,7 +17,9 @@ class UserAddForm extends Component {
       password: '',
       roleId: '',
       isActive: 1,
-      onMarketingList: 1
+      onMarketingList: 1,
+      successAlertShow: false,
+      failureAlertShow: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -64,8 +67,17 @@ class UserAddForm extends Component {
         isActive: this.state.isActive,
         onMarketingList: this.state.onMarketingList
       })
-      .then(res => alert('User saved!'))
-      .catch(err => console.log(err));
+      .then(res =>
+        this.setState({
+          successAlertShow: true
+        })
+      )
+      .catch(err => {
+        console.log(err);
+        this.setState({
+          failureAlertShow: true
+        });
+      });
 
     this.handleClearResults();
   };
@@ -132,6 +144,22 @@ class UserAddForm extends Component {
     return (
       <>
         <Form>
+          <Alert
+            show={this.state.successAlertShow}
+            variant="success"
+            dismissible
+            onClose={() => this.setState({ successAlertShow: false })}
+          >
+            User added!
+          </Alert>
+          <Alert
+            show={this.state.failureAlertShow}
+            variant="danger"
+            dismissible
+            onClose={() => this.setState({ failureAlertShow: false })}
+          >
+            Oops, something went wrong! Check the form for missing fields.
+          </Alert>
           <Form.Group controlId="formGroupAddFirstName">
             <Form.Label>First name</Form.Label>
             <Form.Control
