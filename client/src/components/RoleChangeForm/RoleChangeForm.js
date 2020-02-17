@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import userAPI from '../../utils/userAPI';
@@ -11,7 +12,8 @@ class RoleChangeForm extends Component {
       users: [],
       roles: [],
       userId: props.userId,
-      roleId: ''
+      roleId: '',
+      alertShow: false
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -41,12 +43,15 @@ class RoleChangeForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
     userAPI
       .updateUser(this.state.userId, {
         RoleId: this.state.roleId
       })
-      .then(res => alert('User saved!'))
+      .then(res =>
+        this.setState({
+          alertShow: true
+        })
+      )
       .catch(err => console.log(err));
   };
 
@@ -54,6 +59,14 @@ class RoleChangeForm extends Component {
     return (
       <div>
         <h3>Change User Role</h3>
+        <Alert
+          show={this.state.alertShow}
+          variant="success"
+          dismissible
+          onClose={() => this.setState({ alertShow: false })}
+        >
+          User Saved!
+        </Alert>
         <Form>
           <Form.Group controlId="formGroupAddSelectRole">
             <Form.Label>Select Role</Form.Label>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
-import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import userAPI from '../../../utils/userAPI';
 import { CSVLink } from 'react-csv';

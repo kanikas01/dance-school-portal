@@ -103,7 +103,7 @@ class GradeAddForm extends Component {
       <>
         <Form>
           {/* SELECT USER */}
-          <Form.Group controlId="formGroupAddSelectDance">
+          <Form.Group controlId="formGroupSelectStudent">
             <Form.Label>Select Student</Form.Label>
             <Form.Control
               as="select"

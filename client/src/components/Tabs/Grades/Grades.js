@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import Nav from 'react-bootstrap/Nav';
 import Tab from 'react-bootstrap/Tab';
 import gradeAPI from '../../../utils/gradeAPI';
 import GradeAddForm from '../../GradeAddForm';
