@@ -7,6 +7,7 @@ import userAPI from '../../../utils/userAPI';
 import { CSVLink } from 'react-csv';
 import UserSearchForm from '../../UserSearchForm';
 import UserAddForm from '../../UserAddForm';
+import GradeAddForm from '../../GradeAddForm';
 
 function Students() {
   const [studentList, setStudentList] = React.useState([]);
@@ -42,6 +43,9 @@ function Students() {
                 <Nav.Link eventKey="add-student">Add Student</Nav.Link>
               </Nav.Item>
               <Nav.Item>
+                <Nav.Link eventKey="add-grade">Add Grade</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
                 <Nav.Link eventKey="student-contacts">
                   Student Contacts
                 </Nav.Link>
@@ -58,6 +62,10 @@ function Students() {
               <Tab.Pane eventKey="add-student">
                 <h3>Add Student</h3>
                 <UserAddForm userRole="student" />
+              </Tab.Pane>
+              <Tab.Pane eventKey="add-grade">
+                <h3>Add Grade</h3>
+                <GradeAddForm />
               </Tab.Pane>
               <Tab.Pane eventKey="student-contacts">
                 <h3>Student Contact Info</h3>

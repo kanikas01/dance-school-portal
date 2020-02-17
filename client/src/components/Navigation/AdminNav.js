@@ -14,9 +14,6 @@ function AdminNav({ userId }) {
       <Tab eventKey="students" title="Students">
         <Students />
       </Tab>
-      <Tab eventKey="grades" title="Grades">
-        <Grades />
-      </Tab>
       <Tab eventKey="dances" title="Dances">
         <Dances />
       </Tab>
