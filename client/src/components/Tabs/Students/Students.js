@@ -53,11 +53,11 @@ function Students() {
               <Tab.Pane eventKey="search-students">
                 <h3>Search Students</h3>
                 <p>*Submitting an empty form will return all students*</p>
-                <UserSearchForm role="student" />
+                <UserSearchForm userRole="student" />
               </Tab.Pane>
               <Tab.Pane eventKey="add-student">
                 <h3>Add Student</h3>
-                <UserAddForm role="student" />
+                <UserAddForm userRole="student" />
               </Tab.Pane>
               <Tab.Pane eventKey="student-contacts">
                 <h3>Student Contact Info</h3>

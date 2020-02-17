@@ -37,7 +37,7 @@ class UserSearchForm extends Component {
       .getRoles()
       .then(res => this.setState({ roles: res.data }))
       .then(() => {
-        if (this.props.role === 'student') {
+        if (this.props.userRole === 'student') {
           let roleInfo = this.state.roles.filter(
             userRole => userRole.name === 'student'
           );
@@ -126,7 +126,7 @@ class UserSearchForm extends Component {
   render() {
     if (!this.state.resetSelect) this.setState({ resetSelect: true });
     const style = this.state.searchResultsVisible ? {} : { display: 'none' };
-    let role = this.props.role;
+    let role = this.props.userRole;
     let isActiveLabel =
       role === 'student'
         ? 'Only search active students'

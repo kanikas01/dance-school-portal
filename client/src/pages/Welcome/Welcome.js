@@ -51,7 +51,7 @@ class Welcome extends Component {
           user interface as it would appear to a user of each role.
         </h5>
         <Form>
-          <Form.Group controlId="formGroupAddSelectRole">
+          <Form.Group controlId="formGroupSelectUser">
             <Form.Label></Form.Label>
             <Form.Control
               as="select"
