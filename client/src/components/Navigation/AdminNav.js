@@ -1,7 +1,5 @@
 import React from 'react';
-import { Tab, Tabs, Nav, NavDropdown, Navbar } from 'react-bootstrap';
-import Dances from '../Tabs/Dances';
-import Grades from '../Tabs/Grades';
+import { Tab, Tabs } from 'react-bootstrap';
 import Marketing from '../Tabs/Marketing';
 import Students from '../Tabs/Students';
 import UserProfile from '../Tabs/UserProfile';
@@ -13,9 +11,6 @@ function AdminNav({ userId }) {
     <Tabs fill defaultActiveKey="students" id="admin-tabs" unmountOnExit={true}>
       <Tab eventKey="students" title="Students">
         <Students />
-      </Tab>
-      <Tab eventKey="dances" title="Dances">
-        <Dances />
       </Tab>
       <Tab eventKey="users" title="Users">
         <Users />
