@@ -29,7 +29,7 @@ class UserAddForm extends Component {
       .getRoles()
       .then(res => this.setState({ roles: res.data }))
       .then(() => {
-        if (this.props.role === 'student') {
+        if (this.props.userRole === 'student') {
           let roleInfo = this.state.roles.filter(
             userRole => userRole.name === 'student'
           );
@@ -104,7 +104,7 @@ class UserAddForm extends Component {
 
   render() {
     let formGroupAddSelectRole = '';
-    let role = this.props.role;
+    let role = this.props.userRole;
     if (role !== 'student') {
       formGroupAddSelectRole = (
         <Form.Group controlId="formGroupAddSelectRole">
