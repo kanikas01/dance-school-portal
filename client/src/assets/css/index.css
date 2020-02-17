@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: 'Hind', sans-serif;
   font-family: 'Lato', sans-serif;
-  background-image: url("../images/shifengwaterfall.jpg");
+  background-image: url('../images/Dance_Studio.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -15,7 +15,7 @@ body {
 }
 
 .page-content h4 {
-  padding-top: .5rem;
+  padding-top: 0.5rem;
 }
 
 #demo-info {
@@ -49,7 +49,7 @@ table {
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 2rem;
-  display: block
+  display: block;
 }
 
 #formGroupAddSelectRole {
@@ -60,7 +60,8 @@ table {
   border: unset;
 }
 
-h3 {
+h3,
+p {
   text-align: center;
 }
 

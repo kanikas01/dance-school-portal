@@ -14,6 +14,7 @@ function Students() {
 
   React.useEffect(() => {
     // ideally query Roles table here to get the proper role id instead of hard coding
+    // See UserSearchForm for role query
     let queryString = '?isActive=1&roleId=2';
     userAPI
       .searchUsers(queryString)
@@ -51,6 +52,7 @@ function Students() {
             <Tab.Content>
               <Tab.Pane eventKey="search-students">
                 <h3>Search Students</h3>
+                <p>*Submitting an empty form will return all students*</p>
                 <UserSearchForm role="student" />
               </Tab.Pane>
               <Tab.Pane eventKey="add-student">

@@ -24,6 +24,7 @@ function Users() {
             <Tab.Content>
               <Tab.Pane eventKey="search-users">
                 <h3>Search Users</h3>
+                <p>*Submitting an empty form will return all users*</p>
                 <UserSearchForm />
               </Tab.Pane>
               <Tab.Pane eventKey="add-user">
