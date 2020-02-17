@@ -248,7 +248,11 @@ class UserSearchForm extends Component {
             <h3>No Results Found</h3>
           )}
         </div>
-        <Modal size="lg" show={this.state.show} onHide={this.handleClose}>
+        <Modal
+          size="lg"
+          show={this.state.show && this.state.searchResultsVisible}
+          onHide={this.handleClose}
+        >
           <Modal.Body>
             <UserProfileForm userId={this.state.userId} />
             <hr />
@@ -260,9 +264,7 @@ class UserSearchForm extends Component {
             )}
             <UserGrades userId={this.state.userId} />
             <Modal.Footer>
-              {this.searchResultsVisible && (
-                <Button onClick={this.handleClose}>Close</Button>
-              )}
+              <Button onClick={this.handleClose}>Close</Button>
             </Modal.Footer>
           </Modal.Body>
         </Modal>
