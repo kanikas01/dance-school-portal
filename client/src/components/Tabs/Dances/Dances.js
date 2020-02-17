@@ -36,17 +36,7 @@ class Dances extends Component {
       <Container>
         <Tab.Container id="dances-tab-nav" defaultActiveKey="view-dances">
           <Row>
-            <Col sm={3}>
-              <Nav variant="pills" className="flex-column">
-                <Nav.Item>
-                  <Nav.Link eventKey="view-dances">View Dances</Nav.Link>
-                </Nav.Item>
-                {/* <Nav.Item>
-                  <Nav.Link eventKey="add-dance">Add Dance</Nav.Link>
-                </Nav.Item> */}
-              </Nav>
-            </Col>
-            <Col sm={9}>
+            <Col>
               <Tab.Content>
                 <Tab.Pane eventKey="view-dances">
                   <h3>View Dances</h3>

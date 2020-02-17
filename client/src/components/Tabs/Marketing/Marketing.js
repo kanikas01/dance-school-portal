@@ -33,16 +33,7 @@ class Marketing extends Component {
       <Container>
         <Tab.Container id="marketing-tab-nav" defaultActiveKey="view-marketing">
           <Row>
-            <Col sm={3}>
-              <Nav variant="pills" className="flex-column">
-                <Nav.Item>
-                  <Nav.Link eventKey="view-marketing">
-                    Marketing Emails
-                  </Nav.Link>
-                </Nav.Item>
-              </Nav>
-            </Col>
-            <Col sm={9}>
+            <Col>
               <Tab.Content>
                 <Tab.Pane eventKey="view-marketing">
                   <h3>Marketing List</h3>

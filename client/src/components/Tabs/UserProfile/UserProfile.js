@@ -10,7 +10,7 @@ function UserProfile({ userId }) {
     <Container>
       <Tab.Container id="user-profile-tab-nav" defaultActiveKey="user-profile">
         <Row>
-          <Col sm={3}>
+          <Col md={3}>
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="user-profile">My Info</Nav.Link>
@@ -20,7 +20,7 @@ function UserProfile({ userId }) {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col sm={9}>
+          <Col md={9}>
             <Tab.Content>
               <Tab.Pane eventKey="user-profile" unmountOnExit={true}>
                 <UserProfileForm userId={userId} />

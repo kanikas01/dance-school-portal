@@ -10,7 +10,7 @@ function Users() {
     <Container>
       <Tab.Container id="users-tab-nav" defaultActiveKey="search-users">
         <Row>
-          <Col sm={3}>
+          <Col md={3}>
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="search-users">Search Users</Nav.Link>
@@ -20,7 +20,7 @@ function Users() {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col sm={9}>
+          <Col md={9}>
             <Tab.Content>
               <Tab.Pane eventKey="search-users">
                 <h3>Search Users</h3>

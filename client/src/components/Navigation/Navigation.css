@@ -1,4 +1,5 @@
-.nav-pills, .nav-tabs {
+.nav-pills,
+.nav-tabs {
   margin-bottom: 1rem;
   padding-top: 15px;
   font-size: 1.15rem;
@@ -9,11 +10,8 @@
   margin-bottom: 1rem;
 }
 
-.nav-link {
-  /* color: teal; */
-}
 
-.col-sm-3 {
+.col-md-3 {
   border-radius: 4px;
   background-color: rgb(250, 250, 250);
   box-shadow: inset 0px 1px 3px 0px;
@@ -25,7 +23,7 @@
 }
 
 .nav-tabs .nav-link {
-  background-color: #007bff; 
+  background-color: #007bff;
   border: 1px solid silver;
   color: white;
 }
