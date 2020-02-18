@@ -8,7 +8,7 @@ import Users from '../Tabs/Users';
 // ADMIN VIEW
 function AdminNav({ userId }) {
   return (
-    <Tabs fill defaultActiveKey="students" id="admin-tabs" unmountOnExit={true}>
+    <Tabs fill defaultActiveKey="students" id="admin-tabs">
       <Tab eventKey="students" title="Students">
         <Students />
       </Tab>

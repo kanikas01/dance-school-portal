@@ -6,12 +6,7 @@ import UserProfile from '../Tabs/UserProfile';
 // TEACHER VIEW
 function TeacherNav({ userId }) {
   return (
-    <Tabs
-      fill
-      defaultActiveKey="students"
-      id="teacher-tabs"
-      unmountOnExit={true}
-    >
+    <Tabs fill defaultActiveKey="students" id="teacher-tabs">
       <Tab eventKey="students" title="Students">
         <Students />
       </Tab>

@@ -8,12 +8,7 @@ import UserProfile from '../Tabs/UserProfile';
 // CUSTOMER SUPPORT VIEW
 function CustomerSupportNav({ userId }) {
   return (
-    <Tabs
-      fill
-      defaultActiveKey="students"
-      id="customer-support-tabs"
-      unmountOnExit={true}
-    >
+    <Tabs fill defaultActiveKey="students" id="customer-support-tabs">
       <Tab eventKey="students" title="Students">
         <Students />
       </Tab>
