@@ -15,7 +15,7 @@ function TeacherNav({ userId }) {
       <Tab eventKey="students" title="Students">
         <Students />
       </Tab>
-      <Tab eventKey="user-profile" title="My Profile">
+      <Tab eventKey="user-profile" title="Profile">
         <UserProfile userId={userId} />
       </Tab>
     </Tabs>

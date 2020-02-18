@@ -23,7 +23,7 @@ function CustomerSupportNav({ userId }) {
       <Tab eventKey="products" title="Products">
         <Products />
       </Tab>
-      <Tab eventKey="user-profile" title="My Profile">
+      <Tab eventKey="user-profile" title="Profile">
         <UserProfile userId={userId} />
       </Tab>
     </Tabs>
