@@ -6,7 +6,12 @@ import UserProfile from '../Tabs/UserProfile';
 // MARKETING VIEW
 function MarketingNav({ userId }) {
   return (
-    <Tabs fill defaultActiveKey="marketing" id="marketing-tabs">
+    <Tabs
+      fill
+      defaultActiveKey="marketing"
+      id="marketing-tabs"
+      unmountOnExit={true}
+    >
       <Tab eventKey="marketing" title="Marketing">
         <Marketing />
       </Tab>
