@@ -1,13 +1,13 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Nav from 'react-bootstrap/Nav';
-import Tab from 'react-bootstrap/Tab';
-import Table from 'react-bootstrap/Table';
-import userAPI from '../../../utils/userAPI';
-import { CSVLink } from 'react-csv';
-import UserSearchForm from '../../UserSearchForm';
-import UserAddForm from '../../UserAddForm';
-import GradeAddForm from '../../GradeAddForm';
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+import Tab from "react-bootstrap/Tab";
+import Table from "react-bootstrap/Table";
+import userAPI from "../../utils/userAPI";
+import { CSVLink } from "react-csv";
+import UserSearchForm from "../UserSearchForm";
+import UserAddForm from "../UserAddForm";
+import GradeAddForm from "../GradeAddForm";
 
 function Students() {
   const [studentList, setStudentList] = React.useState([]);
@@ -16,13 +16,13 @@ function Students() {
   React.useEffect(() => {
     // ideally query Roles table here to get the proper role id instead of hard coding
     // See UserSearchForm for role query
-    let queryString = '?isActive=1&roleId=2';
+    let queryString = "?isActive=1&roleId=2";
     userAPI
       .searchUsers(queryString)
       .then(res => setStudentList(res.data))
       // Create marketing email list for download
       .then(() => {
-        const studentContactList = [['first name', 'last name', 'email']];
+        const studentContactList = [["first name", "last name", "email"]];
         for (var user of studentList) {
           studentContactList.push([user.firstName, user.lastName, user.email]);
         }

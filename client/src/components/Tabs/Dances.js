@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Table from 'react-bootstrap/Table';
-import Nav from 'react-bootstrap/Nav';
-import Tab from 'react-bootstrap/Tab';
-import danceAPI from '../../../utils/danceAPI';
+import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
+import Nav from "react-bootstrap/Nav";
+import Tab from "react-bootstrap/Tab";
+import danceAPI from "../../utils/danceAPI";
 
 class Dances extends Component {
   constructor(props) {

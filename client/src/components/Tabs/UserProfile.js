@@ -1,8 +1,8 @@
-import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Tab from 'react-bootstrap/Tab';
-import UserProfileForm from '../../UserProfileForm';
-import UserGrades from '../UserGrades';
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Tab from "react-bootstrap/Tab";
+import UserProfileForm from "../UserProfileForm";
+import UserGrades from "./UserGrades";
 
 function UserProfile({ userId }) {
   return (

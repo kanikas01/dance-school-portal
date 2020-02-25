@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Table from 'react-bootstrap/Table';
-import Tab from 'react-bootstrap/Tab';
-import userAPI from '../../../utils/userAPI';
-import { CSVLink } from 'react-csv';
+import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Table from "react-bootstrap/Table";
+import Tab from "react-bootstrap/Tab";
+import userAPI from "../../utils/userAPI";
+import { CSVLink } from "react-csv";
 
 class Marketing extends Component {
   state = {
@@ -12,13 +12,13 @@ class Marketing extends Component {
   };
 
   componentDidMount() {
-    let queryString = '?onMarketingList=1';
+    let queryString = "?onMarketingList=1";
     userAPI
       .searchUsers(queryString)
       .then(res => this.setState({ users: res.data }))
       // Create marketing email list for download
       .then(() => {
-        const newMarketingList = [['first name', 'last name', 'email']];
+        const newMarketingList = [["first name", "last name", "email"]];
         for (var user of this.state.users) {
           newMarketingList.push([user.firstName, user.lastName, user.email]);
         }
@@ -37,7 +37,7 @@ class Marketing extends Component {
                 <Tab.Pane eventKey="view-marketing">
                   <h3>Marketing List</h3>
                   <CSVLink
-                    filename={'dance-school-marketing-list.csv'}
+                    filename={"dance-school-marketing-list.csv"}
                     className="btn btn-primary"
                     target="_blank"
                     data={this.state.marketingList}

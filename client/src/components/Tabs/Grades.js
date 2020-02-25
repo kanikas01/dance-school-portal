@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import Tab from 'react-bootstrap/Tab';
-import gradeAPI from '../../../utils/gradeAPI';
-import GradeAddForm from '../../GradeAddForm';
+import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Tab from "react-bootstrap/Tab";
+import gradeAPI from "../../utils/gradeAPI";
+import GradeAddForm from "../GradeAddForm";
 
 class Grades extends Component {
   constructor(props) {
     super(props);
     this.state = {
       grades: [],
-      devNull: ''
+      devNull: ""
     };
   }
 

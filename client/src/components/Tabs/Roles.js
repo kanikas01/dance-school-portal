@@ -1,9 +1,9 @@
-import React, { Component,  } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
-import Nav from 'react-bootstrap/Nav'
-import Tab from 'react-bootstrap/Tab'
-import Table from 'react-bootstrap/Table'
-import roleAPI from "../../../utils/roleAPI";
+import React, { Component } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import Nav from "react-bootstrap/Nav";
+import Tab from "react-bootstrap/Tab";
+import Table from "react-bootstrap/Table";
+import roleAPI from "../../utils/roleAPI";
 
 class Roles extends Component {
   constructor(props) {
@@ -14,12 +14,13 @@ class Roles extends Component {
   }
 
   componentDidMount() {
-    roleAPI.getRoles()
-      .then(res => this.setState ({ roles: res.data }) )
+    roleAPI
+      .getRoles()
+      .then(res => this.setState({ roles: res.data }))
       .catch(err => console.log(err));
   }
 
-  render () {
+  render() {
     return (
       <Container>
         <Tab.Container id="roles-tab-nav" defaultActiveKey="view-roles">
@@ -42,7 +43,7 @@ class Roles extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.roles.map(role => (   
+                      {this.state.roles.map(role => (
                         <tr key={role.id}>
                           <td>{role.name}</td>
                         </tr>

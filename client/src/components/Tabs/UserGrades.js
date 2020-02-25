@@ -1,6 +1,6 @@
-import React from 'react';
-import gradeAPI from '../../../utils/gradeAPI';
-import Table from 'react-bootstrap/Table';
+import React from "react";
+import gradeAPI from "../../utils/gradeAPI";
+import Table from "react-bootstrap/Table";
 
 function UserGrades({ userId }) {
   const [grades, setGrades] = React.useState([]);
