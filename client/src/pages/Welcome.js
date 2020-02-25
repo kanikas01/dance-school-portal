@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import userAPI from '../../utils/userAPI';
-import Form from 'react-bootstrap/Form';
-import { Container } from 'react-bootstrap';
-import Portal from '../Portal';
+import React, { Component } from "react";
+import userAPI from "../utils/userAPI";
+import Form from "react-bootstrap/Form";
+import { Container } from "react-bootstrap";
+import Portal from "./Portal";
 
 class Welcome extends Component {
   constructor(props) {
     super(props);
     this.state = {
       users: [],
-      userFirstName: '',
-      userId: '',
-      userRole: ''
+      userFirstName: "",
+      userId: "",
+      userRole: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -26,7 +26,7 @@ class Welcome extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     // const name = target.name;
 
     // Returns an array containing a single user object
