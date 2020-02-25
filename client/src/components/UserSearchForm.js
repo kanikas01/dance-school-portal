@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Modal from 'react-bootstrap/Modal';
-import Table from 'react-bootstrap/Table';
-import userAPI from '../../utils/userAPI';
-import roleAPI from '../../utils/roleAPI';
-import UserProfileForm from '../UserProfileForm';
-import RoleChangeForm from '../RoleChangeForm';
-import UserGrades from '../Tabs/UserGrades';
+import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Modal from "react-bootstrap/Modal";
+import Table from "react-bootstrap/Table";
+import userAPI from "../utils/userAPI";
+import roleAPI from "../utils/roleAPI";
+import UserProfileForm from "./UserProfileForm";
+import RoleChangeForm from "./RoleChangeForm";
+import UserGrades from "./Tabs/UserGrades";
 
 class UserSearchForm extends Component {
   constructor(props) {
@@ -15,15 +15,15 @@ class UserSearchForm extends Component {
     this.state = {
       roles: [],
       users: [],
-      firstName: '',
-      lastName: '',
-      email: '',
-      studentRoleId: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      studentRoleId: "",
       isActive: 1,
       searchResultsVisible: false,
       show: false,
-      userId: '',
-      roleId: '',
+      userId: "",
+      roleId: "",
       resetSelect: false
     };
 
@@ -37,9 +37,9 @@ class UserSearchForm extends Component {
       .getRoles()
       .then(res => this.setState({ roles: res.data }))
       .then(() => {
-        if (this.props.userRole === 'student') {
+        if (this.props.userRole === "student") {
           let roleInfo = this.state.roles.filter(
-            userRole => userRole.name === 'student'
+            userRole => userRole.name === "student"
           );
           this.setState({
             studentRoleId: roleInfo[0].id
@@ -51,7 +51,7 @@ class UserSearchForm extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
@@ -62,22 +62,22 @@ class UserSearchForm extends Component {
   handleSearchFormSubmit = (event, role) => {
     event.preventDefault();
     const query = {
-      firstName: this.state.firstName ? this.state.firstName : '',
-      lastName: this.state.lastName ? this.state.lastName : '',
-      email: this.state.email ? this.state.email : '',
-      password: this.state.password ? this.state.password : '',
-      isActive: this.state.isActive ? 1 : '',
-      roleId: this.state.roleId ? this.state.roleId : ''
+      firstName: this.state.firstName ? this.state.firstName : "",
+      lastName: this.state.lastName ? this.state.lastName : "",
+      email: this.state.email ? this.state.email : "",
+      password: this.state.password ? this.state.password : "",
+      isActive: this.state.isActive ? 1 : "",
+      roleId: this.state.roleId ? this.state.roleId : ""
       // onMarketingList: this.state.onMarketingList ? 1 : ""
     };
 
     let queryString =
-      role === 'student' ? `?roleId=${this.state.studentRoleId}&` : '?';
+      role === "student" ? `?roleId=${this.state.studentRoleId}&` : "?";
     for (let param in query) {
       if (query[param]) queryString += `${param}=${query[param]}&`;
     }
 
-    if (queryString.endsWith('&')) {
+    if (queryString.endsWith("&")) {
       queryString = queryString.slice(0, -1);
     }
 
@@ -108,12 +108,12 @@ class UserSearchForm extends Component {
   handleClearResults = (event, index) => {
     this.setState({
       users: [],
-      firstName: '',
-      lastName: '',
-      email: '',
+      firstName: "",
+      lastName: "",
+      email: "",
       isActive: 1,
       searchResultsVisible: false,
-      roleId: '',
+      roleId: "",
       resetSelect: false
     });
 
@@ -125,15 +125,15 @@ class UserSearchForm extends Component {
 
   render() {
     if (!this.state.resetSelect) this.setState({ resetSelect: true });
-    const style = this.state.searchResultsVisible ? {} : { display: 'none' };
+    const style = this.state.searchResultsVisible ? {} : { display: "none" };
     let role = this.props.userRole;
     let isActiveLabel =
-      role === 'student'
-        ? 'Only search active students'
-        : 'Only search active users';
+      role === "student"
+        ? "Only search active students"
+        : "Only search active users";
 
-    let formGroupSelectRole = '';
-    if (role !== 'student' && this.state.resetSelect) {
+    let formGroupSelectRole = "";
+    if (role !== "student" && this.state.resetSelect) {
       formGroupSelectRole = (
         <Form.Group controlId="formGroupSelectRole">
           <Form.Label>Select Role</Form.Label>
@@ -256,7 +256,7 @@ class UserSearchForm extends Component {
           <Modal.Body>
             <UserProfileForm userId={this.state.userId} />
             <hr />
-            {role !== 'student' && (
+            {role !== "student" && (
               <>
                 <RoleChangeForm userId={this.state.userId} />
                 <hr />

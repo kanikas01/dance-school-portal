@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import danceAPI from '../../utils/danceAPI';
-import gradeAPI from '../../utils/gradeAPI';
-import userAPI from '../../utils/userAPI';
+import React, { Component } from "react";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import danceAPI from "../utils/danceAPI";
+import gradeAPI from "../utils/gradeAPI";
+import userAPI from "../utils/userAPI";
 
 class GradeAddForm extends Component {
   constructor(props) {
@@ -12,14 +12,14 @@ class GradeAddForm extends Component {
     this.state = {
       users: [],
       dances: [],
-      userId: '',
-      danceId: '',
-      date: '',
-      level: '',
-      questionType: '',
-      detail: '',
-      score: '',
-      comment: '',
+      userId: "",
+      danceId: "",
+      date: "",
+      level: "",
+      questionType: "",
+      detail: "",
+      score: "",
+      comment: "",
       successAlertShow: false,
       failureAlertShow: false
     };
@@ -34,7 +34,7 @@ class GradeAddForm extends Component {
       .then(res => this.setState({ dances: res.data }))
       .catch(err => console.log(err));
 
-    let queryString = '?isActive=1';
+    let queryString = "?isActive=1";
     userAPI
       .searchUsers(queryString)
       .then(res => this.setState({ users: res.data }))
@@ -43,7 +43,7 @@ class GradeAddForm extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
@@ -82,14 +82,14 @@ class GradeAddForm extends Component {
 
   handleClearResults = () => {
     this.setState({
-      userId: '',
-      danceId: '',
-      date: '',
-      level: '',
-      questionType: '',
-      detail: '',
-      score: '',
-      comment: ''
+      userId: "",
+      danceId: "",
+      date: "",
+      level: "",
+      questionType: "",
+      detail: "",
+      score: "",
+      comment: ""
     });
   };
 

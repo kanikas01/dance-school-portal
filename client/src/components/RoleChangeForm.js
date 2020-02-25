@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import userAPI from '../../utils/userAPI';
-import roleAPI from '../../utils/roleAPI';
+import React, { Component } from "react";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import userAPI from "../utils/userAPI";
+import roleAPI from "../utils/roleAPI";
 
 class RoleChangeForm extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class RoleChangeForm extends Component {
       users: [],
       roles: [],
       userId: props.userId,
-      roleId: '',
+      roleId: "",
       alertShow: false
     };
 
@@ -33,7 +33,7 @@ class RoleChangeForm extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({

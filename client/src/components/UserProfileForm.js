@@ -1,20 +1,20 @@
-import React from 'react';
-import userAPI from '../../utils/userAPI';
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React from "react";
+import userAPI from "../utils/userAPI";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 function UserProfileForm({ userId }) {
   const [currentUser, setCurrentUser] = React.useState({
     userId: userId,
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
     isActive: false,
     onMarketingList: false,
-    roleName: '',
-    roleId: ''
+    roleName: "",
+    roleId: ""
   });
 
   const [successAlertShow, setSuccessAlertShow] = React.useState(false);
@@ -41,7 +41,7 @@ function UserProfileForm({ userId }) {
 
   function handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     if (name) {

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Alert from 'react-bootstrap/Alert';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import userAPI from '../../utils/userAPI';
-import roleAPI from '../../utils/roleAPI';
+import React, { Component } from "react";
+import Alert from "react-bootstrap/Alert";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import userAPI from "../utils/userAPI";
+import roleAPI from "../utils/roleAPI";
 
 class UserAddForm extends Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class UserAddForm extends Component {
     this.state = {
       // users: [],
       roles: [],
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      roleId: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      roleId: "",
       isActive: 1,
       onMarketingList: 1,
       successAlertShow: false,
@@ -32,9 +32,9 @@ class UserAddForm extends Component {
       .getRoles()
       .then(res => this.setState({ roles: res.data }))
       .then(() => {
-        if (this.props.userRole === 'student') {
+        if (this.props.userRole === "student") {
           let roleInfo = this.state.roles.filter(
-            userRole => userRole.name === 'student'
+            userRole => userRole.name === "student"
           );
           this.setState({
             roleId: roleInfo[0].id
@@ -46,7 +46,7 @@ class UserAddForm extends Component {
 
   handleInputChange(event) {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     this.setState({
@@ -95,7 +95,7 @@ class UserAddForm extends Component {
         isActive: this.state.isActive,
         onMarketingList: this.state.onMarketingList
       })
-      .then(res => alert('User saved!'))
+      .then(res => alert("User saved!"))
       .catch(err => console.log(err));
 
     this.handleClearResults();
@@ -104,20 +104,20 @@ class UserAddForm extends Component {
   handleClearResults = () => {
     this.setState({
       roles: [],
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      roleId: '',
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      roleId: "",
       isActive: 1,
       onMarketingList: 1
     });
   };
 
   render() {
-    let formGroupAddSelectRole = '';
+    let formGroupAddSelectRole = "";
     let role = this.props.userRole;
-    if (role !== 'student') {
+    if (role !== "student") {
       formGroupAddSelectRole = (
         <Form.Group controlId="formGroupAddSelectRole">
           <Form.Label>Select Role</Form.Label>

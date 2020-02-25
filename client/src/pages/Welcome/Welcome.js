@@ -50,7 +50,7 @@ class Welcome extends Component {
           This software is set up in DEMO MODE, which will allow you see the
           user interface as it would appear to a user of each role.
         </h5>
-        <Form>
+        <Form className="mx-auto col-6">
           <Form.Group controlId="formGroupSelectUser">
             <Form.Label></Form.Label>
             <Form.Control

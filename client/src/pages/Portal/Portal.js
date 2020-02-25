@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 function Portal(props) {
   return (
     <Container className="page-content">
-      {props.userFirstName && <h4>Welcome, {props.userFirstName}</h4>}
+      {props.userFirstName && <h3>Welcome, {props.userFirstName}</h3>}
       <Navigation role={props.userRole} userId={props.userId} />
     </Container>
   );
