@@ -72,7 +72,7 @@ function UserProfileForm({ userId }) {
     <>
       {currentUser.firstName && (
         <div>
-          <h3>User Info</h3>
+          <h3 className="text-center">User Info</h3>
           <Alert
             show={successAlertShow}
             variant="success"

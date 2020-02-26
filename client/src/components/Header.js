@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 function Header() {
   return (
     <Nav fluid>
-      <Container className="text-center">
+      <Container className="text-center text-light">
         <h1>Dance School Portal</h1>
         <h5 id="demo-info" className="text-center">
           This software is set up in DEMO MODE, which will allow you see the
