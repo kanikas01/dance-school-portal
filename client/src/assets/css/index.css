@@ -1,12 +1,5 @@
 body {
-  background-color: seagreen;
-}
-
-.page-content {
-  background-color: ghostwhite;
-  border-radius: 8px;
-  /* border: 1px solid grey; */
-  /* padding: 1.5rem; */
+  background-color: #ffdfa4;
 }
 
 .tab-content {

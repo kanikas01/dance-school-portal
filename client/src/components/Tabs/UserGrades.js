@@ -23,25 +23,27 @@ function UserGrades({ userId }) {
         <Table bordered hover size="sm">
           <thead>
             <tr>
-              <th>Date</th>
-              <th>Dance</th>
-              <th>Level</th>
-              <th>Score</th>
-              <th>Question Type</th>
-              <th>Detail</th>
-              {/* <th>Comments</th> */}
+              <th>Grade Info</th>
             </tr>
           </thead>
           <tbody>
             {grades.map(grade => (
               <tr key={grade.id}>
-                <td>{grade.date}</td>
-                <td>{grade.Dance.name}</td>
-                <td>{grade.level}</td>
-                <td>{grade.score}</td>
-                <td>{grade.questionType}</td>
-                <td>{grade.detail}</td>
-                {/* <td>{grade.comment}</td> */}
+                {grade.date}
+                <br />
+                {grade.Dance.name}
+                <br />
+                {grade.level}
+                <br />
+                {grade.score}
+                <br />
+                {grade.questionType}
+                <br />
+                {grade.detail}
+                <br />
+                {grade.comment}
+                <br />
+                <hr />
               </tr>
             ))}
           </tbody>

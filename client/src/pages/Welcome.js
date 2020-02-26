@@ -45,11 +45,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <Container>
-        <h5 id="demo-info" className="text-center">
-          This software is set up in DEMO MODE, which will allow you see the
-          user interface as it would appear to a user of each role.
-        </h5>
+      <Container fluid="true" className="p-0">
         <Form className="mx-auto col-6">
           <Form.Group controlId="formGroupSelectUser">
             <Form.Label></Form.Label>

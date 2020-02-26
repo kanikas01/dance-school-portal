@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
-import Login from './pages/Login';
-import NoMatch from './pages/NoMatch';
-import Welcome from './pages/Welcome';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import Login from "./pages/Login";
+import NoMatch from "./pages/NoMatch";
+import Welcome from "./pages/Welcome";
+import Header from "./components/Header";
 
 class App extends Component {
   state = {
-    role: 'admin'
+    role: "admin"
   };
 
   render() {
     return (
-      <div>
-        {/* <Header /> */}
-        <Container>
+      <>
+        <Header />
+        <Container className="p-0">
           <Router>
             <Switch>
               <Route exact path="/portal" component={Welcome} />
@@ -24,7 +25,7 @@ class App extends Component {
             </Switch>
           </Router>
         </Container>
-      </div>
+      </>
     );
   }
 }
