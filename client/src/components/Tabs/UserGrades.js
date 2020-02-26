@@ -19,7 +19,7 @@ function UserGrades({ userId }) {
   if (grades.length > 0) {
     return (
       <>
-        <h3 className="text-center">Grades</h3>
+        <h3>Grades</h3>
         <Table bordered hover size="sm">
           <thead>
             <tr>
@@ -53,7 +53,7 @@ function UserGrades({ userId }) {
   } else if (fetchComplete) {
     return (
       <>
-        <h3 className="text-center">No Grades Found</h3>
+        <h3>No Grades Found</h3>
       </>
     );
   } else {

@@ -3,6 +3,7 @@ import userAPI from "../utils/userAPI";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 function UserProfileForm({ userId }) {
   const [currentUser, setCurrentUser] = React.useState({
@@ -71,8 +72,8 @@ function UserProfileForm({ userId }) {
   return (
     <>
       {currentUser.firstName && (
-        <div>
-          <h3 className="text-center">User Info</h3>
+        <Container className="mt-3">
+          <h3>User Info</h3>
           <Alert
             show={successAlertShow}
             variant="success"
@@ -152,7 +153,7 @@ function UserProfileForm({ userId }) {
               <Button onClick={handleFormSubmit}>Submit</Button>
             </Form.Group>
           </Form>
-        </div>
+        </Container>
       )}
     </>
   );
