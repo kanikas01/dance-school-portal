@@ -45,7 +45,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <Container fluid="true" className="p-0">
+      <Container fluid className="p-0">
         <Form className="mx-auto col-6">
           <Form.Group controlId="formGroupSelectUser">
             <Form.Label></Form.Label>
