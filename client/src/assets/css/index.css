@@ -1,9 +1,9 @@
 body {
   background-color: #0059b8;
-  min-height: 650px
 }
 
 .tab-content {
+  min-height: 650px;
   padding-top: 0.5rem;
   margin-top: 0.5rem;
 }
