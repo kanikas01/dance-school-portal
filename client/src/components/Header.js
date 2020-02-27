@@ -15,9 +15,9 @@ function Header() {
         </h5>
         <br />
         <h5 id="demo-info" className="text-left">
-          The app is set up in a Demo mode: you can select any user to view the
+          The app is set up in DEMO mode: you can select any user to view the
           app as that user. This allows for easy exploration of the user role
-          functionality that controls data acces
+          functionality that controls data access.
         </h5>
       </Container>
     </Nav>
