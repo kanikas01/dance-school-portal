@@ -1,5 +1,6 @@
 body {
   background-color: #0059b8;
+  min-height: 650px
 }
 
 .tab-content {
@@ -11,10 +12,8 @@ h4 {
   padding-top: 0.5rem;
 }
 
-h3 {
-  text-align: center;
-}
-
+h3,
+p,
 .flex-column {
   text-align: center;
 }
