@@ -34,7 +34,7 @@ function Students() {
     <Container>
       <Tab.Container id="students-tab-nav" defaultActiveKey="search-students">
         <Row>
-          <Col md={3} sm={12}>
+          <Col md={3} sm={12} className="mt-3">
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="search-students">Search Students</Nav.Link>
@@ -71,7 +71,7 @@ function Students() {
                 <h3>Student Contact Info</h3>
                 <CSVLink
                   filename="student-contact-list.csv"
-                  className="btn btn-primary"
+                  className="btn btn-primary d-table mx-auto mb-3"
                   target="_blank"
                   data={studentContactList}
                 >

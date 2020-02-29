@@ -17,3 +17,7 @@ p,
 .flex-column {
   text-align: center;
 }
+
+.nav-link {
+  font-size: large;
+}

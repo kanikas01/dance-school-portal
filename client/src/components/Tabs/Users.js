@@ -10,7 +10,7 @@ function Users() {
     <Container>
       <Tab.Container id="users-tab-nav" defaultActiveKey="search-users">
         <Row>
-          <Col md={3}>
+          <Col md={3} className="mt-3">
             <Nav variant="pills" className="flex-column">
               <Nav.Item>
                 <Nav.Link eventKey="search-users">Search Users</Nav.Link>

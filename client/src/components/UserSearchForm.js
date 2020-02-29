@@ -207,6 +207,7 @@ class UserSearchForm extends Component {
           </Form.Group> */}
           <Form.Group>
             <Button
+              className="mr-3"
               onClick={event => {
                 this.handleSearchFormSubmit(event, role);
               }}

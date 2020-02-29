@@ -38,7 +38,7 @@ class Marketing extends Component {
                   <h3>Marketing List</h3>
                   <CSVLink
                     filename={"dance-school-marketing-list.csv"}
-                    className="btn btn-primary d-table mx-auto mb-2"
+                    className="btn btn-primary d-table mx-auto mb-3"
                     target="_blank"
                     data={this.state.marketingList}
                   >
