@@ -1,6 +1,7 @@
 import React from "react";
 import gradeAPI from "../../utils/gradeAPI";
 import Table from "react-bootstrap/Table";
+import GradeCard from "../GradeCard";
 
 function UserGrades({ userId }) {
   const [grades, setGrades] = React.useState([]);
@@ -18,42 +19,17 @@ function UserGrades({ userId }) {
 
   if (grades.length > 0) {
     return (
-      <>
-        <h3>Grades</h3>
-        <Table bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>Grade Info</th>
-            </tr>
-          </thead>
-          <tbody>
-            {grades.map(grade => (
-              <tr key={grade.id}>
-                {grade.date}
-                <br />
-                {grade.Dance.name}
-                <br />
-                {grade.level}
-                <br />
-                {grade.score}
-                <br />
-                {grade.questionType}
-                <br />
-                {grade.detail}
-                <br />
-                {grade.comment}
-                <br />
-                <hr />
-              </tr>
-            ))}
-          </tbody>
-        </Table>
-      </>
+      <div className="mb-4">
+        <h3 className="mt-3">Grades</h3>
+        {grades.map(grade => (
+          <GradeCard key={grade.id} grade={grade} />
+        ))}
+      </div>
     );
   } else if (fetchComplete) {
     return (
       <>
-        <h3>No Grades Found</h3>
+        <h3 className="mt-3">No Grades Found</h3>
       </>
     );
   } else {
