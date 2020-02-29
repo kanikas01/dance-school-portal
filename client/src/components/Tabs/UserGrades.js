@@ -1,6 +1,5 @@
 import React from "react";
 import gradeAPI from "../../utils/gradeAPI";
-import Table from "react-bootstrap/Table";
 import GradeCard from "../GradeCard";
 
 function UserGrades({ userId }) {

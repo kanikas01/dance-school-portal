@@ -255,15 +255,13 @@ class UserSearchForm extends Component {
         >
           <Modal.Body>
             <UserProfileForm userId={this.state.userId} />
-            <hr />
             {role !== "student" && (
               <>
                 <RoleChangeForm userId={this.state.userId} />
-                <hr />
               </>
             )}
             <UserGrades userId={this.state.userId} />
-            <Modal.Footer>
+            <Modal.Footer className="border-0">
               <Button onClick={this.handleClose}>Close</Button>
             </Modal.Footer>
           </Modal.Body>
