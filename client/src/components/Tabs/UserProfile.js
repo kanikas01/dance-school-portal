@@ -9,8 +9,10 @@ function UserProfile({ userId }) {
     <Container>
       <Tab.Container id="user-profile-tab-nav" defaultActiveKey="user-profile">
         <Row>
-          <Col>
+          <Col lg={6}>
             <UserProfileForm userId={userId} />
+          </Col>
+          <Col lg={6}>
             <UserGrades userId={userId} />
           </Col>
         </Row>
