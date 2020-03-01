@@ -4,10 +4,7 @@ import { Container } from "react-bootstrap";
 
 function Portal(props) {
   return (
-    <Container
-      className={`page-content bg-light rounded-lg mb-2 ${props.userId &&
-        "border border-primary"}`}
-    >
+    <Container className={"page-content bg-light rounded-lg mb-2"}>
       {props.userFirstName && (
         <div className="mt-3 mb-3">
           <h3 className="text-left">Welcome, {props.userFirstName}</h3>
