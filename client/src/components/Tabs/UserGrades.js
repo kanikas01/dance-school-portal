@@ -1,6 +1,7 @@
 import React from "react";
 import gradeAPI from "../../utils/gradeAPI";
 import GradeCard from "../GradeCard";
+import { Container } from "react-bootstrap";
 
 function UserGrades({ userId }) {
   const [grades, setGrades] = React.useState([]);
@@ -18,18 +19,18 @@ function UserGrades({ userId }) {
 
   if (grades.length > 0) {
     return (
-      <div className="mb-4">
-        <h3 className="mt-3">Grades</h3>
+      <Container className="mt-3">
+        <h3>Grades</h3>
         {grades.map(grade => (
           <GradeCard key={grade.id} grade={grade} />
         ))}
-      </div>
+      </Container>
     );
   } else if (fetchComplete) {
     return (
-      <>
-        <h3 className="mt-3">No Grades Found</h3>
-      </>
+      <Container className="mt-3">
+        <h3>No Grades Found</h3>
+      </Container>
     );
   } else {
     return null;

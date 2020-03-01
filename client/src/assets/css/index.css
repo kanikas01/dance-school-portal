@@ -1,15 +1,11 @@
 body {
   background-color: #0059b8;
+
 }
 
 .tab-content {
-  min-height: 650px;
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-h4 {
-  padding-top: 0.5rem;
+  min-height: 666px;
+  padding: 1rem 0;
 }
 
 h3,
@@ -17,6 +13,7 @@ p,
 .flex-column {
   text-align: center;
 }
+
 
 .nav-link {
   font-size: large;
