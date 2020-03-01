@@ -19,18 +19,18 @@ function UserGrades({ userId }) {
 
   if (grades.length > 0) {
     return (
-      <Container className="mt-3">
+      <div>
         <h3>Grades</h3>
         {grades.map(grade => (
           <GradeCard key={grade.id} grade={grade} />
         ))}
-      </Container>
+      </div>
     );
   } else if (fetchComplete) {
     return (
-      <Container className="mt-3">
+      <div>
         <h3>No Grades Found</h3>
-      </Container>
+      </div>
     );
   } else {
     return null;

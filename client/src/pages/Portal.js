@@ -9,7 +9,9 @@ function Portal(props) {
         "border border-primary"}`}
     >
       {props.userFirstName && (
-        <h3 className="mt-3 mb-3 text-left">Welcome, {props.userFirstName}</h3>
+        <div className="mt-3 mb-3">
+          <h3 className="text-left">Welcome, {props.userFirstName}</h3>
+        </div>
       )}
       <Navigation role={props.userRole} userId={props.userId} />
     </Container>

@@ -72,7 +72,7 @@ function UserProfileForm({ userId }) {
   return (
     <>
       {currentUser.firstName && (
-        <Container className="mt-3">
+        <div>
           <h3>User Info</h3>
           <Alert
             show={successAlertShow}
@@ -153,7 +153,7 @@ function UserProfileForm({ userId }) {
               <Button onClick={handleFormSubmit}>Submit</Button>
             </Form.Group>
           </Form>
-        </Container>
+        </div>
       )}
     </>
   );
