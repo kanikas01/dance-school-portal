@@ -19,7 +19,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route exact path="/portal" component={Welcome} />
-              <Route exact path="/login" component={Login} />
+              {/* <Route exact path="/login" component={Login} /> */}
               {/* <Route exact path="/portal" component={() => (<Portal role={this.state.role} />)} /> */}
               <Route component={NoMatch} />
             </Switch>
